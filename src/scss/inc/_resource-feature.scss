@@ -1,0 +1,44 @@
+.resource-feature {
+  @extend %clearfix;
+  background: $blue-brighter;
+  color: $white;
+  margin-bottom: 0.25rem;
+  padding: 1rem;
+  @include min($medium) {
+    padding: 2rem;
+    font-size: 1.75rem;
+  }
+  a {
+    background: none;
+    padding: 0;
+    text-decoration: underline;
+  }
+  img {
+    @include min($medium) {
+      float: right;
+      margin: 0 0 0 2rem;
+      max-width: 35%;
+    }
+    + p {
+      @include min($medium) {
+        margin-top: 0;
+      }
+    }
+  }
+  p {
+    margin: 0;
+  }
+}
+
+.resource-feature__content {
+  overflow: hidden;
+  padding-top: 0.5rem;
+  @include min($medium) {
+    padding-top: 0;
+  }
+}
+
+.resource-feature__source {
+  font-size: 90%;
+  text-align: right;
+}

@@ -1,0 +1,91 @@
+.header {
+  @extend %clearfix;
+  position: relative;
+  z-index: 3;
+  background: $white;
+}
+
+.header__logo,
+.header__title {
+  padding: 0 1rem;
+  @include min($medium) {
+    padding: 0 2rem;
+  }
+}
+
+.header__logo {
+  float: left;
+  width: 13rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  background: $blue-bright;
+  @include min($medium) {
+    width: 18rem;
+    height: 6rem;
+    line-height: 6rem;
+  }
+  img {
+    vertical-align: middle;
+  }
+}
+
+.header__title {
+  display: table-cell;
+  vertical-align: middle;
+  height: 4.5rem;
+  font-family: $serif;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  @include min($small) {
+    font-size: 1rem;
+  }
+  @include min($medium) {
+    height: 6rem;
+    padding-left: 3.4375rem;
+    padding-right: 8.5rem;
+  }
+  @include min($full) {
+    font-size: 1.5rem;
+    line-height: 1;
+    padding-left: 4.25rem;
+  }
+}
+
+.header__title__main,
+.header__title__sub {
+  background: none;
+  padding: 0;
+}
+
+.header__title__main {
+  text-transform: uppercase;
+  font-weight: bold;
+  @include min($medium) {
+    color: $blue;
+    position: relative;
+  }
+  &:before {
+    @include min($medium) {
+      @extend %icon;
+      content: '\f015';
+      color: $gray-darker;
+      position: absolute;
+      right: 100%;
+      top: 0;
+      margin-right: 0.25rem;
+      font-size: 125%;
+      line-height: 0.8;
+    }
+    @include min($full) {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.header__title__sub {
+  display: none;
+  @include min($medium) {
+    display: inline;
+    color: $blue-bright;
+  }
+}

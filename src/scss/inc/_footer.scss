@@ -1,0 +1,130 @@
+.footer {
+  color: $white;
+  background: $black-light;
+  padding: 2rem 0 0.0625rem 0;
+  font-size: 0.875rem;
+  min-height: 13rem;
+  .wrap {
+    position: relative;
+  }
+  a {
+    display: block;
+    padding: 0;
+    background: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  li {
+    padding: 0;
+    margin: 0.5rem 0;
+    &:before {
+      display: none;
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  .footer__heading,
+  .menu-column > ul > li {
+    > a {
+      color: $white;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: auto;
+      &:hover {
+        text-decoration: none;
+      }
+      + ul {
+        li {
+          &:first-child {
+            margin-top: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  p {
+    line-height: 2;
+  }
+}
+
+.footer__block {
+  margin-bottom: 1.75rem;
+  @include min($medium) {
+    float: right;
+    clear: right;
+    width: 50%;
+  }
+  @include min($large) {
+    float: left;
+    width: 25%;
+    padding-left: 1.75rem;
+  }
+  &:first-child {
+    @include min($medium) {
+      float: left;
+    }
+    @include min($large) {
+      padding-left: 0;
+    }
+  }
+  > ul > li {
+    margin-top: 1.75rem;
+  }
+}
+
+.footer__block--copyright {
+  @include min($medium) {
+    position: absolute;
+    left: 2rem;
+    top: 3.5rem;
+    width: 45%;
+  }
+  @include min($large) {
+    left: 0.25rem;
+    top: 4.25rem;
+    width: 25%;
+  }
+}
+
+.footer__logo {
+  display: block;
+  max-width: 12rem;
+  margin-bottom: 2rem;
+  @include min($large) {
+    max-width: 16rem;
+  }
+  img {
+    display: block;
+  }
+}
+
+.footer__menu {
+  @extend %clearfix;
+  margin: 0;
+  > li {
+    margin: 0 0 1.75rem 0;
+    @include min($medium) {
+      float: right;
+      clear: right;
+      width: 50%;
+    }
+    @include min($large) {
+      float: left;
+      width: 25%;
+      padding-left: 1.75rem;
+    }
+    > ul > li {
+      margin-top: 1.75rem;
+    }
+  }
+  .menu-hidden > ul > li:first-child {
+    margin-top: 0 !important;
+  }
+}
+
+.menu-column > a {
+  display: none;
+}

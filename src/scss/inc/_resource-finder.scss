@@ -1,0 +1,216 @@
+.resource-finder {
+  @extend %clearfix;
+  border: 0.0625rem solid $gray-darker;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  font-family: $serif;
+  font-weight: bold;
+  color: $blue;
+  margin-top: 0.25rem;
+  > li {
+    position: relative;
+    padding: 0;
+    @include min($medium) {
+      float: left;
+      width: 33.33333%;
+    }
+    @include min($full) {
+      width: auto;
+    }
+    &:before {
+      display: none;
+    }
+    &.resource-finder__search {
+      @include min($medium) {
+        clear: both;
+        float: none;
+        width: auto;
+      }
+      @include min($full) {
+        clear: none;
+        overflow: hidden;
+      }
+    }
+    > span,
+    > a,
+    > form {
+      display: block;
+      padding: 1rem;
+      background: $white;
+      border: 0.0625rem solid $gray-darker;
+      @include min($full) {
+        padding: 2rem;
+      }
+    }
+    > a {
+      position: relative;
+      padding-right: 3.5rem;
+      @include min($full) {
+        padding-right: 4.5rem;
+        min-width: 16rem;
+      }
+      .ie8 & {
+        @include min($full) {
+          min-width: 0;
+          width: 17rem;
+        }
+      }
+      &:before {
+        @extend %icon;
+        content: '\f107';
+        position: absolute;
+        right: 1rem;
+        top: 0;
+        font-size: 3rem;
+        color: $blue-brighter;
+        @include min($full) {
+          top: 1rem;
+          right: 2rem;
+        }
+      }
+    }
+    > form {
+      @include min($full) {
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+        height: 5.4375rem;
+      }
+    }
+    label {
+      display: block;
+      padding-right: 0.3125rem;
+      margin-bottom: 1rem;
+      @include min($medium) {
+        float: left;
+        margin-top: 0.75rem;
+        margin-bottom: 0;
+        padding-right: 1rem;
+      }
+      &:before {
+        @extend %icon;
+        content: '\f002';
+        float: right;
+        color: $blue-brighter;
+        font-size: 1.5rem;
+        margin-left: 0.5rem;
+        margin-top: -0.25rem;
+        line-height: 1;
+      }
+    }
+    input {
+      width: 100%;
+      background: $gray;
+      border: 0.125rem solid $gray-darker;
+      padding: 0.75rem 1rem;
+    }
+  }
+  &.resource-finder--bottom > li > a:before {
+    @include min($medium) {
+      content: '\f106';
+    }
+  }
+}
+
+.resource-finder__input-wrap {
+  overflow: hidden;
+}
+
+.resource-finder__dropdown {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  color: $blue;
+  font-weight: normal;
+  text-transform: none;
+  font-family: $sans-serif;
+  transition: background $transition;
+  @include min($medium) {
+    position: absolute;
+    z-index: 1;
+    left: -0.0625rem;
+    right: -0.0625rem;
+    top: 100%;
+    margin-top: 0.0625rem;
+  }
+  .resource-finder--bottom & {
+    @include min($medium) {
+      top: auto;
+      bottom: 100%;
+      margin-top: 0;
+      margin-bottom: 0.0625rem;
+    }
+  }
+  > li {
+    padding: 0.5rem 0;
+    border-top: 0.125rem solid $gray-darker;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility $transition, opacity $transition;
+    > a {
+      @extend .resource-finder__dropdown__heading;
+      color: $gray-darkest !important;
+    }
+    @include min($medium) {
+      border: 0.125rem solid $gray-darker;
+      border-top: 0;
+    }
+    &:first-child {
+      border-top: 0;
+      .resource-finder--bottom & {
+        @include min($medium) {
+          border-top: 0.125rem solid $gray-darker;
+        }
+      }
+    }
+    &:last-child {
+      .resource-finder--bottom & {
+        @include min($medium) {
+          border-bottom: 0;
+        }
+      }
+    }
+    &:before {
+      display: none;
+    }
+    li {
+      border: 0;
+      padding: 0;
+      &:before {
+        display: none;
+      }
+    }
+  }
+  a {
+    display: block;
+    padding: 0.25rem 1rem;
+    background: none;
+    @include min($full) {
+      padding: 0.25rem 2rem;
+    }
+  }
+  &.resource-finder__dropdown--active {
+    width: auto;
+    height: auto;
+    border: 0.0625rem solid $gray-darker;
+    background: $gray;
+    @include min($medium) {
+      border-width: 0;
+    }
+    li {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.resource-finder__dropdown__heading {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $gray-darker;
+  cursor: auto;
+  @include min($full) {
+    padding: 0.25rem 2rem;
+  }
+}

@@ -1,0 +1,30 @@
+$blue: #003b5d;
+$blue-light: #7b98aa;
+$blue-bright: #015cb9;
+$blue-brighter: #3d8edd;
+$blue-faded: #cddcef;
+$blue-medium: #004986;
+$blue-gray: #265775;
+$blue-sky: #a8c2e5;
+$gray: #f0efed;
+$gray-light: #f8f7f5;
+$gray-dark: #dad9d5;
+$gray-darker: #cac8c9;
+$gray-darkest: #555658;
+$black: #000;
+$black-light: #1a1a1a;
+$black-faded: #383838;
+$white: #fff;
+$orange: #ff5100;
+
+$small: 32em;
+$medium: 48em;
+$large: 64em;
+$full: 80em;
+
+$sans-serif: 'gentona', sans-serif;
+$serif: 'quadon', serif;
+
+$transition-speed: 500ms;
+$transition-easing: cubic-bezier(0.86, 0, 0.07, 1);
+$transition: $transition-speed $transition-easing;

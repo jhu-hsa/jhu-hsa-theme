@@ -1,0 +1,258 @@
+.sidebar {
+  font-size: 0.875rem;
+  @include min($large) {
+    float: left;
+    clear: left;
+    width: 25%;
+  }
+  a {
+    background: none;
+    padding: 0;
+    display: block;
+  }
+}
+
+.sidebar__block {
+  margin-top: 2rem;
+  + .sidebar__block {
+    margin-top: 0;
+  }
+  .main__sidebar & {
+    @include min($medium) {
+      margin-top: 0;
+    }
+    + .sidebar__block {
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.sidebar__nav__toggle {
+  background: $blue-medium !important;
+  color: $white;
+  padding: 0.5rem 1rem !important;
+  @include min($large) {
+    display: none !important;
+  }
+  &:before {
+    @extend %icon;
+    content: '\f107';
+    float: right;
+    margin-left: 1rem;
+    line-height: 0.95;
+    font-size: 150%;
+  }
+  + .sidebar__nav {
+    margin-top: 0;
+  }
+}
+
+.sidebar__nav__toggle--active {
+  &:before {
+    content: '\f106';
+  }
+}
+
+.sidebar__nav {
+  height: 0;
+  opacity: 0;
+  visibility: visible;
+  overflow: hidden;
+  transition: opacity $transition, visibility $transition;
+  @include min($large) {
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+    border-bottom: 0.0625rem solid $gray-darker;
+    padding-bottom: 2rem;
+  }
+  > li {
+    padding: 0.25rem 1rem 0.25rem 2.25rem;
+    transition: color $transition, background $transition;
+    &:hover {
+      background: $blue-bright;
+      color: $white;
+      &:before {
+        color: $white;
+      }
+    }
+    &:before {
+      content: '\f105';
+      font-size: 1.5rem;
+      color: $blue-brighter;
+      left: 1rem;
+      top: 0.25rem;
+      line-height: 0.8;
+      transition: color $transition;
+    }
+    li {
+      padding: 0.5rem 0 0 0;
+      &:before {
+        display: none;
+      }
+    }
+  }
+  ul {
+    font-size: 0.8125rem;
+  }
+  &.sidebar__nav--active {
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+    border-bottom: 0.0625rem solid $gray-darker;
+    padding-bottom: 2rem;
+  }
+  .sidebar__nav__item--active,
+  > .current_page_item,
+  > .current_page_ancestor,
+  > .current-menu-item,
+  > .current-menu-ancestor {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background: $gray;
+    &:before {
+      content: '\f107';
+      top: 0.5rem;
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+    &:hover {
+      background: $gray;
+      color: $black;
+      &:before {
+        color: $blue-brighter;
+      }
+    }
+  }
+  .sidebar__nav__item__sub--active,
+  .children > .current_page_item > a,
+  .sub-menu > .current-menu-item > a {
+    font-weight: bold;
+  }
+  .children,
+  .sub-menu {
+    display: none;
+    .children,
+    .sub-menu {
+      padding-left: 1rem;
+    }
+  }
+  .current_page_item > .children,
+  .current_page_ancestor > .children,
+  .current-menu-item > .sub-menu,
+  .current-menu-ancestor > .sub-menu {
+    display: block;
+  }
+}
+
+.sidebar__nav--check {
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+  padding-bottom: 2rem;
+  border-bottom: 0;
+  > li {
+    &:before {
+      content: '\f046';
+      font-size: 1.1rem;
+      top: 0.5rem;
+    }
+  }
+  .sidebar__nav__item--active,
+  > .current_page_item,
+  > .current_page_ancestor,
+  > .current-menu-item,
+  > .current-menu-ancestor {
+    &:before {
+      content: '\f046';
+      top: 0.75rem;
+    }
+  }
+}
+
+.sidebar__buttons {
+  text-transform: uppercase;
+  font-family: $serif;
+  font-weight: bold;
+  padding-bottom: 2rem;
+  .main__sidebar & {
+    padding-bottom: 0;
+  }
+  li {
+    padding-left: 0;
+    margin-top: 0.5rem;
+    &:before {
+      display: none;
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  a {
+    display: block;
+    background: $blue;
+    color: $white;
+    padding: 1rem;
+    transition: background $transition;
+    &:before {
+      @extend %icon;
+      float: left;
+      font-size: 200%;
+      margin-right: 0.5rem;
+      margin-top: -0.25rem;
+    }
+    &:hover {
+      background: $blue-bright;
+    }
+  }
+}
+
+.sidebar__buttons__phone {
+  &:before {    
+    content: '\f098';    
+  }
+}
+
+.sidebar__buttons__email {
+  &:before {    
+    content: '\f199';    
+  }
+}
+
+.sidebar__buttons__linkedin {
+  &:before {    
+    content: '\f08c';    
+  }
+}
+
+.sidebar__photo {
+  display: block;
+}
+
+.sidebar__info {
+  background: $gray;
+  padding: 1rem;
+  font-family: $serif;
+}
+
+.sidebar__block--media {
+  padding-bottom: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include min($small) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    margin: 0;
+    padding-bottom: 0;
+  }
+  @include min($medium) {
+    position: static;
+    width: auto;
+    padding-bottom: 100%;
+  }
+}

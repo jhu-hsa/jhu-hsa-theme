@@ -1,0 +1,36 @@
+.button {
+  display: inline-block;
+  background: $gray;
+  padding: 1rem 1rem 1rem 2.75rem;
+  transition: color $transition, background $transition;
+  @include min($large) {
+    font-size: 1.25rem;
+    padding: 1rem 2rem 1rem 3.75rem;
+  }
+  &:hover {
+    background: $blue-brighter;
+    color: $white;
+    span {
+      &:before {
+        color: $white;
+      }
+    }
+  }
+  span {
+    position: relative;
+    &:before {
+      @extend %icon;
+      content: '\f105';
+      color: $blue-brighter;
+      position: absolute;
+      left: -1.5rem;
+      top: -0.125rem;
+      font-size: 200%;
+      line-height: 0.666;
+      transition: color $transition;
+      @include min($large) {
+        left: -2rem;
+      }
+    }
+  }
+}

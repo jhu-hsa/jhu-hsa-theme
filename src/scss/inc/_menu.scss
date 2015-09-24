@@ -1,0 +1,451 @@
+.menu-toggle {
+  position: relative;
+  z-index: 3;
+  display: block;
+  color: $white;
+  background: $blue;
+  padding: 0.625rem;
+  text-align: center;
+  font-family: $serif;
+  font-size: 0.875rem;
+  transition: background $transition, color $transition;
+  @include min($medium) {
+    display: none;
+  }
+  &:before {
+    @extend %icon;
+    content: '\f0c9';
+    margin-right: 0.5rem;
+  }
+  &:after {
+    content: 'Menu';
+  }
+  .menu--active & {
+    color: inherit;
+    background: $gray-light;
+    &:after {
+      content: 'Close';
+    }
+  }
+}
+
+.menu {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  background: $gray-light;
+  font-family: $serif;
+  font-size: 0.875rem;
+  overflow: hidden;
+  transform: translateY(-100%);
+  transition: transform $transition;
+  @include min($medium) {
+    @extend %clearfix;
+    position: static;
+    transform: none;
+    background: $blue;
+    color: $white;
+    text-align: center;
+    font-size: 0.75rem;
+    overflow: visible;
+  }
+  @include min($large) {
+    font-size: 1rem;
+    padding-top: 0;
+  }
+  .ie8 & {
+    top: -999rem;
+    @include min($medium) {
+      top: auto;
+    }
+  }
+  > ul {
+    padding: 0.5rem;
+    margin: 0;
+    text-transform: uppercase;
+    @include min($medium) {
+      display: inline-block;
+      vertical-align: top;
+      padding: 0;
+      position: relative;
+      z-index: 2;
+    }
+    > li {
+      @include min($medium) {
+        float: left;
+      }
+      > a {
+        @include min($medium) {
+          position: relative;
+          background: $blue;
+          z-index: 2;
+        }
+      }
+    }
+  }
+  li {
+    padding: 0;
+    transition: background $transition;
+    @include min($medium) {
+      transition: none;
+      background: $blue-medium;
+    }
+    &:before {
+      display: none;
+    }
+  }
+  a {
+    background: none;
+    padding: 0.5rem;
+    display: block;
+    transition: color $transition, background $transition, opacity $transition;
+    @include min($medium) {
+      padding: 0.75rem 0.625rem;
+    }
+    @include min($large) {
+      padding: 0.75rem 1rem;
+    }
+    @include min($full) {
+      padding: 0.75rem 1.5rem;
+    }
+  }
+  .menu--active & {
+    transform: translateY(0);
+    @include min($medium) {
+      transform: none;
+    }
+    .ie8 & {
+      top: auto;
+    }
+  }
+  .menu__button > a {
+    display: inline-block;
+    background: $blue-brighter;
+    padding: 1rem;
+    margin: 0.5rem 1.75rem;
+    opacity: 0;
+    transition: opacity $transition;
+    @include min($medium) {
+      margin: 0.5rem 0.75rem;
+      opacity: 1;
+    }
+    @include min($large) {
+      margin: 0.5rem 1rem
+    }
+    &:before {
+      position: static;
+      float: right;
+      color: $white;
+      content: '\f067';
+      margin-left: 1rem;
+      margin-top: 0.5rem;
+      line-height: 0.25;
+      font-size: 150%;
+      @include min($medium) {
+        margin-left: 2rem;
+        font-size: 200%;
+      }
+    }
+  }
+}
+
+.menu__sub {
+  margin-bottom: 0.5rem;
+  @include min($medium) {
+    margin-bottom: 0;
+  }
+  > a {
+    position: relative;
+    padding-left: 1.75rem;
+    font-weight: bold;
+    @include min($medium) {
+      padding-left: 0.625rem;
+    }
+    @include min($large) {
+      padding-left: 1rem;
+    }
+    @include min($full) {
+      padding-left: 1.5rem;
+    }
+    &:before {
+      @extend %icon;
+      content: '\f105';
+      font-size: 150%;
+      position: absolute;
+      left: 0.5rem;
+      top: 0.5625rem;
+      line-height: 0.875;
+      color: $blue-bright;
+      transition: color $transition;
+      @include min($medium) {
+        display: none;
+      }
+    }
+  }
+  > ul {
+    padding: 0;
+    height: 0;
+    overflow: hidden;
+    text-transform: none;
+    font-family: $sans-serif;
+    @include min($medium) {
+      position: absolute;
+      width: 22rem;
+      background: inherit;
+      text-align: left;
+      height: auto;
+      transform: translateY(-100%);
+      transition: transform $transition;
+    }
+    @include min($large) {
+      width: 28rem;
+    }
+    .ie8 & {
+      @include min($medium) {
+        top: -999rem;
+      }
+    }
+    li {
+      border-top: 0.125rem solid rgba($gray-light, 0.25);
+      padding: 0.25rem 0;
+      @include min($medium) {
+        border-top-color: rgba($white, 0.1);
+      }
+      @include min($large) {
+        padding: 0.5rem 0;
+      }
+      @include min($full) {
+        padding: 0.5rem;
+      }
+      li {
+        border: 0;
+        padding: 0;
+      }
+    }
+    a {
+      padding: 0.25rem 1.75rem;
+      opacity: 0;
+      @include min($medium) {
+        position: relative;
+        opacity: 1;
+      }
+      @include min($large) {
+        padding: 0.25rem 2rem;
+      }
+      &:before {
+        @include min($medium) {
+          @extend %icon;
+          content: '\f105';
+          position: absolute;
+          left: 0.75rem;
+          top: 0.3125rem;
+          color: $blue-brighter;
+          font-size: 125%;
+        }
+        @include min($large) {
+          left: 1rem;
+        }
+      }
+    }
+  }
+  &.menu__sub--active {
+    background: $black-faded;
+    color: $white;
+    @include min($medium) {
+      background: $blue-medium;
+    }
+    > a {      
+      @include min($medium) {
+        background: $blue-medium;
+      }
+      &:before {
+        content: '\f107';
+        color: $white;
+      }
+    }
+    ul {
+      height: auto;
+      @include min($medium) {
+        transform: translateY(0);
+      }
+      .ie8 & {
+        @include min($medium) {
+          top: auto;
+        }
+      }
+    }
+    a {
+      opacity: 1;
+    }
+    .menu__button > a {
+      opacity: 1;
+    }
+  }
+}
+
+.menu__title {
+  display: block;
+  padding: 1rem 1rem 0.5rem 1rem;
+  @include min($medium) {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0.75rem 0.625rem;
+  }
+  @include min($large) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.menu__heading > a,
+.menu__sub__dropdown > li > a {
+  display: block;
+  cursor: auto;
+  padding: 0.25rem 1.75rem !important;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 90%;
+  opacity: 0;
+  transition: opacity $transition;
+  &:before {
+    display: none !important;
+  }
+  @include min($medium) {
+    padding-left: 0.625rem !important;
+    padding-right: 0.625rem !important;
+    color: $blue-faded;
+  }
+  @include min($large) {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .menu__sub--active & {
+    opacity: 0.5;
+    @include min($medium) {
+      opacity: 1;
+    }
+  }
+}
+
+.menu__search-wrap {
+  overflow: hidden;
+  @include min($medium) {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 3;
+    height: 6rem;
+    overflow: hidden;
+  }
+}
+
+.menu__search {
+  @extend %clearfix;
+  position: relative;
+  background: $blue;
+  padding: 1rem 1rem 1rem 3rem;
+  font-family: $sans-serif;
+  color: $white;
+  @include min($medium) {
+    font-size: 1.0625rem;
+    top: 0;
+    left: auto;
+    right: 0;
+    width: 23.125rem;
+    padding: 1.375rem 1.375rem 1.375rem 6.5rem;
+    background: $white;
+    transform: translateX(16.625rem);
+    transition: transform $transition, background $transition;
+  }
+  @include min($full) {
+    width: 28rem;
+    transform: translateX(21.5rem);
+  }
+  .ie8 & {
+    @include min($medium) {
+      right: -16.625rem;
+    }
+    @include min($full) {
+      right: -21.5rem;
+    }
+  }
+  &:before {
+    @extend %icon;
+    content: '\f002';
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    margin-top: -0.65625rem;
+    font-size: 150%;
+    @include min($medium) {
+      display: none;
+      content: '';
+    }
+  }
+  label {
+    display: none;
+  }
+  .menu__search--active & {
+    @include min($medium) {
+      transform: translateX(0);
+      background: $blue;
+    }
+    .ie8 & {
+      @include min($medium) {
+        right: 0;
+      }
+    }
+    &:before {
+      @include min($large) {
+        color: $white;
+      }
+    }
+  }
+}
+
+.menu__search__toggle {
+  display: none !important;
+  @include min($medium) {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6.5rem;
+    height: 6rem;
+    overflow: hidden;
+    border-left: 0.0625rem solid $gray-dark;
+    color: $blue-bright;
+    transition: color $transition;
+  }
+  &:before {
+    @include min($medium) {
+      @extend %icon;
+      content: '\f002';
+      font-size: 200%;
+      line-height: 2;
+    }
+  }
+  span {
+    display: none;
+  }
+  .menu__search--active & {
+    @include min($medium) {
+      color: $white;
+    }
+  }
+}
+
+.menu__search__input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 0;
+  background: none;
+  border: 0.0625rem solid $white;
+  @include min($medium) {
+    padding: 1rem;
+  }
+  &::placeholder {
+    color: $white;
+  }
+}

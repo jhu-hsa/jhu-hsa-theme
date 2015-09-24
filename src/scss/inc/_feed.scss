@@ -1,0 +1,178 @@
+.feed {
+  > ul,
+  .wrap > ul {
+    @extend %clearfix;
+    margin-bottom: 0.25rem;
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+    @include min($full) {
+      margin-left: -1rem;
+      margin-right: -1rem;
+    }
+    > li {
+      padding: 0;
+      border: 0.25rem solid transparent;
+      border-bottom-width: 1.75rem;
+      @include min($large) {
+        float: left;
+        width: 33.33333%;
+      }
+      @include min($full) {
+        border-left-width: 1rem;
+        border-right-width: 1rem;
+      }
+      &:before {
+        display: none;
+      }
+      a {
+        padding: 0;
+        background: none;
+        text-decoration: underline;
+      }
+      ul {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
+
+.feed--gray {
+  background: $gray;
+}
+
+.feed__item {
+  @extend %clearfix;
+  background: $blue-gray;
+  color: $white;
+  padding: 1rem;
+  position: relative;
+  transition: color $transition, background $transition;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-transform: none;
+    color: inherit;
+    margin: 0.25em 0;
+  }
+  p {
+    margin: 0;
+    a {
+      padding: 0;
+      background: none;
+    }
+  }
+  &:hover {
+    background: $blue-brighter;
+    color: $white;
+  }
+}
+
+.feed__item--media {
+  .feed__icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+  }
+}
+
+.feed__item--media,
+.feed__item--gray {
+  background: $gray-darker;
+  color: $black;
+}
+
+.feed__item--info {
+  background: $blue-sky;
+  color: $black;
+  p + p {
+    margin-top: 1em;
+  }
+  p a {
+    text-decoration: underline;
+  }
+  .feed__more {
+    margin-top: 0;
+  }
+}
+
+.feed__item__content {
+  @include min($medium) {
+    width: 50%;
+    padding-right: 1rem;
+  }
+  @include min($large) {
+    width: auto;
+    padding-right: 0;
+  }
+}
+
+.feed__icon {
+  float: right;
+  margin: -1rem -1rem 1rem 1rem;
+}
+
+.feed__image {
+  display: block;
+  margin: -1rem -1rem 0 -1rem;
+  height: 0;
+  padding-bottom: 50%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include min($medium) {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    margin: 0;
+    padding-bottom: 0;
+    height: auto;
+  }
+  @include min($large) {
+    position: static;
+    width: auto;
+    margin: -1rem -1rem 0 -1rem;
+    padding-bottom: 50%;
+    height: 0;
+  }
+}
+
+.feed__date {
+  text-transform: uppercase;
+}
+
+.feed__source {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 0.875rem;
+  color: $gray-darker;
+  a {
+    text-decoration: underline;
+  }
+}
+
+.feed__more {
+  a {
+    text-decoration: underline;
+  }
+}
+
+.feed-stack {
+  ul {
+    padding-bottom: 1.5rem;
+  }
+  li {
+    padding: 0;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+    &:before {
+      display: none;
+    }
+  }
+}

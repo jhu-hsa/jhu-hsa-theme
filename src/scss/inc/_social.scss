@@ -1,0 +1,169 @@
+.social {
+  background: $blue;
+  overflow: hidden;
+}
+
+.social__slider {
+  cursor: move;
+  margin-bottom: 2rem;
+  margin-right: -0.25rem;
+  white-space: nowrap;
+  font-size: 0;
+  overflow: hidden;
+  user-select: none;
+  .ie8 & {
+    overflow-x: scroll;
+    cursor: auto;
+    padding-bottom: 0.25rem;
+  }
+  > ul {
+    display: inline-block;
+  }
+  li {
+    font-size: 1rem;
+    vertical-align: top;
+    display: inline-block;
+    white-space: normal;
+    width: 20.25rem;
+    position: relative;
+    padding: 0 0.25rem 0 0;
+    &:before {
+      display: none;
+    }
+    &:hover {
+      .social__slider__overlay {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+  img {
+    display: block;
+  }
+}
+
+.social__slider__flickr {
+  width: 20rem;
+  height: 20rem;
+  background-size: cover;
+  background-position: center center;
+}
+
+.social__slider__twitter-profile {
+  width: 2rem;
+  height: 2rem;
+}
+
+.social__slider__overlay {
+  position: absolute;
+  left: 0;
+  right: 0.25rem;
+  top: 0;
+  bottom: 0;
+  background: $blue-bright;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility $transition, opacity $transition;
+}
+
+.social__slider__icons {
+  @extend %clearfix;
+  white-space: normal;
+  float: right;
+  margin-left: 1rem;
+  li {
+    float: left;
+    width: auto !important;
+    padding: 0;
+  }
+}
+
+.social__slider__title {
+  text-align: right;
+  padding: 1rem;
+  color: $white;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.social__slider__detail {
+  clear: both;
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  color: $white;
+  a {
+    background: none;
+    padding: 0.5rem 1rem;
+    color: $blue-brighter;
+    text-decoration: underline;
+    transition: color $transition, background $transition;
+    &:hover {
+      background: $blue-brighter;
+      color: $white;
+    }
+  }
+}
+
+.social__slider--feed {
+  font-size: 0;
+  li {
+    font-size: 0.625rem;
+    @include min($small) {
+      width: 26rem;
+    }
+  }
+  .social__slider__icons {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    li {
+      float: none;
+      display: block;
+    }
+  }
+}
+
+.social__slider--feed__item {
+  background: $gray;
+}
+
+.social__slider--feed__content {
+  padding: 1rem 1rem 1rem 4rem;
+  min-height: 6rem;
+  a {
+    padding: 0;
+    background: none;
+    color: $orange;
+  }
+}
+
+.social__slider--feed__header {
+  @extend %clearfix;
+  font-weight: bold;
+  font-size: 0.75rem;
+  img {
+    float: left;
+    margin-right: 0.5rem;
+  }
+  span {
+    display: block;
+    font-weight: normal;
+    font-size: 0.625rem;
+    margin-top: -0.125rem;
+  }
+  + p {
+    margin-top: 0.25rem;
+  }
+}
+
+.social__slider--feed__meta {
+  @extend %clearfix;
+  font-size: 0.75rem;
+  a {
+    float: right;
+    color: $gray-darkest;
+    padding: 0 1rem;
+  }
+}

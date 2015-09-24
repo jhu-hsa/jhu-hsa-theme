@@ -1,0 +1,135 @@
+.collage {
+  li {
+    padding: 0;
+    &:before {
+      display: none;
+    }
+    &:first-child {
+      .collage__block {
+        padding-bottom: 60%;
+      }
+    }
+  }
+}
+
+.collage__block {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  &:hover {
+    .collage__overlay {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.collage__overlay {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba($blue, 0.75);  
+  text-align: center;
+  transition: opacity $transition, visibility $transition;
+  h2 {
+    color: $white;    
+    @include min($large) {
+      font-size: 1.75rem;
+    }
+    @include min($full) {
+      font-size: 2rem;
+    }
+  }
+  .button {
+    margin-top: 0.5rem;
+    @include min($medium) {
+      margin-top: 1rem;
+    }
+  }
+  .ie8 & {
+    background: $blue;
+  }
+}
+
+.collage__overlay__content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 1rem;
+  @include min($medium) {
+    padding: 2rem;
+  }
+  .ie8 & {
+    top: auto;
+  }
+}
+
+@include min($large) {
+
+  .collage-wrap {
+    position: relative;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 33.33333%;
+  }
+
+  .collage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 0.25rem;
+    ul {
+      @extend %clearfix;
+      position: relative;
+      width: 150%;
+    }
+    li {
+      float: left;
+      &:first-child,
+      &:first-child + li + li + li + li + li + li + li {
+        width: 27%;
+        .collage__block {
+          padding-bottom: 74.07407%;
+        }
+      }
+      &:first-child + li,
+      &:first-child + li + li + li + li {
+        width: 23%;
+        .collage__block {
+          padding-bottom: 86.95652%;
+        }
+      } 
+      &:first-child + li + li,
+      &:first-child + li + li + li + li + li {
+        width: 30%;
+        .collage__block {
+          padding-bottom: 66.66666%;
+        }
+      }
+      &:first-child + li + li + li,
+      &:first-child + li + li + li + li + li + li {
+        width: 20%;
+        .collage__block {
+          padding-bottom: 100%;
+        }
+      }    
+    }
+  }
+
+  .collage__block {
+    border: 0.25rem solid $white;
+  }
+
+}

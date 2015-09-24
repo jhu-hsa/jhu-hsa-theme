@@ -1,0 +1,68 @@
+.staff {
+  ul {
+    @extend %clearfix;
+    margin-bottom: 0.25rem;
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+    @include min($small) {
+      margin-left: -0.5rem;
+      margin-right: -0.5rem;
+    }
+    @include min($full) {
+      margin-left: -1rem;
+      margin-right: -1rem;
+    }
+  }
+  li {
+    padding: 0;
+    border: 0.25rem solid transparent;
+    border-bottom-width: 1.75rem;
+    @include min($small) {
+      float: left;
+      width: 50%;
+      border-left-width: 0.5rem;
+      border-right-width: 0.5rem;
+    }
+    @include min($large) {
+      width: 25%;
+    }
+    @include min($full) {
+      border-left-width: 1rem;
+      border-right-width: 1rem;
+    }
+    &:before {
+      display: none;
+    }
+  }
+  a {
+    padding: 0;
+    background: $gray;
+    display: block;
+    transition: background $transition, color $transition;
+    h5 {
+      transition: color $transition;
+    }
+    &:hover {
+      background: $blue-bright;
+      color: $white;
+      h5 {
+        color: $white;
+      }
+    }
+  }
+  img {
+    display: block;
+  }
+}
+
+.staff__info {
+  display: table;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.staff__info__name {
+  display: table-cell;
+  vertical-align: middle;
+}

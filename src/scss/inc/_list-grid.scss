@@ -1,0 +1,322 @@
+.list-grid {
+  margin-bottom: 1.75rem;
+  > ul {
+    @extend %clearfix;
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+    > li {
+      @extend %clearfix;
+      display: table;
+      width: 100%;
+      padding: 0;
+      border: 0.25rem solid $white;
+      background: $gray;
+      @include min($medium) {
+        float: left;
+        width: 50%;
+      }
+      &:before {
+        display: none;
+      }
+      > a,
+      .list-grid__toggle > a {
+        width: 100%;
+        display: table-cell;
+        vertical-align: middle;
+        background: inherit;
+        padding: 1rem 1rem 1rem 2.75rem;
+        transition: color $transition, background $transition;
+        @include min($large) {
+          font-size: 1.25rem;
+          padding: 1rem 2rem 1rem 3.75rem;
+        }
+        &:hover {
+          background: $black-faded;
+          color: $white;
+          span {
+            &:before {
+              color: $white;
+            }
+          }
+        }
+        span {
+          position: relative;
+          &:before {
+            @extend %icon;
+            content: '\f105';
+            color: $blue-brighter;
+            position: absolute;
+            left: -1.5rem;
+            top: -0.125rem;
+            font-size: 200%;
+            line-height: 0.666;
+            transition: color $transition;
+            @include min($large) {
+              left: -2rem;
+            }
+          }
+        }
+      }
+      &.list-grid__item--staff {
+        > a {
+          padding-left: 4.5rem;
+          @include min($large) {
+            padding-left: 5.125rem;
+          }
+          span {
+            &:before {
+              display: none;
+            }
+          }
+          .list-grid__item__image {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3.5rem;
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+            @include min($large) {
+              width: 3.875rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.list-grid__item--active {
+  width: 100% !important;
+}
+
+.list-grid__item--inactive {
+  @include min($medium) {
+    display: none !important;
+  }  
+}
+
+.list-grid__toggle {
+  display: table;
+  width: 100%;
+  position: relative;
+  background: $gray;
+  overflow: hidden;
+  > a {
+    padding-right: 7rem !important;
+    .list-grid__item--active:nth-child(even) & {
+      @include min($large) {
+        margin-left: 50%;
+        padding-left: 4rem;
+      }
+    }
+  }
+  .list-grid__item--active & {
+    background: $black-faded !important;
+    height: auto !important;
+    color: $white;
+    > a {
+      height: auto !important;
+      display: block !important;
+      @include min($large) {
+        width: 50%;
+      }
+      span {
+        &:before {
+          content: '\f107' !important;
+          color: $white !important;
+        }
+      }
+    }
+  }
+}
+
+.list-grid__toggle__icons {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  @include min($large) {
+    right: 50%;
+    .list-grid > ul > li:nth-child(even) & {
+      right: 0;
+    }
+  }
+  li {
+    float: left;
+    padding: 0;
+    &:before {
+      display: none;
+    }
+  }
+  .list-grid__item--active & {
+    display: block;
+  }
+}
+
+.list-grid__toggle__content {
+  @extend %clearfix;
+  display: none;
+  padding: 0 1.25rem 1rem 1.25rem;
+  @include min($large) {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+    width: 50%;
+  }
+  .list-grid__item--active & {
+    display: block;
+  }
+  .list-grid__item--active:nth-child(even) & {
+    @include min($large) {
+      margin-left: 50%;
+    }
+  }
+  a {
+    background: none;
+    padding: 0;
+    color: $blue-brighter;
+    text-decoration: underline;
+  }
+}
+
+.list-grid__toggle__content__info {
+  @include min($medium) {
+    float: left;
+    width: 50%;
+    padding-right: 1rem;
+  }
+}
+
+.list-grid__toggle__content__detail {
+  margin-top: 1rem;
+  @include min($medium) {
+    float: left;
+    width: 50%;
+    margin: 0;
+    padding-left: 1rem;
+  }
+}
+
+.list-grid__toggle__image {
+  display: none;
+  position: relative;
+  z-index: 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  .list-grid__item--active & {
+    display: block;
+    @include min($large) {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      padding: 0;
+    }
+  }
+  .list-grid__item--active:nth-child(even) & {
+    @include min($large) {
+      right: auto;
+      left: 0;
+    }
+  }
+}
+
+.list-grid__toggle__links {
+  display: none;
+  position: relative;
+  z-index: 0;
+  padding: 0;
+  background: $blue;
+  color: $white;
+  span {
+    display: inline-block;
+    font-family: $serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-right: 1.5rem;
+    padding: 1rem 0 1rem 1.25rem;
+    @include min($large) {
+      padding-left: 1.75rem;
+    }
+  }
+  ul {
+    display: inline-block;
+  }
+  li {
+    display: inline-block;
+    padding: 0;
+    &:before {
+      display: none;
+    }
+  }
+  a {
+    display: block;
+    background: none;
+    padding: 1rem 1.5rem;
+    transition: color $transition, background $transition;
+    &:before {
+      @extend %icon;
+      content: '\f105';
+      color: $blue-brighter;
+      font-size: 2rem;
+      margin-right: 0.5rem;
+      vertical-align: top;
+      line-height: 0.66666;
+      transition: color $transition;
+    }
+    &:hover {
+      background: $blue-bright;
+      color: $white;
+      &:before {
+        color: $white;
+      }
+    }
+  }
+  .list-grid__item--active & {
+    display: block;
+  }
+}
+
+.list-grid__toggle__close {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.5rem;
+  background: none;
+  color: $white;
+  @include min($large) {
+    //display: block;
+  }
+  &:before {
+    @extend %icon;
+    content: '\f00d';
+    line-height: 0.75;
+    font-size: 3rem;
+  }
+  span {
+    display: none;
+  }
+}
+
+.list-grid__name {
+  margin-right: 0.5rem;
+}
+
+.list-grid__title {
+  font-weight: bold;
+  color: $gray-darker;
+  text-transform: uppercase;
+  font-size: 85%;
+  transition: color $transition;
+  .list-grid a:hover & {
+    color: $gray-darkest;
+  }
+}

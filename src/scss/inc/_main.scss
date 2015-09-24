@@ -1,0 +1,60 @@
+.main {
+  margin: 2rem 0;
+  @include min($large) {
+    float: right;
+    width: 75%;
+    padding-left: 2rem;
+    border-left: 0.0625rem solid $gray-darker;
+  }
+}
+
+.main__content {
+  @include min($medium) {
+    float: right;
+    width: 66.66666%;
+    padding-left: 2rem;
+  }
+}
+
+.main__content--alt {
+  @include min($medium) {
+    float: left;
+    padding-left: 0;
+    padding-right: 2rem;
+  }
+}
+
+.main__sidebar {
+  font-size: 0.875rem;
+  @include min($medium) {
+    float: left;
+    width: 33.33333%;
+  }
+}
+
+.main__sidebar--alt {
+  @include min($medium) {
+    float: right;
+  }
+}
+
+.main__sidebar--media {
+  @include min($small) {
+    position: relative;
+    padding-left: 50%;
+    margin-top: 2rem;
+  }
+  @include min($medium) {
+    padding-left: 0;
+    position: static;
+    margin-top: 0;
+  }
+  .sidebar__block {
+    @include min($small) {
+      padding-left: 0.5rem;
+    }
+    @include min($medium) {
+      padding-left: 0;
+    }
+  }
+}

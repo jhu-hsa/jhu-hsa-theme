@@ -1,0 +1,212 @@
+.feature {
+  padding-bottom: 2rem;
+  color: $white;
+  h2,
+  h5 {
+    color: inherit;
+  }
+  h2 {
+    text-transform: none;
+  }
+  a {
+    background: none;
+    padding: 0;
+  }
+}
+
+.feature__slider {
+  margin: 0 -1rem;
+  @include min($medium) {
+    margin: 0 -2rem;
+  }
+  li {
+    position: relative;
+    padding: 0 1rem;
+    @include min($medium) {
+      padding: 0 2rem;
+    }
+    &:before {
+      display: none;
+    }
+  }
+  .slick-prev,
+  .slick-next {
+    position: absolute;
+    top: 50%;
+    margin-top: -1.5rem;
+    border: 0;
+    background: $gray-darkest;
+    padding: 0;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    font-size: 2rem;
+    @include min($medium) {
+      margin-top: 0;
+    }
+    @include min($large) {
+      width: 5rem;
+      height: 5rem;
+      line-height: 5rem;
+      font-size: 4rem;
+    }
+    &:before {
+      @extend %icon;
+    }
+    span {
+      display: none;
+    }
+  }
+  .slick-prev {
+    left: 0;
+    @include min($medium) {
+      margin-top: -3.125rem;
+    }
+    @include min($large) {
+      margin-top: -5.125rem;
+    }
+    &:before {
+      content: '\f104';
+    }
+  }
+  .slick-next {
+    right: 0;
+    @include min($medium) {
+      left: 0;
+      right: auto;
+    }
+    &:before {
+      content: '\f105';
+    }
+  }
+}
+
+.feature__slider__image {
+  position: relative;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 80%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 2;
+  @include min($medium) {
+    position: absolute;
+    right: 2rem;
+    top: 0;
+    bottom: 0;
+    width: 45%;
+    height: auto;
+    padding: 0;
+  }
+  @include min($full) {
+    width: 55%;
+  }
+}
+
+.feature__slider__info {
+  background: $blue-brighter;
+  padding: 1rem;
+  @include min($medium) {
+    width: 55%;
+    padding: 2rem;
+    padding-right: 3rem;
+  }
+  @include min($large) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-right: 4rem;
+  }
+  @include min($full) {
+    width: 45%;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  a {
+    text-decoration: underline;
+  }
+}
+
+.feature__slider__links {
+  background: $blue;
+  padding: 1rem;
+  @include min($medium) {
+    width: 65%;
+    padding: 2rem;
+    padding-right: 3rem;
+  }
+  @include min($large) {
+    width: 55%;
+    padding-right: 4rem;
+  }
+  @include min($full) {
+    width: 45%;
+  }
+  ul {
+    margin-top: 0.5rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    @include min($medium) {
+      margin-left: -2rem;
+      margin-right: -3rem;
+    }
+    @include min($large) {
+      margin-right: -4rem;
+    }
+  }
+  li {
+    padding: 0 1rem;
+    transition: background $transition;
+    @include min($medium) {
+      padding: 0 3rem 0 2rem;
+    }
+    @include min($large) {
+      padding-right: 4rem;
+    }
+    &:before {
+      display: none;
+    }
+    &:hover {
+      background: $blue-bright;
+    }
+  }
+  a {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0 0.5rem 1.25rem;
+    &:before {
+      @extend %icon;
+      content: '\f105';
+      color: $blue-brighter;
+      font-size: 200%;
+      position: absolute;
+      left: 0;
+      top: 0.125rem;
+    }
+  }
+}
+
+.feature__slider__count {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity $transition $transition-speed, visibility $transition $transition-speed;
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  line-height: 1;
+  color: $blue;
+  font-size: 1rem;
+  letter-spacing: 0.25rem;
+  @include min($medium) {
+    font-size: 1.5rem;
+  }
+  @include min($large) {
+    font-size: 2rem;
+  }
+  .slick-active & {
+    opacity: 1;
+    visibility: visible;
+  }
+}

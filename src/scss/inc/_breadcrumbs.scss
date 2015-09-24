@@ -1,0 +1,30 @@
+.breadcrumbs {
+  display: none;
+  background: $gray;
+  font-size: 0.75rem;
+  padding: 0.5rem 0;
+  color: $black-faded;
+  @include min($medium) {
+    display: block;
+  }
+  a {
+    background: none;
+    padding: 0;
+    color: $black;
+  }
+}
+
+.breadcrumbs__separator {
+  margin: 0 0.5rem;
+  &:before {
+    @extend %icon;
+    content: '\f105';
+    color: $blue-brighter;
+    font-size: 175%;
+    vertical-align: top;
+    line-height: 0.85;
+  }
+  span {
+    display: none;
+  }
+}

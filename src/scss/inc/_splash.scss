@@ -1,0 +1,67 @@
+.splash-wrap {
+  overflow: hidden;
+  transition: height $transition;
+  .splash--scrolled & {
+    height: 6rem !important;
+  }
+}
+
+.splash {
+  position: relative;
+  display: table;
+  width: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.splash__text {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 2rem 1rem;
+  transition: transform $transition, opacity $transition, visibility $transition;
+  .splash--scrolled & {
+    transform: translateY(100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+  @include min($medium) {
+    padding: 2rem;
+  }
+  h1 {
+    color: $white;
+    text-shadow: 0 0 1rem $black;
+    &:before {
+      background: $white;
+    }
+  }
+}
+
+.splash__expand {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 6rem;
+  height: 6rem;
+  text-align: center;
+  line-height: 6rem;
+  font-size: 2rem;
+  color: $white;
+  padding: 0;
+  background: none;
+  //visibility: hidden;
+  //opacity: 0;
+  transition: visibility $transition, opacity $transition;
+  &:before {
+    @extend %icon;
+    content: '\f065';
+    text-shadow: 0 0 0.125rem $black;
+  }
+  span {
+    display: none;
+  }
+  .splash--scrolled & {
+    //visibility: visible;
+    //opacity: 1;
+  }
+}

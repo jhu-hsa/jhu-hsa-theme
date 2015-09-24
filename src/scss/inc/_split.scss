@@ -1,0 +1,15 @@
+.split__left {
+  @include min($large) {
+    width: 67%;
+    float: left;
+    padding-right: 1rem;
+  }
+}
+
+.split__right {
+  @include min($large) {
+    width: 33%;
+    float: left;
+    padding-left: 1rem;
+  }
+}
