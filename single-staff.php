@@ -55,7 +55,8 @@
         <?php while ( $query->have_posts() ) : $query->the_post(); ?>
           <li>
             <a href="<?php the_permalink(); ?>">
-              <img src="<?php $image = get_field('image'); echo $image['sizes']['staff-wide']; ?>" alt="<?php the_title(); ?>">
+			<!--Aaron Madhavan removed staff-wide and replaced with staff for the image-->
+              <img src="<?php $image = get_field('image'); echo $image['sizes']['staff']; ?>" alt="<?php the_title(); ?>">
               <div class="staff__info">
                 <div class="staff__info__name">
                   <h5><?php the_title(); ?></h5>
