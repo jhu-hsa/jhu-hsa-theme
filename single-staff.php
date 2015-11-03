@@ -45,7 +45,7 @@
 
 </div>
 
-<?php $query = new WP_Query( array( 'post_type' => 'staff', 'posts_per_page' => '4', 'orderby' => 'rand', 'post__not_in' => array($post->ID) ) ); ?>
+<?php $query = new WP_Query( array( 'post_type' => 'staff', 'posts_per_page' => '4', 'orderby' => 'rand', 'ignore_custom_sort' => TRUE, 'post__not_in' => array($post->ID) ) ); ?>
 <?php if ( $query->have_posts() ) : ?>
   <div class="wrap">
     <hr>
