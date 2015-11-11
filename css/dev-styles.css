@@ -1,0 +1,16 @@
+body div.body div.emergency-alert{ background-color:#6495ed;font-size:2em;text-align:center;line-height:1.4;font-weight:bold;}
+.soliloquy-theme-classic .soliloquy-pager{  
+bottom: 10px;
+    height: 14px;
+    margin: 0 0 0 5px;
+    position: absolute;
+    text-align: center !important;
+    width: 100%;}
+.soliloquy-container .soliloquy-caption { top:0; bottom:auto !important;}
+.soliloquy-container .soliloquy-caption-inside h3,.soliloquy-container .soliloquy-caption-inside h4{color:#fff}
+ul.soliloquy-slider > li::before{content: none;}	
+.soliloquy-container,.soliloquy-container *{font-family: "gentona",sans-serif;}
+.panel-group .panel{border:none !important;}
+/* for soliloquy go to includes --> includes --> admin -->  metaboxes.php and edit 1061 and add  limit to 355 characters to the field description for the caption     */  
+/*  for soliloquy go to includes --> includes --> global --> shortcodes.php and edit line 317 and replace with $output .= substr($caption,0,355);  */
+/*for easy responsive shortcodes go to js-->tinymce-button.js to remove the extra types that we do not want to show up.*/
