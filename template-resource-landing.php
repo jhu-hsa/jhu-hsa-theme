@@ -142,7 +142,7 @@ Template Name: Resource Landing
                   <?php endif; ?>
                   <div class="feed__item__content">
                     <h4><?php echo $article->alt_headline; ?></h4>
-                    <p><?php echo $article->subheadline; ?></p>
+                    <p><?php echo $article->excerpt; ?></p>
                     <p class="feed__more"><a href="<?php echo $article->url; ?>">Read More...</a></p>
                   </div>
                 </div>
