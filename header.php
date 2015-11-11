@@ -26,17 +26,7 @@
         <span class="menu__title">Find Resources Based On:</span>
         <?php switch_to_blog(1); ?>
           <ul>
-            <li class="menu__sub">
-              <a>What You Need</a>
-              <ul class="menu__sub__dropdown">
-                <?php wp_nav_menu(array(
-                  'menu' => 'what',
-                  'container' => false,
-                  'items_wrap' => '%3$s'
-                )); ?>
-              </ul>
-            </li>
-            <li class="menu__sub">
+		  <li class="menu__sub">
               <a>Who You Are</a>
               <ul class="menu__sub__dropdown">
                 <?php wp_nav_menu(array(
@@ -46,6 +36,16 @@
                 )); ?>
               </ul>
             </li>
+            <li class="menu__sub">
+              <a>What You Need</a>
+              <ul class="menu__sub__dropdown">
+                <?php wp_nav_menu(array(
+                  'menu' => 'what',
+                  'container' => false,
+                  'items_wrap' => '%3$s'
+                )); ?>
+              </ul>
+            </li>            
             <?php wp_nav_menu(array(
               'menu' => 'header',
               'container' => false,
