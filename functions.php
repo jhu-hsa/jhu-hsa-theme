@@ -382,6 +382,28 @@ function hide_staff() {
 }
 add_action('admin_menu', 'hide_staff');
 
+//hide theme and customize on admin bar and backend for anyone that is not an super admin
+if ( !is_super_admin() ) {
+add_action( 'wp_before_admin_bar_render', 'admin_bar_hide' ); 
+add_action('admin_menu', 'customize_admin_menu_hide', 999);
+
+}
+function admin_bar_hide()
+{
+    global $wp_admin_bar;
+
+    $wp_admin_bar->remove_menu('customize');
+	$wp_admin_bar->remove_node( 'themes' );
+}
+
+function customize_admin_menu_hide(){
+	
+global $submenu;
+// Appearance customize Menu
+unset($submenu['themes.php'][6]);	
+	
+}
+
 // hide resources menu item on sub site
 function hide_resource() {
   if (!is_main_site()) {
@@ -389,6 +411,16 @@ function hide_resource() {
   }
 }
 add_action('admin_menu', 'hide_resource');
+if ( !is_super_admin() ) {
+add_action( 'wp_before_admin_bar_render', 'wpse200296_before_admin_bar_render' ); 
+}
+function wpse200296_before_admin_bar_render()
+{
+    global $wp_admin_bar;
+
+    $wp_admin_bar->remove_menu('customize');
+}
+
 
 // set posts per archive page
 function set_posts_per_archive_page() {
