@@ -8,9 +8,9 @@ Template Name: Resource Landing
 
 <?php get_template_part( 'part', 'breadcrumbs' ); ?>
 
-<?php if (get_field('splash_image')) : ?>
+<?php if (get_field('splash_image','option')) : ?>
   <div class="splash-wrap">
-    <section class="splash" style="background-image: url(<?php $splash_image = get_field('splash_image'); echo $splash_image['sizes']['splash']; ?>);">
+    <section class="splash" style="background-image: url(<?php $splash_image = get_field('splash_image','option'); echo $splash_image['sizes']['splash']; ?>);">
       <div class="splash__text">
         <h1><?php the_title(); ?></h1>
       </div>

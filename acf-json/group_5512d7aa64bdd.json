@@ -3,31 +3,6 @@
     "title": "Resource Landing",
     "fields": [
         {
-            "key": "field_5512d7df8744c",
-            "label": "Splash Image",
-            "name": "splash_image",
-            "prefix": "",
-            "type": "image",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": 1920,
-            "min_height": 1080,
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_5512d8401e75a",
             "label": "Additional Information",
             "name": "additional_information",

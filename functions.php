@@ -382,10 +382,12 @@ function hide_staff() {
 }
 add_action('admin_menu', 'hide_staff');
 
-//hide theme and customize on admin bar and backend for anyone that is not an super admin
+//hide theme and customize on admin bar and backend for anyone that is not an admin
 if ( !is_super_admin() ) {
 add_action( 'wp_before_admin_bar_render', 'admin_bar_hide' ); 
 add_action('admin_menu', 'customize_admin_menu_hide', 999);
+add_action( 'wp_before_admin_bar_render', 'wpse200296_before_admin_bar_render' ); 
+add_filter('tiny_mce_before_init', 'myformatTinyMCE');  
 
 }
 function admin_bar_hide()
@@ -403,7 +405,18 @@ global $submenu;
 unset($submenu['themes.php'][6]);	
 	
 }
+//hide the customize on admin bar
+function wpse200296_before_admin_bar_render()
+{
+    global $wp_admin_bar;
 
+    $wp_admin_bar->remove_menu('customize');
+}
+  // only show p h2 h3 h4 and preformatted in wysiwyg 
+   function myformatTinyMCE($in){
+$in['block_formats'] = "Paragraph=p;Header 2=h2;Header 3=h3;Header 4=h4;Preformatted=pre";
+return $in;
+}
 // hide resources menu item on sub site
 function hide_resource() {
   if (!is_main_site()) {
@@ -411,16 +424,6 @@ function hide_resource() {
   }
 }
 add_action('admin_menu', 'hide_resource');
-if ( !is_super_admin() ) {
-add_action( 'wp_before_admin_bar_render', 'wpse200296_before_admin_bar_render' ); 
-}
-function wpse200296_before_admin_bar_render()
-{
-    global $wp_admin_bar;
-
-    $wp_admin_bar->remove_menu('customize');
-}
-
 
 // set posts per archive page
 function set_posts_per_archive_page() {
@@ -432,3 +435,14 @@ function set_posts_per_archive_page() {
   set_query_var('posts_per_archive_page', $limit);
 }
 add_filter('pre_get_posts', 'set_posts_per_archive_page');
+//add options page
+if( function_exists('acf_add_options_page') && is_super_admin() && !is_main_site() ) {
+	
+	acf_add_options_page('Splash');
+	
+}
+
+
+
+
+
