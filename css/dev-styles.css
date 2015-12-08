@@ -13,4 +13,3 @@ ul.soliloquy-slider > li::before{content: none;}
 .panel-group .panel{border:none !important;}
 /* for soliloquy go to includes --> includes --> admin -->  metaboxes.php and edit 1061 and add  limit to 355 characters to the field description for the caption     */  
 /*  for soliloquy go to includes --> includes --> global --> shortcodes.php and edit line 317 and replace with $output .= substr($caption,0,355);  */
-/*for easy responsive shortcodes go to js-->tinymce-button.js to remove the extra types that we do not want to show up.*/
