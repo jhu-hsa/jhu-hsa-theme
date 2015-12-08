@@ -149,6 +149,121 @@
             "tabs": "all",
             "toolbar": "full",
             "media_upload": 0
+        },
+		{
+                    "key": "field_55117e72adm4a",
+                    "label": "Address Title",
+                    "name": "address_title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+			},
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+        },
+		{
+                    "key": "field_55c39919adm4b",
+                    "label": "Street Address",
+                    "name": "street_address",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "3400 N Charles St": "3400 N Charles St",
+                        "3300 N Charles St": "3300 N Charles St",
+                        "3103 N Charles St": "3103 N Charles St",
+                        "3003 N Charles St": "3003 N Charles St",
+                        "3510 N Charles St": "3510 N Charles St",
+                        "3339 N Charles St": "3339 N Charles St",
+                        "3301 N Charles St": "3301 N Charles St",
+                        "1 E 31st St": "1 E 31st St"
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+        },
+
+        {
+                    "key": "field_55117e60adm1b",
+                    "label": "Building",
+                    "name": "building",
+                   "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Garland Hall": "Garland Hall",
+                        "Mattin Center": "Mattin Center",
+                        "Levering Hall": "Levering Hall",
+                        "Wyman Park Building": "Wyman Park Building",
+                        "Ralph S O'Connor Recreation Center": "Ralph S O'Connor Recreation Center",
+                        "Shriver Hall": "Shriver Hall",
+                        "Bunting Meyerhoff Interfaith and Community Service Center": "Bunting Meyerhoff Interfaith and Community Service Center",
+                        "AMRII": "AMRII"
+
+
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+        },
+        {
+                    "key": "field_55117e72adm4c",
+                    "label": "Room Number",
+                    "name": "room_number",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
         }
     ],
     "location": [
