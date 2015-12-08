@@ -78,36 +78,79 @@ Template Name: Home
   <hr class="hr--transparent">
   <h1 class="h1--white">Life at This Moment</h1>
 
-  <?php $flickr = flickr_feed(get_field('flickr_user_id'), get_field('flickr_feed_type')); ?>
-  <?php if ($flickr) : ?>
-    <div class="social__slider">
-      <ul>
-        <?php $i = 0; ?>
-        <?php foreach ($flickr->items as $item) : ?>
-          <?php if ($i < 12) : ?>
-            <li>
-              <div class="social__slider__flickr" style="background-image: url(<?php echo str_replace('_m.', '.', $item->media->m); ?>);"></div>
-              <div class="social__slider__overlay">
+  
+  
+  <?php
+function processURL($url)
+    {
+        $ch = curl_init();
+        curl_setopt_array($ch, array(
+        CURLOPT_URL => $url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_SSL_VERIFYPEER => false,
+        CURLOPT_SSL_VERIFYHOST => 2
+        ));
+
+        $result = curl_exec($ch);
+        curl_close($ch);
+        return $result;
+    }
+
+    //$tag = 'jhuhsa';
+  $userid='self';
+    $client_id = get_field('Instagram_token');
+   //$url = 'https://api.instagram.com/v1/tags/'.$tag.'/media/recent?client_id='.$client_id;
+$url = 'https://api.instagram.com/v1/users/'.$userid.'/feed?access_token='. $client_id.'&count=20';
+    //echo $url;
+  $all_result  = processURL($url);
+    $decoded_results = json_decode($all_result, true);
+
+   //echo '<pre>';
+    //print_r($decoded_results);
+    //exit;
+echo '<div class="social__slider"><ul>';
+    //Now parse through the $results array to display your results... 
+  $i = 0;
+    foreach($decoded_results['data'] as $item){
+    
+     echo '<li>';
+     //  $image_link = $item['images']['thumbnail']['low_resolution']['standard_resolution']['url'];
+        $insta_img = $item['images']['low_resolution']['url'];
+    $insta_author = $item['caption']['from']['username']; 
+    $insta_link = $item['link'];
+    $insta_date = $item['created_time'];
+    $insta_likes = $item['likes']['count']; 
+    $insta_comments = $item['comments']['count'];
+  $insta_userlink= 'https://instagram.com';
+  $insta_title= $item['user']['full_name'];
+  $insta_imagename= $item['caption']['text'];
+ 
+  
+   ?>
+<div class="social__slider__instagram" style="background-image: url(<?php echo $insta_img; ?>);"></div>
+<div class="social__slider__overlay">
                 <ul class="social__slider__icons">
-                  <li><a class="icon-button icon-button--flickr" href="<?php echo $flickr->link; ?>" target="_blank"><span>Flickr</span></a></li>
-                  <li><a class="icon-button icon-button--link" href="<?php echo $item->link; ?>" target="_blank"><span>Link</span></a></li>
+                  <li><a class="icon-button icon-button--instagram" href="<?php echo $insta_userlink.'/'.$insta_author; ?>" target="_blank"><span>Instagram</span></a></li>
+                  <li><a class="icon-button icon-button--link" href="<?php echo $insta_link; ?>" target="_blank"><span>Link</span></a></li>
                 </ul>
                 <div class="social__slider__title">
-                  <?php echo $flickr->title; ?>
+                  <?php echo $insta_title; ?>
                 </div>
                 <div class="social__slider__detail">
-                  <p><?php echo $item->title; ?></p>
-                  <p><strong><?php echo date('F j, Y', strtotime($item->published)); ?></strong></p>
-                  <p><a href="<?php echo $flickr->link; ?>" target="_blank">View Gallery &raquo;</a></p>
+                  <p><?php echo substr($insta_imagename, 0, 75); ?><a href="<?php echo $insta_link; ?>" target="_blank"><nobr>Read More...</nobr></a></p>
+                  <p><strong><?php echo date('M j, Y', $insta_date); ?></strong></p>
+                  <p><a href="<?php echo $insta_userlink.'/'.$insta_author; ?>" target="_blank">View Feed &raquo;</a></p>
                 </div>
               </div>
-            </li>
-          <?php endif; ?>
-          <?php $i++; ?>
-        <?php endforeach; ?>
-      </ul>
-    </div>
-  <?php endif; ?>
+
+
+    <?php
+       echo '</li>';
+  
+   $i++;
+    }
+ echo '</ul></div>';
+?>
 
   <div class="social__slider social__slider--feed">
     <ul>
@@ -124,7 +167,7 @@ Template Name: Home
                   </ul>
                   <div class="social__slider--feed__content">
                     <div class="social__slider--feed__header">
-                      <a href="<?php echo $item->url; ?>">http://hub.jhu.edu/</a> &bull; <?php echo date('F j, Y', $item->publish_date); ?>
+                      <a href="<?php echo $item->url; ?>">News from the HUB</a> &bull; <?php echo date('F j, Y', $item->publish_date); ?>
                     </div>
                     <p><?php echo $item->excerpt; ?></p>
                   </div>
@@ -134,6 +177,8 @@ Template Name: Home
           <?php endif; ?>
         <?php endwhile; ?>
       <?php endif; ?>
+	  
+	  
       <?php if (have_rows('twitter_feeds')) : ?>
         <?php while (have_rows('twitter_feeds')) : the_row(); ?>
           <?php $tweets = twitter_feed(get_sub_field('username'), get_sub_field('number_of_items')); ?>
