@@ -21,6 +21,878 @@
             "toolbar": "basic",
             "media_upload": 0
         },
+		{
+            "key": "field_55117db01adm1",
+            "label": "Contact Information",
+            "name": "contact_information",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": 8,
+            "layout": "table",
+            "button_label": "Add Item",
+            "sub_fields": [
+            {
+                    "key": "field_55117e72adm1d",
+                    "label": "Address Title",
+                    "name": "address_title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                 {
+                    "key": "field_55c39919adm1a",
+                    "label": "Street Address",
+                    "name": "street_address",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "3400 N Charles St": "3400 N Charles St",
+                        "3300 N Charles St": "3300 N Charles St",
+                        "3103 N Charles St": "3103 N Charles St",
+                        "3003 N Charles St": "3003 N Charles St",
+                        "3510 N Charles St": "3510 N Charles St",
+                        "3339 N Charles St": "3339 N Charles St",
+                        "3301 N Charles St": "3301 N Charles St",
+                        "1 E 31st St": "1 E 31st St"
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+
+                {
+                    "key": "field_55117e60adm1b",
+                    "label": "Building",
+                    "name": "building",
+                   "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Garland Hall": "Garland Hall",
+                        "Mattin Center": "Mattin Center",
+                        "Levering Hall": "Levering Hall",
+                        "Wyman Park Building": "Wyman Park Building",
+                        "Ralph S O'Connor Recreation Center": "Ralph S O'Connor Recreation Center",
+                        "Shriver Hall": "Shriver Hall",
+                        "Bunting Meyerhoff Interfaith and Community Service Center": "Bunting Meyerhoff Interfaith and Community Service Center",
+                        "AMRII": "AMRII"
+
+
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_55117e72adm1c",
+                    "label": "Room Number",
+                    "name": "room_number",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                }
+               
+            ]
+        },
+        {
+            "key": "field_55117db01adm3",
+            "label": "Contact Phone and Fax",
+            "name": "contact_phone_fax",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": 8,
+            "layout": "table",
+            "button_label": "Add Item",
+            "sub_fields": [
+                 
+                {
+                    "key": "field_55117e60adm3a",
+                    "label": "Contact Title",
+                    "name": "contact_title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_55117e8cadm3b",
+                    "label": "Phone Number (last 4)",
+                    "name": "phone_number",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                 {
+                    "key": "field_55117e8cadm3c",
+                    "label": "Fax Number(last 4)",
+                    "name": "fax_number",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                 {
+                    "key": "field_55117e8cadm3d",
+                    "label": "E-mail",
+                    "name": "e_mail",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                }
+               
+            ]
+        },
+        {
+            "key": "field_55117db01adm2",
+            "label": "Service Hours",
+            "name": "service_hours",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": 8,
+            "layout": "table",
+            "button_label": "Add Item",
+            "sub_fields": [
+                 {
+                    "key": "field_55117e60adm2a",
+                    "label": "Hours Title",
+                    "name": "hours_title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+				{
+                    "key": "field_55117e72adm2o",
+                    "label": "Sunday Start",
+                    "name": "sunday_start",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "8 a.m.": "8 a.m.",
+                        "8:30 a.m.": "8:30 a.m.",
+                        "9 a.m.": "9 a.m.",
+                        "9:30 a.m.": "9:30 a.m.",
+                        "10 a.m.": "10 a.m.",
+                        "10:30 a.m.": "10:30 a.m.",
+                        "11 a.m.": "11 a.m.",
+						"12 p.m.": "12 p.m."
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_55117e8cadm2p",
+                    "label": "Sunday End",
+                    "name": "sunday_end",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                         "2 p.m.": "2 p.m.",
+                        "2:30 p.m.": "2:30 p.m.",
+                        "3 p.m.": "3 p.m.",
+                        "3:30 p.m.": "3:30 p.m.",
+                        "4 p.m.": "4 p.m.",
+                        "4:30 p.m.": "4:30 p.m.",
+                        "4:45 p.m.": "4:45 p.m.",
+                        "5 p.m.": "5 p.m.",
+                        "5:30 p.m.": "5:30 p.m.",
+                        "6 p.m.": "6 p.m.",
+                        "6:30 p.m.": "6:30 p.m.",
+                        "7 p.m.": "7 p.m.",
+						"8 p.m.": "8 p.m.",
+						"9 p.m.": "9 p.m.",
+						"10 p.m.": "10 p.m.",
+						"11 p.m.": "11 p.m.",
+						"12 a.m.": "12 a.m."
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_55117e72adm2b",
+                    "label": "Monday Start",
+                    "name": "monday_start",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "8 a.m.": "8 a.m.",
+                        "8:30 a.m.": "8:30 a.m.",
+                        "9 a.m.": "9 a.m.",
+                        "9:30 a.m.": "9:30 a.m.",
+                        "10 a.m.": "10 a.m.",
+                        "10:30 a.m.": "10:30 a.m.",
+                        "11 a.m.": "11 a.m.",
+						"12 p.m.": "12 p.m."
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_55117e8cadm2c",
+                    "label": "Monday End",
+                    "name": "monday_end",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "2 p.m.": "2 p.m.",
+                        "2:30 p.m.": "2:30 p.m.",
+                        "3 p.m.": "3 p.m.",
+                        "3:30 p.m.": "3:30 p.m.",
+                        "4 p.m.": "4 p.m.",
+                        "4:30 p.m.": "4:30 p.m.",
+                        "4:45 p.m.": "4:45 p.m.",
+                        "5 p.m.": "5 p.m.",
+                        "5:30 p.m.": "5:30 p.m.",
+                        "6 p.m.": "6 p.m.",
+                        "6:30 p.m.": "6:30 p.m.",
+                        "7 p.m.": "7 p.m.",
+						"8 p.m.": "8 p.m.",
+						"9 p.m.": "9 p.m.",
+						"10 p.m.": "10 p.m.",
+						"11 p.m.": "11 p.m.",
+						"12 a.m.": "12 a.m."
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_55117e72adm2d",
+                    "label": "Tuesday Start",
+                    "name": "tuesday_start",
+                   "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                     "8 a.m.": "8 a.m.",
+                        "8:30 a.m.": "8:30 a.m.",
+                        "9 a.m.": "9 a.m.",
+                        "9:30 a.m.": "9:30 a.m.",
+                        "10 a.m.": "10 a.m.",
+                        "10:30 a.m.": "10:30 a.m.",
+                        "11 a.m.": "11 a.m.",
+						"12 p.m.": "12 p.m."
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_55117e8cadm2e",
+                    "label": "Tuesday End",
+                    "name": "tuesday_end",
+                   "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                          "2 p.m.": "2 p.m.",
+                        "2:30 p.m.": "2:30 p.m.",
+                        "3 p.m.": "3 p.m.",
+                        "3:30 p.m.": "3:30 p.m.",
+                        "4 p.m.": "4 p.m.",
+                        "4:30 p.m.": "4:30 p.m.",
+                        "4:45 p.m.": "4:45 p.m.",
+                        "5 p.m.": "5 p.m.",
+                        "5:30 p.m.": "5:30 p.m.",
+                        "6 p.m.": "6 p.m.",
+                        "6:30 p.m.": "6:30 p.m.",
+                        "7 p.m.": "7 p.m.",
+						"8 p.m.": "8 p.m.",
+						"9 p.m.": "9 p.m.",
+						"10 p.m.": "10 p.m.",
+						"11 p.m.": "11 p.m.",
+						"12 a.m.": "12 a.m."
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_55117e72adm2f",
+                    "label": "Wedensday Start",
+                    "name": "wedensday_start",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                      "8 a.m.": "8 a.m.",
+                        "8:30 a.m.": "8:30 a.m.",
+                        "9 a.m.": "9 a.m.",
+                        "9:30 a.m.": "9:30 a.m.",
+                        "10 a.m.": "10 a.m.",
+                        "10:30 a.m.": "10:30 a.m.",
+                        "11 a.m.": "11 a.m.",
+						"12 p.m.": "12 p.m."
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_55117e8cadm2g",
+                    "label": "Wenesday End",
+                    "name": "wedensday_end",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+               "2 p.m.": "2 p.m.",
+                        "2:30 p.m.": "2:30 p.m.",
+                        "3 p.m.": "3 p.m.",
+                        "3:30 p.m.": "3:30 p.m.",
+                        "4 p.m.": "4 p.m.",
+                        "4:30 p.m.": "4:30 p.m.",
+                        "4:45 p.m.": "4:45 p.m.",
+                        "5 p.m.": "5 p.m.",
+                        "5:30 p.m.": "5:30 p.m.",
+                        "6 p.m.": "6 p.m.",
+                        "6:30 p.m.": "6:30 p.m.",
+                        "7 p.m.": "7 p.m.",
+						"8 p.m.": "8 p.m.",
+						"9 p.m.": "9 p.m.",
+						"10 p.m.": "10 p.m.",
+						"11 p.m.": "11 p.m.",
+						"12 a.m.": "12 a.m."
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_55117e72adm2h",
+                    "label": "Thursday Start",
+                    "name": "thursday_start",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "8 a.m.": "8 a.m.",
+                        "8:30 a.m.": "8:30 a.m.",
+                        "9 a.m.": "9 a.m.",
+                        "9:30 a.m.": "9:30 a.m.",
+                        "10 a.m.": "10 a.m.",
+                        "10:30 a.m.": "10:30 a.m.",
+                        "11 a.m.": "11 a.m.",
+						"12 p.m.": "12 p.m."
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_55117e8cadm2i",
+                    "label": "Thursday End",
+                    "name": "thursday_end",
+                   "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "2 p.m.": "2 p.m.",
+                        "2:30 p.m.": "2:30 p.m.",
+                        "3 p.m.": "3 p.m.",
+                        "3:30 p.m.": "3:30 p.m.",
+                        "4 p.m.": "4 p.m.",
+                        "4:30 p.m.": "4:30 p.m.",
+                        "4:45 p.m.": "4:45 p.m.",
+                        "5 p.m.": "5 p.m.",
+                        "5:30 p.m.": "5:30 p.m.",
+                        "6 p.m.": "6 p.m.",
+                        "6:30 p.m.": "6:30 p.m.",
+                        "7 p.m.": "7 p.m.",
+						"8 p.m.": "8 p.m.",
+						"9 p.m.": "9 p.m.",
+						"10 p.m.": "10 p.m.",
+						"11 p.m.": "11 p.m.",
+						"12 a.m.": "12 a.m."
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_55117e72adm2j",
+                    "label": "Friday Start",
+                    "name": "friday_start",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                     "8 a.m.": "8 a.m.",
+                        "8:30 a.m.": "8:30 a.m.",
+                        "9 a.m.": "9 a.m.",
+                        "9:30 a.m.": "9:30 a.m.",
+                        "10 a.m.": "10 a.m.",
+                        "10:30 a.m.": "10:30 a.m.",
+                        "11 a.m.": "11 a.m.",
+						"12 p.m.": "12 p.m."
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_55117e8cadm2k",
+                    "label": "Friday End",
+                    "name": "friday_end",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                           "2 p.m.": "2 p.m.",
+                        "2:30 p.m.": "2:30 p.m.",
+                        "3 p.m.": "3 p.m.",
+                        "3:30 p.m.": "3:30 p.m.",
+                        "4 p.m.": "4 p.m.",
+                        "4:30 p.m.": "4:30 p.m.",
+                        "4:45 p.m.": "4:45 p.m.",
+                        "5 p.m.": "5 p.m.",
+                        "5:30 p.m.": "5:30 p.m.",
+                        "6 p.m.": "6 p.m.",
+                        "6:30 p.m.": "6:30 p.m.",
+                        "7 p.m.": "7 p.m.",
+						"8 p.m.": "8 p.m.",
+						"9 p.m.": "9 p.m.",
+						"10 p.m.": "10 p.m.",
+						"11 p.m.": "11 p.m.",
+						"12 a.m.": "12 a.m."
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_55117e72adm2l",
+                    "label": "Saturday Start",
+                    "name": "saturday_start",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                      "8 a.m.": "8 a.m.",
+                        "8:30 a.m.": "8:30 a.m.",
+                        "9 a.m.": "9 a.m.",
+                        "9:30 a.m.": "9:30 a.m.",
+                        "10 a.m.": "10 a.m.",
+                        "10:30 a.m.": "10:30 a.m.",
+                        "11 a.m.": "11 a.m.",
+						"12 p.m.": "12 p.m."
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_55117e8cadm2m",
+                    "label": "Saturday End",
+                    "name": "saturday_end",
+                   "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                           "2 p.m.": "2 p.m.",
+                        "2:30 p.m.": "2:30 p.m.",
+                        "3 p.m.": "3 p.m.",
+                        "3:30 p.m.": "3:30 p.m.",
+                        "4 p.m.": "4 p.m.",
+                        "4:30 p.m.": "4:30 p.m.",
+                        "4:45 p.m.": "4:45 p.m.",
+                        "5 p.m.": "5 p.m.",
+                        "5:30 p.m.": "5:30 p.m.",
+                        "6 p.m.": "6 p.m.",
+                        "6:30 p.m.": "6:30 p.m.",
+                        "7 p.m.": "7 p.m.",
+						"8 p.m.": "8 p.m.",
+						"9 p.m.": "9 p.m.",
+						"10 p.m.": "10 p.m.",
+						"11 p.m.": "11 p.m.",
+						"12 a.m.": "12 a.m."
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_55117e8cadm2n",
+                    "label": "Time Notes",
+                    "name": "time_notes",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                }
+               
+            ]
+        },
         {
             "key": "field_5512d94d8cb43",
             "label": "Facebook Link",
