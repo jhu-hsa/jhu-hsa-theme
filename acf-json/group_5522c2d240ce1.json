@@ -46,35 +46,14 @@
             "readonly": 0,
             "disabled": 0
         },
-        {
-            "key": "field_5536e8eab20e9",
-            "label": "Flickr User ID",
-            "name": "flickr_user_id",
+            
+		{
+            "key": "field_5536e981b2adm",
+            "label": "Instagram accesstoken",
+            "name": "Instagram_token",
             "prefix": "",
             "type": "text",
-            "instructions": "Use http:\/\/idgettr.com\/ to get ID by username",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
-        },
-        {
-            "key": "field_5536e981b20ea",
-            "label": "Flickr Feed Type",
-            "name": "flickr_feed_type",
-            "prefix": "",
-            "type": "text",
-            "instructions": "Available feeds types listed on https:\/\/www.flickr.com\/services\/feeds\/ - use last part of URL without .gne - ex: photos_public",
+            "instructions": "put in your developer access token for instagram",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
