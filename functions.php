@@ -387,7 +387,6 @@ if ( !is_super_admin() ) {
 add_action( 'wp_before_admin_bar_render', 'admin_bar_hide' ); 
 add_action('admin_menu', 'customize_admin_menu_hide', 999);
 add_action( 'wp_before_admin_bar_render', 'wpse200296_before_admin_bar_render' ); 
-add_filter('tiny_mce_before_init', 'myformatTinyMCE');  
 
 }
 function admin_bar_hide()
@@ -411,6 +410,10 @@ function wpse200296_before_admin_bar_render()
     global $wp_admin_bar;
 
     $wp_admin_bar->remove_menu('customize');
+}
+$the_current_site = get_bloginfo('name');
+if($the_current_site == 'Student Employment Services' || is_super_admin() ){echo '';}
+else{add_filter('tiny_mce_before_init', 'myformatTinyMCE');  
 }
   // only show p h2 h3 h4 and preformatted in wysiwyg 
    function myformatTinyMCE($in){
