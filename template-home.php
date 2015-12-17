@@ -5,7 +5,7 @@ Template Name: Home
 ?>
 
 <?php get_header(); ?>
-
+<?php get_template_part( 'part', 'alert-home' ); ?>
 <?php if (have_rows('collage')) : ?>
   <div class="collage-wrap">
     <section class="collage">
