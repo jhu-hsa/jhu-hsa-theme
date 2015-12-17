@@ -444,7 +444,21 @@ if( function_exists('acf_add_options_page') && is_super_admin() && !is_main_site
 	acf_add_options_page('Splash');
 	
 }
-
+add_filter( 'soliloquy_defaults', 'tgm_soliloquy_set_defaults', 100, 2 );
+function tgm_soliloquy_set_defaults( $defaults, $post_id ) {
+     	
+		 $defaults['slider_theme']  = 'classic';
+        // You can easily set default values here. See the get_config_defaults method in the includes/global/common.php file for all available defaults to modify (around L250).
+        // In this example, we will modify the default slider size to 1000 x 500.
+        $defaults['slider_width']  = 1000;
+        $defaults['slider_height'] = 500;
+		 
+	
+     
+        // Return the modified defaults.
+        return $defaults;
+     
+}
 
 
 
