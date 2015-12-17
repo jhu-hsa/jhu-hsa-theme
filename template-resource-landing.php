@@ -60,6 +60,9 @@ Template Name: Resource Landing
                   <?php if (get_field('vimeo_link')) : ?>
                     <li><a class="icon-button icon-button--vimeo" href="<?php the_field('vimeo_link'); ?>" target="_blank"><span>Vimeo</span></a></li>
                   <?php endif; ?>
+				  <?php if (get_field('smug_link')) : ?>
+                    <li><a class="icon-button icon-button--smug" href="<?php the_field('smug_link'); ?>" target="_blank"><span>SmugMug</span></a></li>
+                  <?php endif; ?>
                 </ul>
               <?php endif; ?>
             </div>
@@ -79,7 +82,7 @@ Template Name: Resource Landing
     <section class="feed">
       <div class="wrap">
         <hr>
-        <h4 class="heading--serif heading--centered">Upcoming Events</h4>
+        <h2 class="heading--serif heading--centered">Upcoming Events</h2>
         <ul>
           <?php foreach ($events as $event) : ?>
             <li>
@@ -100,9 +103,9 @@ Template Name: Resource Landing
 <section class="feed feed--gray">
   <div class="wrap">
     <hr class="hr--transparent">
-    <h4 class="heading--serif heading--centered">News &amp; Announcements</h4>
+    <h2 class="heading--serif heading--centered">News &amp; Announcements</h2>
     <ul>
-      <?php $query = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => '6', 'category__not_in' => array(get_category_by_slug('archived')->term_id) ) ); ?>
+      <?php $query = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => '6', 'category__not_in' => array(get_category_by_slug('archived')->term_id),  'category__in' => array(1,3) ) ); ?>
       <?php $count = $query->post_count; $hub_count = 6 - $count; ?>
       <?php if ( $query->have_posts() ) : ?>
         <?php while ( $query->have_posts() ) : $query->the_post(); ?>
