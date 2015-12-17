@@ -6,6 +6,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <title><?php wp_title(''); ?></title>
+	<?php
+if ( is_super_admin() || is_admin()) {
+echo '';	
+}
+else{
+?>
+	<script type='text/javascript'>
+window.__lo_site_id = 47976;
+
+	(function() {
+		var wa = document.createElement('script'); wa.type = 'text/javascript'; wa.async = true;
+		wa.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://cdn') + '.luckyorange.com/w.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
+	  })();
+	</script>
+<?php }?>
     <?php wp_head(); ?>
   </head>
   <body>
