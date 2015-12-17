@@ -150,7 +150,7 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
+                    "maxlength": "5",
                     "readonly": 0,
                     "disabled": 0
                 }
@@ -214,7 +214,7 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
+                    "maxlength": "4",
                     "readonly": 0,
                     "disabled": 0
                 },
@@ -235,7 +235,7 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
+                    "maxlength": "4",
                     "readonly": 0,
                     "disabled": 0
                 },
@@ -369,6 +369,7 @@
 						"10 p.m.": "10 p.m.",
 						"11 p.m.": "11 p.m.",
 						"12 a.m.": "12 a.m."
+						
                       
                         
                     },
@@ -404,7 +405,9 @@
                         "10 a.m.": "10 a.m.",
                         "10:30 a.m.": "10:30 a.m.",
                         "11 a.m.": "11 a.m.",
-						"12 p.m.": "12 p.m."
+						"12 p.m.": "12 p.m.",
+						"1 p.m.": "1 p.m.",
+						"2 p.m.": "2 p.m."
                       
                         
                     },
@@ -433,7 +436,9 @@
                         "id": ""
                     },
                     "choices": {
-                        "2 p.m.": "2 p.m.",
+                        "12 p.m.": "12 p.m.",
+						"1 p.m.": "1 p.m.",
+						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
                         "3 p.m.": "3 p.m.",
                         "3:30 p.m.": "3:30 p.m.",
@@ -485,7 +490,9 @@
                         "10 a.m.": "10 a.m.",
                         "10:30 a.m.": "10:30 a.m.",
                         "11 a.m.": "11 a.m.",
-						"12 p.m.": "12 p.m."
+						"12 p.m.": "12 p.m.",
+						"1 p.m.": "1 p.m.",
+						"2 p.m.": "2 p.m."
                       
                         
                     },
@@ -514,7 +521,9 @@
                         "id": ""
                     },
                     "choices": {
-                          "2 p.m.": "2 p.m.",
+                        "12 p.m.": "12 p.m.",
+						"1 p.m.": "1 p.m.",
+						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
                         "3 p.m.": "3 p.m.",
                         "3:30 p.m.": "3:30 p.m.",
@@ -559,14 +568,16 @@
                         "id": ""
                     },
                     "choices": {
-                      "8 a.m.": "8 a.m.",
+                        "8 a.m.": "8 a.m.",
                         "8:30 a.m.": "8:30 a.m.",
                         "9 a.m.": "9 a.m.",
                         "9:30 a.m.": "9:30 a.m.",
                         "10 a.m.": "10 a.m.",
                         "10:30 a.m.": "10:30 a.m.",
                         "11 a.m.": "11 a.m.",
-						"12 p.m.": "12 p.m."
+						"12 p.m.": "12 p.m.",
+						"1 p.m.": "1 p.m.",
+						"2 p.m.": "2 p.m."
                       
                         
                     },
@@ -595,7 +606,9 @@
                         "id": ""
                     },
                     "choices": {
-               "2 p.m.": "2 p.m.",
+                        "12 p.m.": "12 p.m.",
+						"1 p.m.": "1 p.m.",
+						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
                         "3 p.m.": "3 p.m.",
                         "3:30 p.m.": "3:30 p.m.",
@@ -647,7 +660,9 @@
                         "10 a.m.": "10 a.m.",
                         "10:30 a.m.": "10:30 a.m.",
                         "11 a.m.": "11 a.m.",
-						"12 p.m.": "12 p.m."
+						"12 p.m.": "12 p.m.",
+						"1 p.m.": "1 p.m.",
+						"2 p.m.": "2 p.m."
                       
                         
                     },
@@ -676,7 +691,9 @@
                         "id": ""
                     },
                     "choices": {
-                        "2 p.m.": "2 p.m.",
+                        "12 p.m.": "12 p.m.",
+						"1 p.m.": "1 p.m.",
+						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
                         "3 p.m.": "3 p.m.",
                         "3:30 p.m.": "3:30 p.m.",
@@ -728,7 +745,9 @@
                         "10 a.m.": "10 a.m.",
                         "10:30 a.m.": "10:30 a.m.",
                         "11 a.m.": "11 a.m.",
-						"12 p.m.": "12 p.m."
+						"12 p.m.": "12 p.m.",
+						"1 p.m.": "1 p.m.",
+						"2 p.m.": "2 p.m."
                       
                         
                     },
@@ -757,7 +776,9 @@
                         "id": ""
                     },
                     "choices": {
-                           "2 p.m.": "2 p.m.",
+                           "12 p.m.": "12 p.m.",
+						"1 p.m.": "1 p.m.",
+						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
                         "3 p.m.": "3 p.m.",
                         "3:30 p.m.": "3:30 p.m.",
@@ -1051,6 +1072,28 @@
             "key": "field_5578aaa37b92c",
             "label": "Vimeo Link",
             "name": "vimeo_link",
+            "prefix": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+		  {
+            "key": "field_5578aaa37adm53",
+            "label": "SmugMug Link",
+            "name": "smug_link",
             "prefix": "",
             "type": "text",
             "instructions": "",
