@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+<?php get_template_part( 'part', 'alert-home' ); ?>
 <?php get_template_part('part', 'resource-finder'); ?>
 
 <?php if (have_posts()) : ?>
