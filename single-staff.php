@@ -20,7 +20,7 @@
             <div class="sidebar__block">
               <ul class="sidebar__buttons">
                 <?php if (get_field('phone')) : ?>
-                  <li><a class="sidebar__buttons__phone"><?php the_field('phone'); ?></a></li>
+                  <li><a class="sidebar__buttons__phone">410-516-<?php the_field('phone'); ?><?php if (get_field('phone_ext')) : ?> Ext. <?php the_field('phone_ext'); ?><?php endif; ?></a></li>
                 <?php endif; ?>
                 <?php if (get_field('email')) : ?>
                   <li><a class="sidebar__buttons__email" href="mailto:<?php the_field('email'); ?>"><?php the_field('email'); ?></a></li>
@@ -33,7 +33,24 @@
           <?php endif; ?>
           <div class="sidebar__block">
             <div class="sidebar__info">
-              <?php the_field('contact_information'); ?>
+               <?php
+if (get_field('street_address') || get_field('street_address') || get_field('room_number')) : 
+
+ echo '<p>';
+
+        // display a sub field value
+    if (get_field('address_title')){ echo '<strong>'.get_field('address_title').'</strong><br />';} else{echo '';}
+
+  echo '<strong>Johns Hopkins University</strong><br />';
+  if (get_field('street_address')){ echo get_field('street_address').'<br />';} else{echo '';}
+  if (get_field('building')){ echo get_field('building').'<br />';} else{echo '';}
+  if (get_field('room_number') ){ echo 'Suite '.get_field('room_number').'<br />';} else{echo '';}
+         if (get_field('street_address')){ echo 'Baltimore, MD 21211';} else{echo '';}
+ echo '</p>';
+
+endif; 
+
+?>
             </div>
           </div>
         </div>
