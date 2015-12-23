@@ -39,7 +39,7 @@
                 "id": ""
             },
             "default_value": "",
-            "tabs": "all",
+            "tabs": "visual",
             "toolbar": "full",
             "media_upload": 0
         },
