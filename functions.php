@@ -459,7 +459,33 @@ function tgm_soliloquy_set_defaults( $defaults, $post_id ) {
         return $defaults;
      
 }
+      add_action( 'soliloquy_api_after_transition', 'tgm_soliloquy_force_auto' );
+    function tgm_soliloquy_force_auto( $data ) {
+    	
+    	ob_start();
+    	?>
+    	soliloquy_slider['<?php echo $data['id']; ?>'].startAuto();
+    	<?php
+    	echo ob_get_clean();
+    	
+    }
 
+	add_action( 'init', 'tgm_soliloquy_restrict_admin_access', -1 );
+function tgm_soliloquy_restrict_admin_access() {
+ 
+	if ( ! is_admin() ) {
+		return;
+	}
+ 
+if ( class_exists( 'Soliloquy_Lite' ) ) {
+	if ( ! current_user_can( 'update_core' ) ) {
+		remove_action( 'init', array( Soliloquy_Lite::get_instance(), 'init' ), 0 );
+		remove_action( 'widgets_init', array( Soliloquy_Lite::get_instance(), 'widget' ) );
+	}
+}
 
+}
+add_filter( 'wp_feed_cache_transient_lifetime', 
+   create_function('$a', 'return 60;') );
 
 
