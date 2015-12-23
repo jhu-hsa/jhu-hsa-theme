@@ -17,7 +17,7 @@ wp_reset_postdata();
 include_once( ABSPATH . WPINC . '/feed.php' );
 
 // Get a SimplePie feed object from the specified feed source.
-$rss = fetch_feed( 'http://studentaffairs.jhu.edu/feed/?cat=27&now=12ag4oSduq344' );
+$rss = fetch_feed( 'http://studentaffairs.jhu.edu/feed/?cat=27' );
 
 if ( ! is_wp_error( $rss ) ) : // Checks that the object is created correctly
 
@@ -48,18 +48,56 @@ endif;
 ?>
 
 <?php
-include_once(ABSPATH.WPINC.'/rss.php'); // path to include script
-$feed = fetch_rss('http://www.getrave.com/rss/jhu/channel6&now=12ag4oSduq344'); // specify feed url
-$items = array_slice($feed->items, 0, 1); // specify first and last item
-?>
+include_once(ABSPATH.WPINC.'/rss.php'); // path to include script ?>
 
-<?php if (!empty($items)) : ?>
 
-<?php foreach ($items as $item) : ?>
-<div class="emergency-alert-global">
-<h2><?php echo $item['title']; ?></h2>
-<p><?php echo $item['description']; ?></p>
+
+
+<?php $feed_rd = fetch_rss('http://www.getrave.com/rss/jhu/channel2'); // specify feed url
+$items_rd = array_slice($feed_rd->items, 0, 1); // specify first and last item
+if (!empty($items_rd)) : ?>
+
+<?php foreach ($items_rd as $item_rd) : ?>
+<?php if($item_rd['description']=='NO ALERT'){echo '';}else{ ?>
+<div class="emergency-alert">
+	<div class="emergency-alert-global-rd">
+<h2><?php echo $item_rd['title']; ?></h2>
+<p><?php echo $item_rd['description']; ?></p>
+	</div>
 </div>
-<?php endforeach; ?>
+<?php }
+endforeach; ?>
+
+<?php endif; ?>
+<?php $feed_yl = fetch_rss('http://www.getrave.com/rss/jhu/channel5'); // specify feed url
+$items_yl = array_slice($feed_yl->items, 0, 1); // specify first and last item
+if (!empty($items_yl)) : ?>
+
+<?php foreach ($items_yl as $item_yl) : ?>
+<?php if($item_yl['description']=='NO ALERT'){echo '';}else{ ?>
+<div class="emergency-alert">
+	<div class="emergency-alert-global-yl">
+<h2><?php echo $item_yl['title']; ?></h2>
+<p><?php echo $item_yl['description']; ?></p>
+	</div>
+</div>
+<?php }
+ endforeach; ?>
+
+<?php endif; ?>
+<?php $feed_gr = fetch_rss('http://www.getrave.com/rss/jhu/channel4'); // specify feed url
+$items_gr = array_slice($feed_gr->items, 0, 1); // specify first and last item
+if (!empty($items_gr)) : ?>
+
+<?php foreach ($items_gr as $item_gr) : ?>
+<?php if($item_gr['description']=='NO ALERT'){echo '';}else{ ?>
+<div class="emergency-alert">
+	<div class="emergency-alert-global-gr">
+<h2><?php echo $item_gr['title']; ?></h2>
+<p><?php echo $item_gr['description']; ?></p>
+	</div>
+</div>
+<?php }
+endforeach; ?>
 
 <?php endif; ?>
