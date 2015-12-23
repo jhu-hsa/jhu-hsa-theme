@@ -3065,17 +3065,20 @@ color:#fff;  }
 
 .menu-column > a {
   display: none; }
- .emergency-alert-site{background-color:#CCFF33;
-  color:#000;}
-  .emergency-alert-global{background-color:#FF0000;color:#fff;}
-    .emergency-alert-global,.emergency-alert-site{
-    text-align:center;
-    line-height:1.4;
-    font-weight:bold;
-	
-	overflow:hidden;}
-	.emergency-alert-global h2{color:#fff;}
-	.emergency-alert-site h2{color:#000;} 
+ .emergency-alert{
+text-align:center;
+line-height:1.4;
+font-weight:bold;
+overflow:hidden;
+color:#fff;}
+.emergency-alert .emergency-alert-site{background-color:#0000FF;
+}
+.emergency-alert .emergency-alert-global{background-color:#FF0000;}
+.emergency-alert .emergency-alert-global-gr{background-color:#339900;}
+.emergency-alert .emergency-alert-global-yl{background-color:#FFFF00;color:#000;}
+ .emergency-alert .emergency-alert-global-rd{background-color:#FF0000;}
+.emergency-alert-global-rd h2,.emergency-alert-global-gr h2,.emergency-alert-site h2{color:#fff;}
+.emergency-alert-global-yl h2{color:#000;}
   
   	.soliloquy-theme-classic .soliloquy-pager{  
 bottom: 10px;
@@ -3089,3 +3092,6 @@ bottom: 10px;
 ul.soliloquy-slider > li::before{content: none;}	
 .soliloquy-container,.soliloquy-container *{font-family: "gentona",sans-serif;}
 .panel-group .panel{border:none !important;}
+.soliloquy-container .soliloquy-pager { display: none; }
+.soliloquy-container:hover .soliloquy-pager, .soliloquy-container.soliloquy-hover .soliloquy-pager { display: block; }
+
