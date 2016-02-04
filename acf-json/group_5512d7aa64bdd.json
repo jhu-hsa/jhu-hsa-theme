@@ -2,25 +2,7 @@
     "key": "group_5512d7aa64bdd",
     "title": "Resource Landing",
     "fields": [
-        {
-            "key": "field_5512d8401e75a",
-            "label": "Additional Information",
-            "name": "additional_information",
-            "prefix": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0
-        },
+      
 		{
             "key": "field_55117db01adm1",
             "label": "Contact Information",
@@ -556,7 +538,7 @@
                 },
                 {
                     "key": "field_55117e72adm2f",
-                    "label": "Wedensday Start",
+                    "label": "Wednesday Start",
                     "name": "wedensday_start",
                     "type": "select",
                     "instructions": "",
@@ -594,7 +576,7 @@
                 },
                 {
                     "key": "field_55117e8cadm2g",
-                    "label": "Wenesday End",
+                    "label": "Wednesday End",
                     "name": "wedensday_end",
                     "type": "select",
                     "instructions": "",
@@ -1119,6 +1101,28 @@
             "prefix": "",
             "type": "text",
             "instructions": "Input events endpoint from HUB API",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+		{
+            "key": "field_5522bfeadm612",
+            "label": "See More Events",
+            "name": "see_more_events",
+            "prefix": "",
+            "type": "text",
+            "instructions": "Input event search from hub.jhu.edu/events",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
