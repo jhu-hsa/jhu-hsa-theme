@@ -70,7 +70,8 @@ Template Name: Home
         </div>
       </div>
     </div>
-  </div>
+	  <a class="button" href="http://hub.jhu.edu/events" style="display: block; margin: 0 auto 1rem auto; width:21.5%;">View All Upcoming Events</a>
+   </div>
 <?php endif; ?>
 
 <section class="social">
