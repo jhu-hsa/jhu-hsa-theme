@@ -6,23 +6,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <title><?php wp_title(''); ?></title>
-	<?php
-if ( is_super_admin() || is_admin()) {
+
+<?php wp_head(); ?>
+	<?php global $current_user;
+      get_currentuserinfo();
+if ( is_super_admin() || is_admin() || $current_user->user_level=='3') {
 echo '';	
 }
 else{
 ?>
-	<script type='text/javascript'>
-window.__lo_site_id = 47976;
-
-	(function() {
-		var wa = document.createElement('script'); wa.type = 'text/javascript'; wa.async = true;
-		wa.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://cdn') + '.luckyorange.com/w.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
-	  })();
-	</script>
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0044/9740.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
 <?php }?>
-    <?php wp_head(); ?>
+   
   </head>
   <body>
     <div class="body">
