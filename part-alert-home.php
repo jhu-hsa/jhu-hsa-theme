@@ -47,57 +47,27 @@ endif;
 }
 ?>
 
-<?php
-include_once(ABSPATH.WPINC.'/rss.php'); // path to include script ?>
+<?php 
+$feed = fetch_feed(array('http://www.getrave.com/rss/jhu/channel2', 'http://www.getrave.com/rss/jhu/channel4', 'http://www.getrave.com/rss/jhu/channel5'));
 
+// Loop the results
+foreach($feed->get_items(0,1) as $item) {
+	if($item->get_content()=='NO ALERT'){echo '';}else{ 
+	
+	if ($item->get_feed()->get_title()=='JHU.edu website alert: RED'){
+	echo '<div class="rave-alert red">';
+	}
+	elseif($item->get_feed()->get_title() == 'JHU.edu website alert: YELLOW'){
+	echo '<div class="rave-alert yellow">';
+		}
+		elseif($item->get_feed()->get_title() == 'JHU.edu website alert: GREEN'){
+		echo '<div class="rave-alert green">';
+		}
+		else{
+			echo '';
+		}
+    echo '<a href="https://www.jhu.edu/alert">'.$item->get_content(). '</a>';
+		echo '</div>';
 
-
-
-<?php $feed_rd = fetch_rss('http://www.getrave.com/rss/jhu/channel2'); // specify feed url
-$items_rd = array_slice($feed_rd->items, 0, 1); // specify first and last item
-if (!empty($items_rd)) : ?>
-
-<?php foreach ($items_rd as $item_rd) : ?>
-<?php if($item_rd['description']=='NO ALERT'){echo '';}else{ ?>
-<div class="emergency-alert">
-	<div class="emergency-alert-global-rd">
-<h2><?php echo $item_rd['title']; ?></h2>
-<p><?php echo $item_rd['description']; ?></p>
-	</div>
-</div>
-<?php }
-endforeach; ?>
-
-<?php endif; ?>
-<?php $feed_yl = fetch_rss('http://www.getrave.com/rss/jhu/channel5'); // specify feed url
-$items_yl = array_slice($feed_yl->items, 0, 1); // specify first and last item
-if (!empty($items_yl)) : ?>
-
-<?php foreach ($items_yl as $item_yl) : ?>
-<?php if($item_yl['description']=='NO ALERT'){echo '';}else{ ?>
-<div class="emergency-alert">
-	<div class="emergency-alert-global-yl">
-<h2><?php echo $item_yl['title']; ?></h2>
-<p><?php echo $item_yl['description']; ?></p>
-	</div>
-</div>
-<?php }
- endforeach; ?>
-
-<?php endif; ?>
-<?php $feed_gr = fetch_rss('http://www.getrave.com/rss/jhu/channel4'); // specify feed url
-$items_gr = array_slice($feed_gr->items, 0, 1); // specify first and last item
-if (!empty($items_gr)) : ?>
-
-<?php foreach ($items_gr as $item_gr) : ?>
-<?php if($item_gr['description']=='NO ALERT'){echo '';}else{ ?>
-<div class="emergency-alert">
-	<div class="emergency-alert-global-gr">
-<h2><?php echo $item_gr['title']; ?></h2>
-<p><?php echo $item_gr['description']; ?></p>
-	</div>
-</div>
-<?php }
-endforeach; ?>
-
-<?php endif; ?>
+	}
+}?>
