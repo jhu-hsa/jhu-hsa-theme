@@ -1,0 +1,21 @@
+.main div.elementsToFilter{text-align: center;
+padding-bottom:1rem;}
+
+.main div.elementsToFilter a.sortasc:after{ 
+   content: '\f063';
+   font-family: FontAwesome;
+   font-weight: normal;
+   font-style: normal;
+   margin:0px 0px 0px 10px;
+   text-decoration:none;
+
+} 
+.main div.elementsToFilter a.sortdsc:after{ 
+   content: '\f062';
+   font-family: FontAwesome;
+   font-weight: normal;
+   font-style: normal;
+   margin:0px 0px 0px 10px;
+   text-decoration:none;
+
+} 
