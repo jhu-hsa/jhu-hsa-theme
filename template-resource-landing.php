@@ -33,7 +33,111 @@ Template Name: Resource Landing
         <div class="main__sidebar main__sidebar--alt">
           <div class="sidebar__block">
             <div class="sidebar__info">
-              <?php the_field('additional_information'); ?>
+			<?php //the_field('additional_information'); ?>
+			 		 <h3>Contact Us</h3>
+				<?php //the_title('<h3>','</h3>'); ?>
+<?php
+
+// check if the repeater field has rows of data
+if( have_rows('contact_information') ):
+
+  // loop through the rows of data
+    while ( have_rows('contact_information') ) : the_row();
+ echo '<p>';
+
+        // display a sub field value
+    if (get_sub_field('address_title')){ echo '<strong>'.get_sub_field('address_title').'</strong><br />';} else{echo '';}
+
+  //echo '<p><strong>Johns Hopkins University</strong><br />';
+  if (get_sub_field('street_address')){ echo get_sub_field('street_address').'<br />';} else{echo '';}
+  if (get_sub_field('building')){ echo get_sub_field('building').'<br />';} else{echo '';}
+  if (get_sub_field('building')){ echo 'Suite '.get_sub_field('room_number').'<br />';} else{echo '';}
+         if (get_sub_field('street_address')){ echo 'Baltimore, MD 21218';} else{echo '';}
+ echo '</p>';
+
+
+    endwhile;
+
+else :
+
+    // no rows found
+
+endif;
+
+?>				
+<?php
+
+// check if the repeater field has rows of data
+if( have_rows('contact_phone_fax') ):
+//echo '<h2>Contacts</h2>';
+  // loop through the rows of data
+    while ( have_rows('contact_phone_fax') ) : the_row();
+
+    echo '<p>';     // display a sub field value
+  if (get_sub_field('contact_title')){ echo '<strong>'.get_sub_field('contact_title').'</strong><br />';} else{echo '';}
+ 
+  if (get_sub_field('phone_number')){ echo '<strong>Tel: </strong>410-516-'.get_sub_field('phone_number').'<br />';} else{echo '';}
+  if (get_sub_field('fax_number')){ echo '<strong>Fax: </strong>410-516-'.get_sub_field('fax_number').'<br />';} else{echo '';}
+  if (get_sub_field('e_mail')){   echo '<a href="mailto:'.get_sub_field('e_mail').'">'.get_sub_field('e_mail').'</a>';
+} else{echo '';}
+echo '</p>';
+  
+
+
+
+    endwhile;
+
+else :
+
+    // no rows found
+
+endif;
+
+?>
+
+
+<?php
+
+// check if the repeater field has rows of data
+if( have_rows('service_hours') ):
+echo '<h3>Hours</h3>';
+  // loop through the rows of data
+    while ( have_rows('service_hours') ) : the_row();
+
+        // display a sub field value
+  if (get_sub_field('hours_title')){ echo '<h4>'.get_sub_field('hours_title').'</h4>';} else{echo '';}
+  echo '<p>';
+  if (get_sub_field('sunday_start') && get_sub_field('sunday_end')){ echo '<strong>Sunday: </strong>'.get_sub_field('sunday_start').' - '.get_sub_field('sunday_end').'<br />';} else{echo '';}
+  if (get_sub_field('monday_start') && get_sub_field('monday_end')){ echo '<strong>Monday: </strong>'.get_sub_field('monday_start').' - '.get_sub_field('monday_end').'<br />';} else{echo '';}
+   
+    if (get_sub_field('tuesday_start') && get_sub_field('tuesday_end')){ echo '<strong>Tuesday: </strong>'.get_sub_field('tuesday_start').' - '.get_sub_field('tuesday_end').'<br />';} else{echo '';}
+    
+	if (get_sub_field('wedensday_start') && get_sub_field('wedensday_end')){ echo '<strong>Wednesday: </strong>'.get_sub_field('wedensday_start').' - '.get_sub_field('wedensday_end').'<br />';} else{echo '';}
+    
+	if (get_sub_field('thursday_start') && get_sub_field('thursday_end')){ echo '<strong>Thursday: </strong>'.get_sub_field('thursday_start').' - '.get_sub_field('thursday_end').'<br />';} else{echo '';}
+    
+	if (get_sub_field('friday_start') && get_sub_field('friday_end')){ echo '<strong>Friday: </strong>'.get_sub_field('friday_start').' - '.get_sub_field('friday_end').'<br />';} else{echo '';}
+       
+	   if (get_sub_field('saturday_start') && get_sub_field('saturday_end')){ echo '<strong>Saturday: </strong>'.get_sub_field('saturday_start').' - '.get_sub_field('saturday_end').'<br />';} else{echo '';}
+      
+	  if (get_sub_field('time_notes') && get_sub_field('monday_start') && get_sub_field('monday_end')){ echo '<span style="font-style: italic;color:#003b5d;">'.get_sub_field('time_notes').'</span>';} else{echo '';}
+
+
+echo '</p>';
+  
+
+
+
+    endwhile;
+
+else :
+
+    // no rows found
+
+endif;
+
+?> 
+			  
               <?php if (get_field('facebook_link') || get_field('twitter_link') || get_field('map_link') || get_field('linkedin_link') || get_field('flickr_link') || get_field('youtube_link') || get_field('instagram_link')) : ?>
                 <ul class="icon-list">
                   <?php if (get_field('facebook_link')) : ?>
@@ -95,8 +199,11 @@ Template Name: Resource Landing
             </li>
           <?php endforeach; ?>
         </ul>
-      </div>
+		<a class="button button--blue"" href="http://hub.jhu.edu/<?php if (get_field('see_more_events')) : the_field('see_more_events'); endif; ?>" style="display: block; margin: 0 auto 1rem auto; width:21.5%;">View All Upcoming Events</a>
+		      </div>
+			  
     </section>
+ 
   <?php endif; ?>
 <?php endif; ?>
 
