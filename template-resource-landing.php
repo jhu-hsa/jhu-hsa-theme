@@ -199,7 +199,7 @@ endif;
             </li>
           <?php endforeach; ?>
         </ul>
-		<a class="button button--blue"" href="http://hub.jhu.edu/<?php if (get_field('see_more_events')) : the_field('see_more_events'); endif; ?>" style="display: block; margin: 0 auto 1rem auto; width:21.5%;">View All Upcoming Events</a>
+		<a class="button button--blue"" href="http://hub.jhu.edu/<?php if (get_field('see_more_events')) : the_field('see_more_events'); endif; ?>" style="display: block; margin: 0 auto 1rem auto; width:22%; text-align:center; min-width:180px;">View All Upcoming Events</a>
 		      </div>
 			  
     </section>
