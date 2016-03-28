@@ -16,9 +16,9 @@ add_action( 'wp_enqueue_scripts', 'theme_css' );
 
 // theme js
 function theme_js() {
-  wp_enqueue_script( 'html5shiv', get_template_directory_uri() . '/js/html5shiv.js' );
-  wp_enqueue_script( 'bower', get_template_directory_uri() . '/js/script-bower.js' );
-  wp_enqueue_script( 'theme', get_template_directory_uri() . '/js/script.js' );
+  wp_enqueue_script( 'html5shiv', get_template_directory_uri() . '/js/html5shiv.js',array(), false, true );
+  wp_enqueue_script( 'bower', get_template_directory_uri() . '/js/script-bower.js',array(), false, true );
+  wp_enqueue_script( 'theme', get_template_directory_uri() . '/js/script.js',array(), false, true );
 }
 add_action( 'wp_enqueue_scripts', 'theme_js' );
 
@@ -29,11 +29,13 @@ add_theme_support( 'menus' );
 add_image_size( 'collage', 1080, 648, true );
 add_image_size( 'feature', 800, 600, true );
 add_image_size( 'resource', 1024, 576, true );
-add_image_size( 'resource-category', 740, 370, true );
-add_image_size( 'splash', 1920, 1080, true );
+add_image_size( 'resource-category', 740, 370, false );
+add_image_size( 'splash', 1920, 1080, array( center, top ) );
 add_image_size( 'staff', 480, 480, true );
 add_image_size( 'staff-small', 62, 62, true );
 add_image_size( 'staff-wide', 480, 340, true );
+add_image_size( 'post-header', 900, 400, array( center, top ) );
+add_image_size( 'post-preview', 250, 110, array( center, top ) );
 
 // use resource archive for resource category taxonomy
 function taxonomy_resource_category_template( $template ) {
@@ -470,22 +472,12 @@ function tgm_soliloquy_set_defaults( $defaults, $post_id ) {
     	
     }
 
-	add_action( 'init', 'tgm_soliloquy_restrict_admin_access', -1 );
-function tgm_soliloquy_restrict_admin_access() {
- 
-	if ( ! is_admin() ) {
-		return;
-	}
- 
-if ( class_exists( 'Soliloquy_Lite' ) ) {
-	if ( ! current_user_can( 'update_core' ) ) {
-		remove_action( 'init', array( Soliloquy_Lite::get_instance(), 'init' ), 0 );
-		remove_action( 'widgets_init', array( Soliloquy_Lite::get_instance(), 'widget' ) );
-	}
-}
-
-}
+	
 add_filter( 'wp_feed_cache_transient_lifetime', 
    create_function('$a', 'return 60;') );
 
-
+add_filter( 'frm_filter_final_form', 'auto_minimize_forms' );
+function auto_minimize_forms( $form ) {
+  $form = str_replace( array( "\r\n", "\r", "\n", "\t", '    ' ), '', $form );
+  return $form;
+}
