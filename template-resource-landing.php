@@ -50,8 +50,8 @@ if( have_rows('contact_information') ):
 
   //echo '<p><strong>Johns Hopkins University</strong><br />';
   if (get_sub_field('street_address')){ echo get_sub_field('street_address').'<br />';} else{echo '';}
-  if (get_sub_field('building')){ echo get_sub_field('building').'<br />';} else{echo '';}
-  if (get_sub_field('building')){ echo 'Suite '.get_sub_field('room_number').'<br />';} else{echo '';}
+  if (get_sub_field('building_name')){ echo get_sub_field('building_name').'<br />';} else{echo '';}
+  if (get_sub_field('building_name')){ echo 'Suite '.get_sub_field('room_number').'<br />';} else{echo '';}
          if (get_sub_field('street_address')){ echo 'Baltimore, MD 21218';} else{echo '';}
  echo '</p>';
 
@@ -199,7 +199,7 @@ endif;
             </li>
           <?php endforeach; ?>
         </ul>
-		<a class="button button--blue"" href="http://hub.jhu.edu/<?php if (get_field('see_more_events')) : the_field('see_more_events'); endif; ?>" style="display: block; margin: 0 auto 1rem auto; width:22%; text-align:center; min-width:180px;">View All Upcoming Events</a>
+		<a class="button button--blue"" href="http://hub.jhu.edu/<?php if (get_field('see_more_events')) : the_field('see_more_events'); endif; ?>" style="display: block; margin: 0 auto 2rem auto; width:22%; text-align:center; min-width:180px;">View All Upcoming Events</a>
 		      </div>
 			  
     </section>
@@ -219,7 +219,7 @@ endif;
           <li>
             <div class="feed__item feed__item--info">
               <?php if (has_post_thumbnail()) : ?>
-                <div class="feed__image" style="background-image: url(<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'resource-category')[0]; ?>);"></div>
+                <div class="feed__image" style="background-image: url(<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'post-preview')[0]; ?>);"></div>
               <?php endif; ?>
               <div class="feed__item__content">
                 <h4><?php the_title(); ?></h4>
