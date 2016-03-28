@@ -2,13 +2,22 @@
 <?php
 if ( is_page_template( 'template-home.php' ) ) {
 	
-$args = array( 'posts_per_page' => 1, 'category_name' => 'site-emergency-alerts' );
+$args = array( 
+ 
+'category__and'=>array( 27 ),
+'category__not_in' => array( 26 ),
+  'orderby'    =>  date,
+  'order'      =>  ASC,
+ 'posts_per_page' => 1
+ 
+
+ );
 
 $myposts = get_posts( $args );
 foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
-	<div class="emergency-alert-site">
-	<?php echo '<h2><a href="'.get_permalink().'" >'.get_the_title().'</a></h2>';
-			echo '<p>'.get_the_content().'</p>';?>
+	<div class="rave-alert site">
+	<?php echo '<a href="'.get_permalink().'" >'.get_the_title().'</a>';
+			?>
 	</div>
 <?php endforeach; 
 wp_reset_postdata();
@@ -36,12 +45,12 @@ endif;
     <?php else : ?>
         <?php // Loop through each feed item and display each item as a hyperlink. ?>
         <?php foreach ( $rss_items as $item ) : ?>
-            <div class="emergency-alert-site">
+          <div class="rave-alert site">
                 <a href="<?php echo esc_url( $item->get_permalink() ); ?>">
-                    <?php echo '<h2>'.esc_html( $item->get_title() ).'</h2>'; ?>
-					<?php echo $item->get_content(); ?>
+                    <?php echo esc_html( $item->get_title() ); ?>
+				
                 </a>
-            </div>
+		</div>
         <?php endforeach; ?>
     <?php endif; 
 }
