@@ -12,6 +12,11 @@
       <div class="post-date">
         <?php the_time('F j, Y'); ?>
       </div>
+	   <?php if (has_post_thumbnail()) : ?>
+        <div style="text-align:center;">
+          <?php the_post_thumbnail('post-header'); ?>
+        </div>
+      <?php endif; ?>
       <?php the_content(); ?>
       <?php the_tags(); ?>
     </section>
