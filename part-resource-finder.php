@@ -4,7 +4,7 @@
   <div class="wrap">
     <?php if ($bottom == true) { ?>
       <h1>Looking for something else?</h1>
-      <h4 class="heading--serif heading--centered">Resource Finder</h4>
+      <h2 class="heading--serif heading--centered">Resource Finder</h2>
     <?php } else { ?>
       <hr class="hr--transparent">
       <h1>Resource Finder</h1>
