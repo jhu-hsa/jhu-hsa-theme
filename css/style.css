@@ -196,7 +196,6 @@ a, label {
 
 h1, h2, h3, h4, h5, table caption, h6 {
   color: #003b5d;
-  text-transform: uppercase;
   font-weight: bold; }
   h1.heading--serif, h2.heading--serif, h3.heading--serif, h4.heading--serif, h5.heading--serif, table caption.heading--serif, h6.heading--serif {
     font-family: 'quadon', serif;
@@ -215,12 +214,14 @@ h1 {
   line-height: 1.1;
   text-align: center;
   position: relative;
+  text-transform:uppercase;
   padding-bottom: 20px;
   padding-bottom: 1.25rem; }
   @media (min-width: 48em) {
     h1 {
       font-size: 48px;
       font-size: 3rem;
+	  text-transform:uppercase;
       line-height: 1; } }
   h1:before {
     position: absolute;
@@ -301,13 +302,28 @@ ul, ol {
   .main > ul, .main > ol {
     overflow: hidden; }
 
-ul > li:before {
-  content: '\f061';
-  left: 0;
-  top: 5px;
-  top: 0.3125rem;
-  font-size: 12px;
-  font-size: 0.75rem; }
+ul {
+   }
+  ul > li {
+    }
+    ul > li:before {
+      content: "\f111";
+      
+      left: 0;
+      top: .5rem;
+      font-size:10px;
+	  }
+      ul ul > li:before {
+        content: "\f10c";}
+      ul ul ul > li:before {
+        content: "\f192";}
+      ul ul ul ul > li:before {
+        content: "\f0c8"; }
+      ul ul ul ul ul > li:before {
+         content: "\f096"; }
+	
+		 ul ul ul ul ul ul > li:before {
+        content: "\f111"; } 
 
 ol {
   counter-reset: list; }
@@ -320,14 +336,17 @@ ol {
       top: 0;
       margin-right: -12px;
       margin-right: -0.75rem; }
-      ol ol > li:before {
+       ol ol > li:before {
         content: counter(list, upper-alpha) '.'; }
       ol ol ol > li:before {
         content: counter(list, lower-roman) '.'; }
       ol ol ol ol > li:before {
         content: counter(list, lower-alpha) '.'; }
       ol ol ol ol ol > li:before {
-        content: counter(list) '.'; }
+         content: counter(list, upper-roman) '.'; }
+	
+		 ol ol ol ol ol ol > li:before {
+        content: counter(list) '.'; } 
 
 blockquote {
   position: relative;
@@ -584,7 +603,7 @@ body .tag-cloud a {
       margin-right: 0.5rem; } }
 
 .header__title__sub {
-  display: none; }
+   }
   @media (min-width: 48em) {
     .header__title__sub {
       display: inline;
@@ -958,6 +977,80 @@ body .tag-cloud a {
   padding: 1rem 1rem 1rem 3rem;
   font-family: 'gentona', sans-serif;
   color: #fff; }
+  .menu__search-wrap form.menu__search span.menu-search-select{float:left!important;margin:0 auto!important;width:100%;text-align:center;}
+.menu__search-wrap form.menu__search span.menu-search-select span.jhu-radio, .menu__search-wrap form.menu__search span.menu-search-select span.hsa-radio{/*background:#cdcdcd!important; -moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+padding:2px;float:left!important;
+Font-weight:600;*/
+color:#ffffff;
+	clear: both;
+	}
+	
+  .menu__search-wrap form.menu__search span.menu-search-select input[type=radio]:not(old){
+  width     : 2em;
+  margin    : 0 auto!important;
+  padding   : 0;
+  font-size : 1em;
+  opacity   : 0;
+}
+
+
+.menu__search-wrap form.menu__search span.menu-search-select input[type=radio]:not(old) + label{
+  display      : inline-block;
+  margin-left  : -2em;
+ line-height  : 1.2em; /**/
+}
+
+
+.menu__search-wrap form.menu__search span.menu-search-select input[type=radio]:not(old) + label > span{
+  display          : inline-block;
+  width            : 0.875em;
+  height           : 0.875em;
+  margin           : 0.25em 0.5em 0.25em 0.25em;
+  border           : 0.0625em solid rgb(192,192,192);
+  border-radius    : 3em;
+  background       : rgb(224,224,224);
+  background-image :    -moz-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :     -ms-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :      -o-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image : -webkit-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :         linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  vertical-align   : bottom;
+   
+}
+
+
+.menu__search-wrap form.menu__search span.menu-search-select input[type=radio]:not(old):checked + label > span{
+  background-image :    -moz-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :     -ms-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :      -o-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image : -webkit-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :         linear-gradient(rgb(224,224,224),rgb(240,240,240));
+}
+
+
+
+.menu__search-wrap form.menu__search span.menu-search-select input[type=radio]:not(old):checked +  label > span > span{
+  display          : block;
+  width            : 0.5em;
+  height           : 0.5em;
+  margin           : 0.10em 0.27em 0.10em 0.13em;
+  border           : 0.0625em solid rgb(1,92,185);
+  border-radius    : 3em;
+  background       : rgb(153,204,102);
+  background-image :    -moz-linear-gradient(rgb(0,59,93),rgb(1,92,185));
+  background-image :     -ms-linear-gradient(rgb(0,59,93),rgb(1,92,185));
+  background-image :      -o-linear-gradient(rgb(0,59,93),rgb(1,92,185));
+  background-image : -webkit-linear-gradient(rgb(0,59,93),rgb(1,92,1852));
+  background-image :         linear-gradient(rgb(0,59,93),rgb(1,92,185));
+  
+}
+
+.menu__search-wrap form.menu__search span.menu-search-select input[type=radio]:not(old):checked + label{
+  background-position : 0 -48px;
+}
+
   @media (min-width: 48em) {
     .menu__search {
       font-size: 17px;
@@ -967,8 +1060,10 @@ body .tag-cloud a {
       right: 0;
       width: 370px;
       width: 23.125rem;
-      padding: 22px 22px 22px 104px;
-      padding: 1.375rem 1.375rem 1.375rem 6.5rem;
+      /*padding: 22px 22px 22px 104px;
+      padding: 1.375rem 1.375rem 1.375rem 6.5rem;*/
+	  	 padding: 1rem 1.375rem 1rem 6.5rem!important;
+
       background: #fff;
       -webkit-transform: translateX(16.625rem);
           -ms-transform: translateX(16.625rem);
@@ -997,12 +1092,13 @@ body .tag-cloud a {
     left: 1rem;
     top: 50%;
     margin-top: -10px;
-    margin-top: -0.65625rem;
+    margin-top: -1.65625rem;
     font-size: 150%; }
     @media (min-width: 48em) {
       .menu__search:before {
         display: none;
-        content: ''; } }
+        content: ''; 
+		margin-top: -1.65625rem;} }
   .menu__search label {
     display: none; }
   @media (min-width: 48em) {
@@ -2399,7 +2495,8 @@ color:#fff;  }
 
 .resource-feature__source {
   font-size: 90%;
-  text-align: right; }
+  margin-top:1rem!important;
+  text-align: left; }
 
 .social {
   background: #003b5d;
@@ -3155,22 +3252,44 @@ color:#fff;  }
 .rave-alert.site a:hover, .rave-alert.site.no-link:hover {
     background-color: #015CB9;
 }
-  
-  	.soliloquy-theme-classic .soliloquy-pager{  
-bottom: 10px;
-    height: 14px;
-    margin: 0 0 0 5px;
-    position: absolute;
-    text-align: center !important;
-    width: 100%;}
-.soliloquy-container .soliloquy-caption { top:0; bottom:auto !important;}
-.soliloquy-container .soliloquy-caption-inside h3,.soliloquy-container .soliloquy-caption-inside h4{color:#fff}
-ul.soliloquy-slider > li::before{content: none;}	
-.soliloquy-container,.soliloquy-container *{font-family: "gentona",sans-serif;}
-.panel-group .panel{border:none !important;}
-.soliloquy-container .soliloquy-pager { display: none; }
-.soliloquy-container:hover .soliloquy-pager, .soliloquy-container.soliloquy-hover .soliloquy-pager { display: block; }
-/*.addthis_toolbox a[target="_blank"]:after, .social a[target="_blank"]:after, ul.icon-list a[target="_blank"]:after{ content:none;}*/
+  /* slider */
+.soliloquy-theme-metro .soliloquy-prev,
+    .soliloquy-theme-metro .soliloquy-next {
+      background-color: #015CB9!important;
+    
+    }
+     .soliloquy-theme-karisma .soliloquy-prev,
+    .soliloquy-theme-karisma .soliloquy-next,.soliloquy-container.soliloquy-theme-karma .soliloquy-prev,
+    .soliloquy-container.soliloquy-theme-karma .soliloquy-next {
+      background-color: #015CB9!important;
+    
+    }
+	 .soliloquy-theme-base .soliloquy-prev,
+    .soliloquy-theme-base .soliloquy-next, .soliloquy-theme-classic  .soliloquy-prev,
+    .soliloquy-theme-classic  .soliloquy-next {
+    background-color: #015CB9!important;
+	  border-radius: 999em!important;
+  border: 3px solid white!important;
+  width: 30px!important;
+  height: 30px!important;
+    }
+	
+    .soliloquy-theme-karisma .soliloquy-container .soliloquy-prev, .soliloquy-theme-base .soliloquy-prev, .soliloquy-theme-classic .soliloquy-prev { 
+	  background: #015CB9 url("../img/left@2x.png")!important;
+	background-size:13px!important;
+	background-position:center center!important;
+	background-repeat:no-repeat!important;
+    }
+    .soliloquy-theme-karisma .soliloquy-container .soliloquy-next , .soliloquy-theme-base .soliloquy-next, .soliloquy-theme-classic .soliloquy-next {
+		  background: #015CB9 url("../img/right@2x.png")!important;
+	background-size:13px!important;
+	background-position:center center!important;
+	background-repeat:no-repeat!important;
+    }
+
+	.soliloquy-container a{text-decoration:none!important; border-bottom:none!important;}
+#soliloquybox-thumbs ul li{padding-left:0!important;}
+#soliloquybox-thumbs ul li::before, ul.soliloquy-slider > li::before{content: none!important;  }
 .sidebar a[target="_blank"]:after{ content: '\f08e';
  font-family: FontAwesome;
 color:#3d8edd;
@@ -3189,14 +3308,34 @@ padding-left:.4rem;}
 .wpcmsdev-tabs .headings, .wpcmsdev-accordion .accordion-item-title, .wpcmsdev-toggle .toggle-title a{
 
     font-weight: bold!important;
-    text-transform: uppercase;
+    text-transform: none!important;
  
 }
+
 .wpcmsdev-box .box-title {
     background-color: #015cb9!important;
 	color:#ffffff;
    
 }
+.wpcmsdev-columns{
+    margin: 0 15% auto !important;
+     width: 85% !important;}
+.wpcmsdev-columns .column.column-width-one-third {
+    width: 29%!important;
+	min-width:200px!important;
+	margin-bottom:3rem;
+}
+.wpcmsdev-button{background-image:none!important;}
+.wpcmsdev-button span{font-weight:bold; 
+color:#fff!important; 
+transition:none!important;}
+.wpcmsdev-button.color-blue {
+    background-color: #015cb9!important;
+	color:#fff!important;
+}
 code, kbd, pre, samp {
   font-family: 'gentona', sans-serif!important; 
 }
+
+/* Formidable */
+ul.sigNav li::before{content:none!important;}
