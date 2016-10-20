@@ -19,3 +19,22 @@ padding-bottom:1rem;}
    text-decoration:none;
 
 } 
+
+/* special custom field posts */
+.post-group{text-align:center;}
+.post-group strong{padding-right:1rem;}
+.post-tags {
+
+}
+.post-tags a:link, .post-tags a:visited {
+    font-size: 1rem;
+   
+    white-space: nowrap;
+}
+.post-tags::after{content: ' | ';
+padding:1rem;}
+.post-tags:last-child::after{ content: '';}
+
+.feed > ul.equipment-rental > li::before, .feed .wrap > ul.equipment-rental > li::before {
+    display: none;
+}
