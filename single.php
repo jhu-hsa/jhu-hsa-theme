@@ -10,7 +10,7 @@
     <section class="main">
       <h1><?php the_title(); ?></h1>
       <div class="post-date">
-        <?php the_time('F j, Y'); ?>
+        Posted: <?php the_time('F j, Y'); ?>
       </div>
 	   <?php if (has_post_thumbnail()) : ?>
         <div style="text-align:center;">
