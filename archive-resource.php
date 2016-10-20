@@ -12,7 +12,7 @@
           <img src="<?php $image = get_field('image', $term); echo $image['sizes']['resource-category']; ?>" alt="">
           <div class="resource-feature__content">
             <?php the_field('quotation', $term); ?>
-            <p class="resource-feature__source">&mdash; <?php the_field('quotation_source', $term); ?></p>
+            <p class="resource-feature__source"><?php the_field('quotation_source', $term); ?></p>
           </div>
         </div>
       <?php endif; ?>
