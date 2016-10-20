@@ -246,14 +246,316 @@
                
             ]
         },
-        {
-            "key": "field_55117db01adm2",
-            "label": "Service Hours",
-            "name": "service_hours",
+    {
+                    "key": "field_55c39919adm2bef",
+                    "label": "Hours of Operation",
+                    "name": "hours_of_operation",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                },
+                    "choices": {
+                        "Multiple Days same time": "Same hours over multiple days (i.e. Monday-Friday: 8 a.m. - 5 p.m.)",
+                        "Single time and day": "Different hours each day"
+                        
+						
+						
+                        
+                    },
+                "default_value": [
+
+                ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+        }, 
+		
+		
+		
+		
+		
+		
+		
+		{
+            "key": "field_55c39919adm2bef1",
+            "label": "Same hours over multiple days (i.e. Monday-Friday: 8 a.m. - 5 p.m.)",
+            "name": "multiple_days_same_time",
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [ [ { "field": "field_55c39919adm2bef", "operator": "==", "value": "Multiple Days same time" } ] ] ,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": 8,
+            "layout": "table",
+            "button_label": "Add Item",
+            "sub_fields": [
+                 {
+                    "key": "field_55c39919adm2bef1a",
+                    "label": "Hours Title",
+                    "name": "hours_title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+				{
+                    "key": "field_55c39919adm2bef1b",
+                    "label": "First day",
+                    "name": "first_day",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Sunday": "Sunday",
+                        "Monday": "Monday",
+                        "Tuesday": "Tuesday",
+                        "Wedensday": "Wedensday",
+                        "Thursday": "Thursday",
+                        "Friday": "Friday",
+                      	"Saturday": "Saturday"
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+				{
+                    "key": "field_55c39919adm2bef1c",
+                    "label": "Last day",
+                    "name": "last_day",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Sunday": "Sunday",
+                        "Monday": "Monday",
+                        "Tuesday": "Tuesday",
+                        "Wedensday": "Wedensday",
+                        "Thursday": "Thursday",
+                        "Friday": "Friday",
+                      	"Saturday": "Saturday"
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+				{
+                    "key": "field_55c39919adm2bef1d",
+                    "label": "Hours Start",
+                    "name": "hours_start",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+						"6 a.m.": "6 a.m.",
+                        "6:30 a.m.": "6:30 a.m.",
+						"7 a.m.": "7 a.m.",
+                        "7:30 a.m.": "7:30 a.m.",
+                        "8 a.m.": "8 a.m.",
+                        "8:30 a.m.": "8:30 a.m.",
+                        "9 a.m.": "9 a.m.",
+                        "9:30 a.m.": "9:30 a.m.",
+                        "10 a.m.": "10 a.m.",
+                        "10:30 a.m.": "10:30 a.m.",
+                        "11 a.m.": "11 a.m.",
+						"12 p.m.": "12 p.m.",
+						"Noon": "Noon",
+						"1 p.m.": "1 p.m.",
+						"2 p.m.": "2 p.m."
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_55c39919adm2bef1e",
+                    "label": "Hours End",
+                    "name": "hours_end",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+						"12 p.m.": "12 p.m.",
+						"Noon": "Noon",
+						"12 p.m.": "12 p.m.",
+						"1 p.m.": "1 p.m.",
+						"2 p.m.": "2 p.m.",
+                        "2:30 p.m.": "2:30 p.m.",
+                        "3 p.m.": "3 p.m.",
+                        "3:30 p.m.": "3:30 p.m.",
+                        "4 p.m.": "4 p.m.",
+                        "4:30 p.m.": "4:30 p.m.",
+                        "4:45 p.m.": "4:45 p.m.",
+                        "5 p.m.": "5 p.m.",
+                        "5:30 p.m.": "5:30 p.m.",
+                        "6 p.m.": "6 p.m.",
+                        "6:30 p.m.": "6:30 p.m.",
+                        "7 p.m.": "7 p.m.",
+						"8 p.m.": "8 p.m.",
+						"9 p.m.": "9 p.m.",
+						"10 p.m.": "10 p.m.",
+						"11 p.m.": "11 p.m.",
+						"12 a.m.": "12 a.m.",
+						"Midnight": "Midnight"
+						
+                      
+                        
+                    },
+                    "default_value": [
+
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+               
+                {
+                    "key": "field_55117e8cadm2n",
+                    "label": "Time Notes",
+                    "name": "time_notes",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                }
+               
+            ]
+        },
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+        {
+            "key": "field_55117db01adm2",
+            "label": "Different hours each day",
+            "name": "single_time_and_hours",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [ [ { "field": "field_55c39919adm2bef", "operator": "==", "value": "Single time and day" } ] ] ,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -306,7 +608,10 @@
                         "10 a.m.": "10 a.m.",
                         "10:30 a.m.": "10:30 a.m.",
                         "11 a.m.": "11 a.m.",
-						"12 p.m.": "12 p.m."
+						"12 p.m.": "12 p.m.",
+						 "Noon": "Noon",
+						"1 p.m.": "1 p.m.",
+						"2 p.m.": "2 p.m."
                       
                         
                     },
@@ -335,7 +640,10 @@
                         "id": ""
                     },
                     "choices": {
-                         "2 p.m.": "2 p.m.",
+						 "12 p.m.": "12 p.m.",
+						  "Noon": "Noon",
+						"1 p.m.": "1 p.m.",
+						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
                         "3 p.m.": "3 p.m.",
                         "3:30 p.m.": "3:30 p.m.",
@@ -351,7 +659,8 @@
 						"9 p.m.": "9 p.m.",
 						"10 p.m.": "10 p.m.",
 						"11 p.m.": "11 p.m.",
-						"12 a.m.": "12 a.m."
+						"12 a.m.": "12 a.m.",
+						"Midnight": "Midnight"
 						
                       
                         
@@ -381,7 +690,11 @@
                         "id": ""
                     },
                     "choices": {
-                        "8 a.m.": "8 a.m.",
+                        "6 a.m.": "6 a.m.",
+                        "6:30 a.m.": "6:30 a.m.",
+						"7 a.m.": "7 a.m.",
+                        "7:30 a.m.": "7:30 a.m.",
+						"8 a.m.": "8 a.m.",
                         "8:30 a.m.": "8:30 a.m.",
                         "9 a.m.": "9 a.m.",
                         "9:30 a.m.": "9:30 a.m.",
@@ -389,6 +702,7 @@
                         "10:30 a.m.": "10:30 a.m.",
                         "11 a.m.": "11 a.m.",
 						"12 p.m.": "12 p.m.",
+						 "Noon": "Noon",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m."
                       
@@ -420,6 +734,7 @@
                     },
                     "choices": {
                         "12 p.m.": "12 p.m.",
+						 "Noon": "Noon",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
@@ -437,7 +752,8 @@
 						"9 p.m.": "9 p.m.",
 						"10 p.m.": "10 p.m.",
 						"11 p.m.": "11 p.m.",
-						"12 a.m.": "12 a.m."
+						"12 a.m.": "12 a.m.",
+						"Midnight": "Midnight"
                       
                         
                     },
@@ -466,7 +782,11 @@
                         "id": ""
                     },
                     "choices": {
-                     "8 a.m.": "8 a.m.",
+						"6 a.m.": "6 a.m.",
+                        "6:30 a.m.": "6:30 a.m.",
+						"7 a.m.": "7 a.m.",
+                        "7:30 a.m.": "7:30 a.m.",
+                        "8 a.m.": "8 a.m.",
                         "8:30 a.m.": "8:30 a.m.",
                         "9 a.m.": "9 a.m.",
                         "9:30 a.m.": "9:30 a.m.",
@@ -474,6 +794,7 @@
                         "10:30 a.m.": "10:30 a.m.",
                         "11 a.m.": "11 a.m.",
 						"12 p.m.": "12 p.m.",
+						 "Noon": "Noon",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m."
                       
@@ -505,6 +826,7 @@
                     },
                     "choices": {
                         "12 p.m.": "12 p.m.",
+						"Noon": "Noon",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
@@ -522,7 +844,8 @@
 						"9 p.m.": "9 p.m.",
 						"10 p.m.": "10 p.m.",
 						"11 p.m.": "11 p.m.",
-						"12 a.m.": "12 a.m."
+						"12 a.m.": "12 a.m.",
+						"Midnight": "Midnight"
                       
                         
                     },
@@ -539,7 +862,7 @@
                 },
                 {
                     "key": "field_55117e72adm2f",
-                    "label": "Wednesday Start",
+                    "label": "Wedensday Start",
                     "name": "wedensday_start",
                     "type": "select",
                     "instructions": "",
@@ -551,7 +874,11 @@
                         "id": ""
                     },
                     "choices": {
-                        "8 a.m.": "8 a.m.",
+                        "6 a.m.": "6 a.m.",
+                        "6:30 a.m.": "6:30 a.m.",
+						"7 a.m.": "7 a.m.",
+                        "7:30 a.m.": "7:30 a.m.",
+						"8 a.m.": "8 a.m.",
                         "8:30 a.m.": "8:30 a.m.",
                         "9 a.m.": "9 a.m.",
                         "9:30 a.m.": "9:30 a.m.",
@@ -559,6 +886,7 @@
                         "10:30 a.m.": "10:30 a.m.",
                         "11 a.m.": "11 a.m.",
 						"12 p.m.": "12 p.m.",
+						 "Noon": "Noon",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m."
                       
@@ -577,7 +905,7 @@
                 },
                 {
                     "key": "field_55117e8cadm2g",
-                    "label": "Wednesday End",
+                    "label": "Wenesday End",
                     "name": "wedensday_end",
                     "type": "select",
                     "instructions": "",
@@ -589,7 +917,12 @@
                         "id": ""
                     },
                     "choices": {
-                        "12 p.m.": "12 p.m.",
+                        "6 a.m.": "6 a.m.",
+                        "6:30 a.m.": "6:30 a.m.",
+						"7 a.m.": "7 a.m.",
+                        "7:30 a.m.": "7:30 a.m.",
+						"12 p.m.": "12 p.m.",
+						"Noon": "Noon",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
@@ -607,7 +940,8 @@
 						"9 p.m.": "9 p.m.",
 						"10 p.m.": "10 p.m.",
 						"11 p.m.": "11 p.m.",
-						"12 a.m.": "12 a.m."
+						"12 a.m.": "12 a.m.",
+						"Midnight": "Midnight"
                       
                         
                     },
@@ -636,7 +970,11 @@
                         "id": ""
                     },
                     "choices": {
-                        "8 a.m.": "8 a.m.",
+                        "6 a.m.": "6 a.m.",
+                        "6:30 a.m.": "6:30 a.m.",
+						"7 a.m.": "7 a.m.",
+                        "7:30 a.m.": "7:30 a.m.",
+						"8 a.m.": "8 a.m.",
                         "8:30 a.m.": "8:30 a.m.",
                         "9 a.m.": "9 a.m.",
                         "9:30 a.m.": "9:30 a.m.",
@@ -644,6 +982,7 @@
                         "10:30 a.m.": "10:30 a.m.",
                         "11 a.m.": "11 a.m.",
 						"12 p.m.": "12 p.m.",
+						 "Noon": "Noon",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m."
                       
@@ -675,6 +1014,7 @@
                     },
                     "choices": {
                         "12 p.m.": "12 p.m.",
+						"Noon": "Noon",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
@@ -692,7 +1032,8 @@
 						"9 p.m.": "9 p.m.",
 						"10 p.m.": "10 p.m.",
 						"11 p.m.": "11 p.m.",
-						"12 a.m.": "12 a.m."
+						"12 a.m.": "12 a.m.",
+						"Midnight": "Midnight"
                       
                         
                     },
@@ -721,7 +1062,11 @@
                         "id": ""
                     },
                     "choices": {
-                     "8 a.m.": "8 a.m.",
+                        "6 a.m.": "6 a.m.",
+                        "6:30 a.m.": "6:30 a.m.",
+						"7 a.m.": "7 a.m.",
+                        "7:30 a.m.": "7:30 a.m.",
+						"8 a.m.": "8 a.m.",
                         "8:30 a.m.": "8:30 a.m.",
                         "9 a.m.": "9 a.m.",
                         "9:30 a.m.": "9:30 a.m.",
@@ -729,6 +1074,7 @@
                         "10:30 a.m.": "10:30 a.m.",
                         "11 a.m.": "11 a.m.",
 						"12 p.m.": "12 p.m.",
+						 "Noon": "Noon",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m."
                       
@@ -759,7 +1105,8 @@
                         "id": ""
                     },
                     "choices": {
-                           "12 p.m.": "12 p.m.",
+                        "12 p.m.": "12 p.m.",
+						"Noon": "Noon",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
@@ -777,7 +1124,8 @@
 						"9 p.m.": "9 p.m.",
 						"10 p.m.": "10 p.m.",
 						"11 p.m.": "11 p.m.",
-						"12 a.m.": "12 a.m."
+						"12 a.m.": "12 a.m.",
+						"Midnight": "Midnight"
                       
                         
                     },
@@ -806,14 +1154,17 @@
                         "id": ""
                     },
                     "choices": {
-                      "8 a.m.": "8 a.m.",
+                        "8 a.m.": "8 a.m.",
                         "8:30 a.m.": "8:30 a.m.",
                         "9 a.m.": "9 a.m.",
                         "9:30 a.m.": "9:30 a.m.",
                         "10 a.m.": "10 a.m.",
                         "10:30 a.m.": "10:30 a.m.",
                         "11 a.m.": "11 a.m.",
-						"12 p.m.": "12 p.m."
+						"12 p.m.": "12 p.m.",
+						 "Noon": "Noon",
+						"1 p.m.": "1 p.m.",
+						"2 p.m.": "2 p.m."
                       
                         
                     },
@@ -842,7 +1193,10 @@
                         "id": ""
                     },
                     "choices": {
-                           "2 p.m.": "2 p.m.",
+                        "12 p.m.": "12 p.m.",
+						"Noon": "Noon",
+						"1 p.m.": "1 p.m.",
+						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
                         "3 p.m.": "3 p.m.",
                         "3:30 p.m.": "3:30 p.m.",
@@ -858,7 +1212,8 @@
 						"9 p.m.": "9 p.m.",
 						"10 p.m.": "10 p.m.",
 						"11 p.m.": "11 p.m.",
-						"12 a.m.": "12 a.m."
+						"12 a.m.": "12 a.m.",
+						"Midnight": "Midnight"
                       
                         
                     },
