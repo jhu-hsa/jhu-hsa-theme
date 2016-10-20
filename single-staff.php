@@ -45,11 +45,11 @@ if (get_field('street_address') || get_field('street_address') || get_field('roo
   if (get_field('street_address')){ echo get_field('street_address').'<br />';} else{echo '';}
   if (get_field('building')){ echo get_field('building').'<br />';} else{echo '';}
   if (get_field('room_number') ){ echo 'Suite '.get_field('room_number').'<br />';} else{echo '';}
-         if (get_field('street_address')){ echo 'Baltimore, MD 21211';} else{echo '';}
+         if (get_field('street_address')){ echo 'Baltimore, MD 21218';} else{echo '';}
  echo '</p>';
 
 endif; 
-
+ 
 ?>
             </div>
           </div>
@@ -67,7 +67,7 @@ endif;
   <div class="wrap">
     <hr>
     <section class="staff">
-      <h4 class="heading--serif heading--centered">Our Staff</h4>
+      <h2 class="heading--serif heading--centered">Our Staff</h2>
       <ul>
         <?php while ( $query->have_posts() ) : $query->the_post(); ?>
           <li>
