@@ -28,47 +28,69 @@ Template Name: Home
 <?php endif; ?>
 
 <?php if (get_field('community_events') && get_field('homewood_events')) : ?>
+          <?php $homewood_events = hub_feed(get_field('homewood_events'), '3', 'events'); ?>
+          <?php $community_events = hub_feed(get_field('community_events'), '4', 'events'); ?>
+
   <div class="wrap">
     <hr class="hr--transparent">
     <h1>Events</h1>
     <div class="wrap wrap--flush">
-      <div class="split__left">
+       <div <?php if ($community_events){ ?>
+		  
+           
+           
+              <div<?php foreach ($community_events as $event) : ?> class="split__left"<?php endforeach; ?>
+           
+          <?php ;} 
+		  else{'';}?>>
         <div class="feed-stack">
-          <?php $community_events = hub_feed(get_field('community_events'), '3', 'events'); ?>
-          <?php if ($community_events) : ?>
-            <h4 class="heading--serif">Community Events</h4>
+          <?php if ($homewood_events){ ?>
+            <h2 class="heading--serif">Homewood Events</h2>
             <ul>
-              <?php foreach ($community_events as $event) : ?>
+              <?php foreach ($homewood_events as $event) : ?>
                 <li>
                   <div class="feed__item">
                     <p class="feed__date"><?php echo date('F j, Y', strtotime($event->start_date)); ?></p>
                     <h3><?php echo $event->name; ?></h3>
-                    <p class="feed__more"><a href="<?php echo $event->url; ?>" target="_blank">Read More...</a></p>
+                    <p class="feed__more"><a href="<?php echo $event->url; ?>" >Read More...</a></p>
                   </div>
                 </li>
               <?php endforeach; ?>
             </ul>
-          <?php endif; ?>
+          <?php
+		  }else{echo '';}?>
         </div>
       </div>
-      <div class="split__right">
+         <div <?php if ($homewood_events){ ?>
+		  
+           
+           
+              <div<?php foreach ($homewood_events as $event) : ?> class="split__right"<?php endforeach; ?>
+           
+          <?php ;} 
+		  else{'';}?>>
         <div class="detail-list">
-          <?php $homewood_events = hub_feed(get_field('homewood_events'), '4', 'events'); ?>
-          <?php if ($homewood_events) : ?>
-            <h4 class="heading--serif">Homewood Events</h4>
+          <?php if ($community_events) { ?>
+            <h2 class="heading--serif">Community Events</h2>
             <ul>
-              <?php foreach ($homewood_events as $event) : ?>
+              <?php foreach ($community_events as $event) : ?>
                 <li>
                   <div class="detail-list__date"><?php echo date('F j, Y', strtotime($event->start_date)); ?></div>
-                  <div class="detail-list__title"><a href="<?php echo $event->url; ?>" target="_blank"><?php echo $event->name; ?></a></div>
+                  <div class="detail-list__title"><a href="<?php echo $event->url; ?>" ><?php echo $event->name; ?></a></div>
                   <div class="detail-list__time"><?php echo date('g:i a', strtotime($event->start_time)); ?></div>
                   <div class="detail-list__location"><?php echo $event->_embedded->locations[0]->name; ?></div>
                 </li>
               <?php endforeach; ?>
             </ul>
-          <?php endif; ?>
+           <?php
+		  }else{echo '';}?>
+		 
         </div>
-      </div>
+      </div> 
+	  
+	  <?php if(!$community_events && !$homewood_events){echo '<div><div class="feed-stack"><ul><li>
+                  <div class="feed__item">There are no upcoming events at this time. Please check back later.</div>
+                </li>   </ul></div></div>';}else{echo  '';}?>
     </div>
 	  <a class="button button--blue" href="http://hub.jhu.edu/events" style="display: block; margin: 0 auto 2rem auto; width:22%; text-align:center; min-width:200px;">View All Upcoming Events</a>
   </div>
@@ -80,78 +102,11 @@ Template Name: Home
   <h1 class="h1--white">Life at This Moment</h1>
 
   
-  
-  <?php
-function processURL($url)
-    {
-        $ch = curl_init();
-        curl_setopt_array($ch, array(
-        CURLOPT_URL => $url,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_SSL_VERIFYPEER => false,
-        CURLOPT_SSL_VERIFYHOST => 2
-        ));
+  	<?php 
+	echo do_shortcode( '[instashow id="1"]' );
 
-        $result = curl_exec($ch);
-        curl_close($ch);
-        return $result;
-    }
-
-    //$tag = 'jhuhsa';
-  $userid='self';
-    $client_id = get_field('Instagram_token');
-   //$url = 'https://api.instagram.com/v1/tags/'.$tag.'/media/recent?client_id='.$client_id;
-$url = 'https://api.instagram.com/v1/users/'.$userid.'/feed?access_token='. $client_id.'&count=20';
-    //echo $url;
-  $all_result  = processURL($url);
-    $decoded_results = json_decode($all_result, true);
-
-   //echo '<pre>';
-    //print_r($decoded_results);
-    //exit;
-echo '<div class="social__slider"><ul>';
-    //Now parse through the $results array to display your results... 
-  $i = 0;
-    foreach($decoded_results['data'] as $item){
-    
-     echo '<li>';
-     //  $image_link = $item['images']['thumbnail']['low_resolution']['standard_resolution']['url'];
-        $insta_img = $item['images']['low_resolution']['url'];
-    $insta_author = $item['caption']['from']['username']; 
-    $insta_link = $item['link'];
-    $insta_date = $item['created_time'];
-    $insta_likes = $item['likes']['count']; 
-    $insta_comments = $item['comments']['count'];
-  $insta_userlink= 'https://instagram.com';
-  $insta_title= $item['user']['full_name'];
-  $insta_imagename= $item['caption']['text'];
- 
-  
-   ?>
-<div class="social__slider__instagram" style="background-image: url(<?php echo $insta_img; ?>);"></div>
-<div class="social__slider__overlay">
-                <ul class="social__slider__icons">
-                  <li><a class="icon-button icon-button--instagram" href="<?php echo $insta_userlink.'/'.$insta_author; ?>" target="_blank"><span>Instagram</span></a></li>
-                  <li><a class="icon-button icon-button--link" href="<?php echo $insta_link; ?>" target="_blank"><span>Link</span></a></li>
-                </ul>
-                <div class="social__slider__title">
-                  <?php echo $insta_title; ?>
-                </div>
-                <div class="social__slider__detail">
-                  <p><?php echo substr($insta_imagename, 0, 75); ?><a href="<?php echo $insta_link; ?>" target="_blank"><nobr>Read More...</nobr></a></p>
-                  <p><strong><?php echo date('M j, Y', $insta_date); ?></strong></p>
-                  <p><a href="<?php echo $insta_userlink.'/'.$insta_author; ?>" target="_blank">View Feed &raquo;</a></p>
-                </div>
-              </div>
-
-
-    <?php
-       echo '</li>';
-  
-   $i++;
-    }
- echo '</ul></div>';
 ?>
+
 
   <div class="social__slider social__slider--feed">
     <ul>
