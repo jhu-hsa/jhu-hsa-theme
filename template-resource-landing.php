@@ -46,12 +46,12 @@ if( have_rows('contact_information') ):
  echo '<p>';
 
         // display a sub field value
-    if (get_sub_field('address_title')){ echo '<strong>'.get_sub_field('address_title').'</strong><br />';} else{echo '';}
+    if (get_sub_field('address_title')){ echo '<strong>'.strip_tags(get_sub_field('address_title')).'</strong><br />';} else{echo '';}
 
   //echo '<p><strong>Johns Hopkins University</strong><br />';
   if (get_sub_field('street_address')){ echo get_sub_field('street_address').'<br />';} else{echo '';}
   if (get_sub_field('building_name')){ echo get_sub_field('building_name').'<br />';} else{echo '';}
-  if (get_sub_field('building_name')){ echo 'Suite '.get_sub_field('room_number').'<br />';} else{echo '';}
+  if (get_sub_field('room_number')){ echo 'Suite '.get_sub_field('room_number').'<br />';} else{echo '';}
          if (get_sub_field('street_address')){ echo 'Baltimore, MD 21218';} else{echo '';}
  echo '</p>';
 
@@ -74,7 +74,7 @@ if( have_rows('contact_phone_fax') ):
     while ( have_rows('contact_phone_fax') ) : the_row();
 
     echo '<p>';     // display a sub field value
-  if (get_sub_field('contact_title')){ echo '<strong>'.get_sub_field('contact_title').'</strong><br />';} else{echo '';}
+  if (get_sub_field('contact_title')){ echo '<strong>'.strip_tags(get_sub_field('contact_title')).'</strong><br />';} else{echo '';}
  
   if (get_sub_field('phone_number')){ echo '<strong>Tel: </strong>410-516-'.get_sub_field('phone_number').'<br />';} else{echo '';}
   if (get_sub_field('fax_number')){ echo '<strong>Fax: </strong>410-516-'.get_sub_field('fax_number').'<br />';} else{echo '';}
@@ -97,15 +97,13 @@ endif;
 
 
 <?php
-
-// check if the repeater field has rows of data
-if( have_rows('service_hours') ):
-echo '<h3>Hours</h3>';
+if( have_rows('single_time_and_hours') && get_field('hours_of_operation')=='Single time and day'){
+	echo '<h3>Hours</h3>';
   // loop through the rows of data
-    while ( have_rows('service_hours') ) : the_row();
+    while ( have_rows('single_time_and_hours') && get_field('hours_of_operation')=='Single time and day' ) : the_row();
 
         // display a sub field value
-  if (get_sub_field('hours_title')){ echo '<h4>'.get_sub_field('hours_title').'</h4>';} else{echo '';}
+  if (get_sub_field('hours_title')){ echo '<h4>'.strip_tags(get_sub_field('hours_title')).'</h4>';} else{echo '';}
   echo '<p>';
   if (get_sub_field('sunday_start') && get_sub_field('sunday_end')){ echo '<strong>Sunday: </strong>'.get_sub_field('sunday_start').' - '.get_sub_field('sunday_end').'<br />';} else{echo '';}
   if (get_sub_field('monday_start') && get_sub_field('monday_end')){ echo '<strong>Monday: </strong>'.get_sub_field('monday_start').' - '.get_sub_field('monday_end').'<br />';} else{echo '';}
@@ -120,7 +118,7 @@ echo '<h3>Hours</h3>';
        
 	   if (get_sub_field('saturday_start') && get_sub_field('saturday_end')){ echo '<strong>Saturday: </strong>'.get_sub_field('saturday_start').' - '.get_sub_field('saturday_end').'<br />';} else{echo '';}
       
-	  if (get_sub_field('time_notes') && get_sub_field('monday_start') && get_sub_field('monday_end')){ echo '<span style="font-style: italic;color:#003b5d;">'.get_sub_field('time_notes').'</span>';} else{echo '';}
+	  if (get_sub_field('time_notes')){ echo '<span style="font-style: italic;color:#003b5d;">'.strip_tags(get_sub_field('time_notes')).'</span>';} else{echo '';}
 
 
 echo '</p>';
@@ -129,12 +127,29 @@ echo '</p>';
 
 
     endwhile;
+}elseif( have_rows('multiple_days_same_time') && get_field('hours_of_operation')=='Multiple Days same time'){
+	echo '<h3>Hours</h3>';
+    // loop through the rows of data
+    while ( have_rows('multiple_days_same_time') && get_field('hours_of_operation')=='Multiple Days same time' ) : the_row();
 
-else :
+        // display a sub field value
+  if (get_sub_field('hours_title')){ echo '<h4>'.get_sub_field('hours_title').'</h4>';} else{echo '';}
+  echo '<p>';
+  if (get_sub_field('first_day') && get_sub_field('last_day')){ echo '<strong>'.get_sub_field('first_day').' - '.get_sub_field('last_day').' : </strong>'.get_sub_field('hours_start').' - '.get_sub_field('hours_end').'<br />';} else{echo '';}
+ 
+   
+       
+	  if (get_sub_field('time_notes') ){ echo '<span style="font-style: italic;color:#003b5d;">'.strip_tags(get_sub_field('time_notes')).'</span>';} else{echo '';}
 
-    // no rows found
 
-endif;
+echo '</p>';
+  
+
+
+
+    endwhile;
+}else{echo '';}
+
 
 ?> 
 			  
