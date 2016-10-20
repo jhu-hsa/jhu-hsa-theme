@@ -35,7 +35,7 @@ add_image_size( 'staff', 480, 480, true );
 add_image_size( 'staff-small', 62, 62, true );
 add_image_size( 'staff-wide', 480, 340, true );
 add_image_size( 'post-header', 900, 400, array( center, top ) );
-add_image_size( 'post-preview', 250, 110, array( center, top ) );
+add_image_size( 'post-preview', 385, 175, array( center, top ) );
 
 // use resource archive for resource category taxonomy
 function taxonomy_resource_category_template( $template ) {
@@ -89,7 +89,7 @@ add_theme_support( 'post-thumbnails' );
 
 // hub feed get
 function hub_feed_get($endpoint, $count, $type) {
-  $feed = wp_remote_get('http://api.hub.jhu.edu/' . $endpoint . '?key=d236e014e2132cb20fc698e823a06020db0e426e&v=0&per_page='. $count, array( 'timeout' => 15 ));
+  $feed = wp_remote_get('http://api.hub.jhu.edu/' . $endpoint . '?key=d236e014e2132cb20fc698e823a06020db0e426e&v=0&source=all&per_page='. $count, array( 'timeout' => 15 ));
   if (!is_wp_error( $feed )) {
     $feed_json = json_decode(wp_remote_retrieve_body($feed));
     $items = $feed_json->_embedded->$type;
@@ -414,7 +414,7 @@ function wpse200296_before_admin_bar_render()
     $wp_admin_bar->remove_menu('customize');
 }
 $the_current_site = get_bloginfo('name');
-if($the_current_site == 'Student Employment Services' || is_super_admin() ){echo '';}
+if(is_super_admin() ){echo '';}
 else{add_filter('tiny_mce_before_init', 'myformatTinyMCE');  
 }
   // only show p h2 h3 h4 and preformatted in wysiwyg 
@@ -446,6 +446,21 @@ if( function_exists('acf_add_options_page') && is_super_admin() && !is_main_site
 	acf_add_options_page('Splash');
 	
 }
+   add_action( 'init', 'tgm_soliloquy_restrict_admin_access', -1 );
+    function tgm_soliloquy_restrict_admin_access() {
+     
+        if ( ! is_admin() ) {
+            return;
+        }
+     
+        if ( class_exists( 'Soliloquy' ) ) {
+            if ( ! current_user_can( 'manage_sites' ) ) {
+                remove_action( 'init', array( Soliloquy::get_instance(), 'init' ), 0 );
+                remove_action( 'widgets_init', array( Soliloquy::get_instance(), 'widget' ) );
+            }
+        }
+     
+    }
 add_filter( 'soliloquy_defaults', 'tgm_soliloquy_set_defaults', 100, 2 );
 function tgm_soliloquy_set_defaults( $defaults, $post_id ) {
      	
@@ -454,9 +469,15 @@ function tgm_soliloquy_set_defaults( $defaults, $post_id ) {
         // In this example, we will modify the default slider size to 1000 x 500.
         $defaults['slider_width']  = 1000;
         $defaults['slider_height'] = 500;
-		 
-	
-     
+		$defaults['duration'] = 5000; 
+		$defaults['speed'] = 400; 
+		$defaults['position'] = 'center';
+		$defaults['gutter'] = 20;
+		$defaults['arrows'] = 1;
+		$defaults['auto'] = 1;
+		$defaults['hover'] = 1;
+		$defaults['loop'] = 1;
+		$defaults['delay'] = 400;
         // Return the modified defaults.
         return $defaults;
      
@@ -480,4 +501,10 @@ add_filter( 'frm_filter_final_form', 'auto_minimize_forms' );
 function auto_minimize_forms( $form ) {
   $form = str_replace( array( "\r\n", "\r", "\n", "\t", '    ' ), '', $form );
   return $form;
+}
+add_filter( 'gettext', 'change_howdy_text', 10, 2 );
+function change_howdy_text( $translation, $original ) {
+    if( 'Howdy, %1$s' == $original )
+        $translation = '%1$s';
+    return $translation;
 }
