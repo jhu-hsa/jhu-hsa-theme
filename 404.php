@@ -5,7 +5,7 @@ The template for displaying 404 pages (Not Found)
 
 get_header(); ?>
 <?php get_template_part( 'part', 'breadcrumbs' ); ?>
-<div class="wrap">
+<div class="wrap" role="main">
 
   <?php get_sidebar('nav'); ?>
  <?php $blog_admin = get_bloginfo('admin_email'); ?>
