@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <?php get_template_part( 'part', 'breadcrumbs' ); ?>
-
+<div role="main">
 <div class="wrap">
 
   <?php get_sidebar('nav'); ?>
@@ -25,5 +25,5 @@
 <?php get_template_part( 'part', 'related-links' ); ?>
 
 <?php get_template_part( 'part', 'resource-finder' ); ?>
-
+</div>
 <?php get_footer(); ?>

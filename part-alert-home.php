@@ -1,29 +1,4 @@
 
-<?php
-if ( is_page_template( 'template-home.php' ) ) {
-	
-$args = array( 
- 
-'category__and'=>array( 27 ),
-'category_name' => 'site-emergency-alerts', 
-'category__not_in' => array( 4 ),
-  'orderby'    =>  date,
-  'order'      =>  ASC,
- 'posts_per_page' => 1
- 
-
- );
-
-$myposts = get_posts( $args );
-foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
-	<div class="rave-alert site">
-	<?php echo '<h3><a href="'.get_permalink().'" >'.get_the_title().'</a></h3>';
-			?>
-		</div>
-	
-<?php endforeach; 
-wp_reset_postdata();
-} else {?>
 <?php // Get RSS Feed(s)
 include_once( ABSPATH . WPINC . '/feed.php' );
 
@@ -50,22 +25,22 @@ endif;
 	<?php if($item->get_content()=='NO ALERT'){echo '';}else{ 
 	
 	if ($item->get_feed()->get_title()=='JHU.edu website alert: RED'){
-	echo '<div class="rave-alert red">';
-	  echo '<a href="https://www.jhu.edu/alert">'.esc_html( $item->get_title()). '</a>';
+	echo '<div class="rave-alert red" role="alert">';
+	  echo '<a href="https://www.jhu.edu/alert">'.esc_html( $item->get_description()). '</a>';
 		echo '</div>';
 	}
 	elseif($item->get_feed()->get_title() == 'JHU.edu website alert: YELLOW'){
-	echo '<div class="rave-alert yellow">';
-	  echo '<a href="https://www.jhu.edu/alert">'.esc_html( $item->get_title()). '</a>';
+	echo '<div class="rave-alert yellow" role="alert">';
+	  echo '<a href="https://www.jhu.edu/alert">'.esc_html( $item->get_description()). '</a>';
 		echo '</div>';
 		}
 		elseif($item->get_feed()->get_title() == 'JHU.edu website alert: GREEN'){
-		echo '<div class="rave-alert green">';
-		  echo '<a href="https://www.jhu.edu/alert">'.esc_html( $item->get_title()). '</a>';
+		echo '<div class="rave-alert green" role="alert">';
+		  echo '<a href="https://www.jhu.edu/alert">'.esc_html( $item->get_description()). '</a>';
 		echo '</div>';
 		}
 		elseif($item->get_feed()->get_title() == 'Site Emergency Alerts – Homewood Student Affairs'){
-		echo '<div class="rave-alert site">';
+		echo '<div class="rave-alert site" role="alert">';
 		  echo '<a href="'.esc_url( $item->get_permalink() ).'">'.esc_html( $item->get_title() ).'</a>';
 		echo '</div>';
 		}
@@ -96,5 +71,5 @@ endif;
 		
 	<?php endforeach; ?>
 <?php endif; 
-}
+
 ?>

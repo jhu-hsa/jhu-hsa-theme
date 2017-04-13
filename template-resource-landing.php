@@ -7,9 +7,9 @@ Template Name: Resource Landing
 <?php get_header(); ?>
 
 <?php get_template_part( 'part', 'breadcrumbs' ); ?>
-
+ <div role="main"> 
 <?php if (get_field('splash_image','option')) : ?>
-  <div class="splash-wrap">
+  <div class="splash-wrap" role="slider">
     <section class="splash" style="background-image: url(<?php $splash_image = get_field('splash_image','option'); echo $splash_image['sizes']['splash']; ?>);">
       <div class="splash__text">
         <h1><?php the_title(); ?></h1>
@@ -30,7 +30,7 @@ Template Name: Resource Landing
         <div class="main__content main__content--alt">
           <?php the_content(); ?>
         </div>
-        <div class="main__sidebar main__sidebar--alt">
+        <div class="main__sidebar main__sidebar--alt" role="region" aria-label="contact information">
           <div class="sidebar__block">
             <div class="sidebar__info">
 			<?php //the_field('additional_information'); ?>
@@ -40,24 +40,23 @@ Template Name: Resource Landing
 
 // check if the repeater field has rows of data
 if( have_rows('contact_information') ):
-
+echo '<div class="sidebar__ct_address">';
   // loop through the rows of data
     while ( have_rows('contact_information') ) : the_row();
- echo '<p>';
+ echo '<div class="sidebar__address_row">';
 
         // display a sub field value
-    if (get_sub_field('address_title')){ echo '<strong>'.strip_tags(get_sub_field('address_title')).'</strong><br />';} else{echo '';}
+    if (get_sub_field('address_title')){ echo '<div><strong>'.strip_tags(get_sub_field('address_title')).'</strong></div>';} else{echo '<div class="hide_sidebar_div"></div>';}
 
   //echo '<p><strong>Johns Hopkins University</strong><br />';
-  if (get_sub_field('street_address')){ echo get_sub_field('street_address').'<br />';} else{echo '';}
-  if (get_sub_field('building_name')){ echo get_sub_field('building_name').'<br />';} else{echo '';}
-  if (get_sub_field('room_number')){ echo 'Suite '.get_sub_field('room_number').'<br />';} else{echo '';}
-         if (get_sub_field('street_address')){ echo 'Baltimore, MD 21218';} else{echo '';}
- echo '</p>';
-
+  if (get_sub_field('street_address')){ echo '<div>'.get_sub_field('street_address').'</div>';} else{echo '<div class="hide_sidebar_div"></div>';}
+  if (get_sub_field('building_name')){ echo '<div>'.get_sub_field('building_name').'</div>';} else{echo '<div class="hide_sidebar_div"></div>';}
+  if (get_sub_field('room_number')){ echo '<div>Suite '.get_sub_field('room_number').'</div>';} else{echo '<div class="hide_sidebar_div"></div>';}
+         if (get_sub_field('street_address')){ echo '<div>Baltimore, MD 21218</div>';} else{echo '<div class="hide_sidebar_div"></div>';}
+ echo '</div>';
 
     endwhile;
-
+ echo '</div>';
 else :
 
     // no rows found
@@ -69,24 +68,24 @@ endif;
 
 // check if the repeater field has rows of data
 if( have_rows('contact_phone_fax') ):
-//echo '<h2>Contacts</h2>';
+echo '<div class="sidebar__ct_phone">';
   // loop through the rows of data
     while ( have_rows('contact_phone_fax') ) : the_row();
 
-    echo '<p>';     // display a sub field value
-  if (get_sub_field('contact_title')){ echo '<strong>'.strip_tags(get_sub_field('contact_title')).'</strong><br />';} else{echo '';}
+   echo '<div class="sidebar__phone_row">';     // display a sub field value
+  if (get_sub_field('contact_title')){ echo '<div><strong>'.strip_tags(get_sub_field('contact_title')).'</strong></div>';} else{echo '<div class="hide_sidebar_div"></div>';}
  
-  if (get_sub_field('phone_number')){ echo '<strong>Tel: </strong>410-516-'.get_sub_field('phone_number').'<br />';} else{echo '';}
-  if (get_sub_field('fax_number')){ echo '<strong>Fax: </strong>410-516-'.get_sub_field('fax_number').'<br />';} else{echo '';}
-  if (get_sub_field('e_mail')){   echo '<a href="mailto:'.get_sub_field('e_mail').'">'.get_sub_field('e_mail').'</a>';
-} else{echo '';}
-echo '</p>';
+  if (get_sub_field('phone_number')){ echo '<div><strong>Tel: </strong>410-516-'.get_sub_field('phone_number').'</div>';} else{echo '<div class="hide_sidebar_div"></div>';}
+  if (get_sub_field('fax_number')){ echo '<div><strong>Fax: </strong>410-516-'.get_sub_field('fax_number').'</div>';} else{echo '<div class="hide_sidebar_div"></div>';}
+  if (get_sub_field('e_mail')){   echo '<div><a href="mailto:'.get_sub_field('e_mail').'">'.get_sub_field('e_mail').'</a></div>';
+} else{echo '<div class="hide_sidebar_div"></div>';}
+ echo '</div>';
   
 
 
 
     endwhile;
-
+ echo '</div>';
 else :
 
     // no rows found
@@ -98,56 +97,60 @@ endif;
 
 <?php
 if( have_rows('single_time_and_hours') && get_field('hours_of_operation')=='Single time and day'){
+	echo '<div class="sidebar__ct_hours">';
 	echo '<h3>Hours</h3>';
   // loop through the rows of data
     while ( have_rows('single_time_and_hours') && get_field('hours_of_operation')=='Single time and day' ) : the_row();
 
         // display a sub field value
-  if (get_sub_field('hours_title')){ echo '<h4>'.strip_tags(get_sub_field('hours_title')).'</h4>';} else{echo '';}
-  echo '<p>';
-  if (get_sub_field('sunday_start') && get_sub_field('sunday_end')){ echo '<strong>Sunday: </strong>'.get_sub_field('sunday_start').' - '.get_sub_field('sunday_end').'<br />';} else{echo '';}
-  if (get_sub_field('monday_start') && get_sub_field('monday_end')){ echo '<strong>Monday: </strong>'.get_sub_field('monday_start').' - '.get_sub_field('monday_end').'<br />';} else{echo '';}
+  if (get_sub_field('hours_title')){ echo '<h4>'.strip_tags(get_sub_field('hours_title')).'</h4>';} else{echo '<div class="hide_sidebar_div"></div>';}
+  echo '<div class="sidebar__hours_row">';
+  if (get_sub_field('sunday_start') && get_sub_field('sunday_end')){ echo '<div><strong>Sunday: </strong>'.get_sub_field('sunday_start')?>&ndash;<?php echo get_sub_field('sunday_end').'</div>';} else{echo '<div class="hide_sidebar_div"></div>';}
+  if (get_sub_field('monday_start') && get_sub_field('monday_end')){ echo '<div><strong>Monday: </strong>'.get_sub_field('monday_start')?>&ndash;<?php echo get_sub_field('monday_end').'</div>';} else{echo '<div class="hide_sidebar_div"></div>';}
    
-    if (get_sub_field('tuesday_start') && get_sub_field('tuesday_end')){ echo '<strong>Tuesday: </strong>'.get_sub_field('tuesday_start').' - '.get_sub_field('tuesday_end').'<br />';} else{echo '';}
+    if (get_sub_field('tuesday_start') && get_sub_field('tuesday_end')){ echo '<div><strong>Tuesday: </strong>'.get_sub_field('tuesday_start')?>&ndash;<?php echo get_sub_field('tuesday_end').'</div>';} else{echo '<div class="hide_sidebar_div"></div>';}
     
-	if (get_sub_field('wedensday_start') && get_sub_field('wedensday_end')){ echo '<strong>Wednesday: </strong>'.get_sub_field('wedensday_start').' - '.get_sub_field('wedensday_end').'<br />';} else{echo '';}
+	if (get_sub_field('wedensday_start') && get_sub_field('wedensday_end')){ echo '<div><strong>Wednesday: </strong>'.get_sub_field('wedensday_start')?>&ndash;<?php echo get_sub_field('wedensday_end').'</div>';} else{echo '<div class="hide_sidebar_div"></div>';}
     
-	if (get_sub_field('thursday_start') && get_sub_field('thursday_end')){ echo '<strong>Thursday: </strong>'.get_sub_field('thursday_start').' - '.get_sub_field('thursday_end').'<br />';} else{echo '';}
+	if (get_sub_field('thursday_start') && get_sub_field('thursday_end')){ echo '<div><strong>Thursday: </strong>'.get_sub_field('thursday_start')?>&ndash;<?php echo get_sub_field('thursday_end').'</div>';} else{echo '<div class="hide_sidebar_div"></div>';}
     
-	if (get_sub_field('friday_start') && get_sub_field('friday_end')){ echo '<strong>Friday: </strong>'.get_sub_field('friday_start').' - '.get_sub_field('friday_end').'<br />';} else{echo '';}
+	if (get_sub_field('friday_start') && get_sub_field('friday_end')){ echo '<div><strong>Friday: </strong>'.get_sub_field('friday_start')?>&ndash;<?php echo get_sub_field('friday_end').'</div>';} else{echo '<div class="hide_sidebar_div"></div>';}
        
-	   if (get_sub_field('saturday_start') && get_sub_field('saturday_end')){ echo '<strong>Saturday: </strong>'.get_sub_field('saturday_start').' - '.get_sub_field('saturday_end').'<br />';} else{echo '';}
+	   if (get_sub_field('saturday_start') && get_sub_field('saturday_end')){ echo '<div><strong>Saturday: </strong>'.get_sub_field('saturday_start')?>&ndash;<?php echo get_sub_field('saturday_end').'</div>';} else{echo '<div class="hide_sidebar_div"></div>';}
       
-	  if (get_sub_field('time_notes')){ echo '<span style="font-style: italic;color:#003b5d;">'.strip_tags(get_sub_field('time_notes')).'</span>';} else{echo '';}
+	  if (get_sub_field('time_notes')){ echo '<div><span style="font-style: italic;color:#003b5d;">'.strip_tags(get_sub_field('time_notes')).'</span></div>';} else{echo '<div class="hide_sidebar_div"></div>';}
 
 
-echo '</p>';
+ echo '</div>';
   
 
 
 
     endwhile;
+	 echo '</div>';
 }elseif( have_rows('multiple_days_same_time') && get_field('hours_of_operation')=='Multiple Days same time'){
+	echo '<div class="sidebar__ct_hours">';
 	echo '<h3>Hours</h3>';
     // loop through the rows of data
     while ( have_rows('multiple_days_same_time') && get_field('hours_of_operation')=='Multiple Days same time' ) : the_row();
 
         // display a sub field value
   if (get_sub_field('hours_title')){ echo '<h4>'.get_sub_field('hours_title').'</h4>';} else{echo '';}
-  echo '<p>';
-  if (get_sub_field('first_day') && get_sub_field('last_day')){ echo '<strong>'.get_sub_field('first_day').' - '.get_sub_field('last_day').' : </strong>'.get_sub_field('hours_start').' - '.get_sub_field('hours_end').'<br />';} else{echo '';}
+  echo '<div class="sidebar__hours_row">';
+  if (get_sub_field('first_day') && get_sub_field('last_day')){ echo '<div><strong>'.get_sub_field('first_day')?>&ndash;<?php echo get_sub_field('last_day').' : </strong>'.get_sub_field('hours_start')?>&ndash;<?php echo get_sub_field('hours_end').'</div>';} else{echo '<div class="hide_sidebar_div"></div>';}
  
    
        
-	  if (get_sub_field('time_notes') ){ echo '<span style="font-style: italic;color:#003b5d;">'.strip_tags(get_sub_field('time_notes')).'</span>';} else{echo '';}
+	  if (get_sub_field('time_notes') ){ echo '<div><span style="font-style: italic;color:#003b5d;">'.strip_tags(get_sub_field('time_notes')).'</span></div>';} else{echo '<div class="hide_sidebar_div"></div>';}
 
 
-echo '</p>';
+ echo '</div>';
   
 
 
 
     endwhile;
+	 echo '</div>';
 }else{echo '';}
 
 
@@ -198,7 +201,7 @@ echo '</p>';
 <?php if (get_field('upcoming_events')) : ?>
   <?php $events = hub_feed(get_field('upcoming_events'), '3', 'events'); ?>
   <?php if ($events) : ?>
-    <section class="feed">
+    <section class="feed" role="application" aria-label="upcoming events">
       <div class="wrap">
         <hr>
         <h2 class="heading--serif heading--centered">Upcoming Events</h2>
@@ -222,7 +225,7 @@ echo '</p>';
   <?php endif; ?>
 <?php endif; ?>
 
-<section class="feed feed--gray">
+<section class="feed feed--gray" role="application" aria-label="hub and wordpress posts">
   <div class="wrap">
     <hr class="hr--transparent">
     <h2 class="heading--serif heading--centered">News &amp; Announcements</h2>
@@ -284,5 +287,6 @@ echo '</p>';
 <?php get_template_part( 'part', 'related-links' ); ?>
 
 <?php get_template_part( 'part', 'resource-finder' ); ?>
+</div>
 
 <?php get_footer(); ?>

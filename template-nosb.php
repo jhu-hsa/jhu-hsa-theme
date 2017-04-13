@@ -7,7 +7,7 @@ Template Name: Special No Sidebar
 
 <?php get_template_part( 'part', 'breadcrumbs' ); ?>
 
-<div class="wrap">
+<div class="wrap" role="main">
 
 
 

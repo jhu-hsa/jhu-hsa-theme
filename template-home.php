@@ -16,7 +16,9 @@ Template Name: Home
               <div class="collage__overlay">
                 <div class="collage__overlay__content">
                   <h2><?php the_sub_field('title'); ?></h2>
-                  <a class="button" href="<?php the_sub_field('button_link'); ?>"<?php if (get_sub_field('button_target')) : ?> target="<?php the_sub_field('button_target'); ?>"<?php endif; ?>><span><?php the_sub_field('button_text'); ?></span></a>
+				  <?php $event_label= get_sub_field('event_label');
+				  $event_value= get_sub_field('event_value');?>
+                  <a class="button" href="<?php the_sub_field('button_link'); ?>"<?php if (get_sub_field('button_target')) : ?> target="<?php the_sub_field('button_target'); ?>"<?php endif; ?> onClick='ga("send", "event", "collage", "click", "<?php if ($event_label){ echo $event_label;} else{}?>"<?php if ($event_value){ echo ', '.$event_value;} else{}?>);'><span><?php the_sub_field('button_text'); ?></span></a>
                 </div>
               </div>
             </div>

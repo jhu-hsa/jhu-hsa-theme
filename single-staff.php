@@ -2,7 +2,7 @@
 
 <?php get_template_part( 'part', 'breadcrumbs' ); ?>
 
-<div class="wrap">
+<div class="wrap" role="main">
 
   <?php get_sidebar('nav'); ?>
 
@@ -14,7 +14,7 @@
           <h2><?php the_field('title'); ?></h2>
           <?php the_field('background_information'); ?>
         </div>
-        <div class="main__sidebar main__sidebar--media">
+        <div class="main__sidebar main__sidebar--media" role="region" aria-label="contact information">
           <div class="sidebar__block sidebar__block--media" style="background-image: url(<?php $image = get_field('image'); echo $image['sizes']['staff']; ?>);"></div>
           <?php if (get_field('phone') || get_field('email') || get_field('linkedin')) : ?>
             <div class="sidebar__block">
@@ -49,7 +49,7 @@ if (get_field('street_address') || get_field('street_address') || get_field('roo
  echo '</p>';
 
 endif; 
- 
+
 ?>
             </div>
           </div>
@@ -61,12 +61,12 @@ endif;
   <?php get_sidebar(); ?>
 
 </div>
-
+<div role="complementary" aria-label="other staff">
 <?php $query = new WP_Query( array( 'post_type' => 'staff', 'posts_per_page' => '4', 'orderby' => 'rand', 'ignore_custom_sort' => TRUE, 'post__not_in' => array($post->ID) ) ); ?>
 <?php if ( $query->have_posts() ) : ?>
-  <div class="wrap">
+  <div class="wrap" >
     <hr>
-    <section class="staff">
+    <section class="staff" role="application" aria-label="staff slider">
       <h2 class="heading--serif heading--centered">Our Staff</h2>
       <ul>
         <?php while ( $query->have_posts() ) : $query->the_post(); ?>
@@ -90,5 +90,5 @@ endif;
 <?php wp_reset_postdata(); ?>
 
 <?php get_template_part( 'part', 'resource-finder' ); ?>
-
+</div>
 <?php get_footer(); ?>

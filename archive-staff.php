@@ -2,7 +2,7 @@
 
 <?php get_template_part('part', 'breadcrumbs'); ?>
 
-<div class="wrap">
+<div class="wrap" role="main">
 
   <?php get_sidebar('nav'); ?>
 

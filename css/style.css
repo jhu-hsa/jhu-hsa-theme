@@ -310,8 +310,8 @@ ul {
       content: "\f111";
       
       left: 0;
-      top: .5rem;
-      font-size:10px;
+      top: .57rem;
+      font-size:8px;
 	  }
       ul ul > li:before {
         content: "\f10c";}
@@ -977,7 +977,8 @@ body .tag-cloud a {
   padding: 1rem 1rem 1rem 3rem;
   font-family: 'gentona', sans-serif;
   color: #fff; }
-  .menu__search-wrap form.menu__search span.menu-search-select{float:left!important;margin:0 auto!important;width:100%;text-align:center;}
+  .menu__search-wrap form.menu__search fieldset legend{position:absolute; left:-10000px; }
+
 .menu__search-wrap form.menu__search span.menu-search-select span.jhu-radio, .menu__search-wrap form.menu__search span.menu-search-select span.hsa-radio{/*background:#cdcdcd!important; -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
 border-radius: 10px;
@@ -994,12 +995,16 @@ color:#ffffff;
   font-size : 1em;
   opacity   : 0;
 }
-
+.menu__search-wrap form.menu__search  fieldset{border:none;
+margin:0;
+padding:0;}
+  .menu__search-wrap form.menu__search span.menu-search-select{float:left!important;margin:0 auto!important;width:100%;text-align:center;}
 
 .menu__search-wrap form.menu__search span.menu-search-select input[type=radio]:not(old) + label{
   display      : inline-block;
   margin-left  : -2em;
  line-height  : 1.2em; /**/
+ background-color:#003B5D;
 }
 
 
@@ -1593,7 +1598,7 @@ color:#ffffff;
       margin-top: 0; }
   .sidebar__buttons a {
     display: block;
-    background: #003b5d;
+    background: #265775;
     color: #fff;
     padding: 16px;
     padding: 1rem;
@@ -1626,7 +1631,14 @@ color:#ffffff;
   padding: 16px;
   padding: 1rem;
   font-family: 'quadon', serif; }
-
+/*.sidebar__info h4{margin-top:0!important;
+padding-top:0!important;}*/
+.sidebar__info .sidebar__ct_hours h4{margin-top:0!important;
+padding-top:.3rem!important;} 
+.sidebar__info .sidebar__ct_phone{padding-bottom:1rem!important;}
+.sidebar__info .sidebar__address_row div:last-child{padding-bottom:1rem;}
+.sidebar__info .sidebar__phone_row{} div:last-child{}
+.sidebar__info  div.hide_sidebar_div{display:none!important;}
 .sidebar__block--media {
   padding-bottom: 100%;
   background-position: center center;
@@ -3290,11 +3302,28 @@ color:#fff;  }
 	.soliloquy-container a{text-decoration:none!important; border-bottom:none!important;}
 #soliloquybox-thumbs ul li{padding-left:0!important;}
 #soliloquybox-thumbs ul li::before, ul.soliloquy-slider > li::before{content: none!important;  }
-.sidebar a[target="_blank"]:after{ content: '\f08e';
+
+.sidebar a[target="_blank"]:after,section.main a[href$= ".pdf"]:after,section.main a[href$= ".doc"]:after,section.main a[href$= ".docx"]:after,section.main a[href$= ".xls"]:after,section.main a[href$= ".xlsx"]:after,section.main a[href$= ".ppt"]:after,section.main a[href$= ".pptx"]:after{
  font-family: FontAwesome;
 color:#3d8edd;
 font-size:85%;
-padding-left:.4rem;}
+padding-left:.4rem;	
+}
+.sidebar a[target="_blank"]:after{ content: '\f08e';
+}
+section.main a[href$= ".pdf"]:after{
+content: '\f1c1';
+}
+section.main a[href$= ".doc"]:after,section.main a[href$= ".docx"]:after{
+content: '\f1c2';
+}
+section.main a[href$= ".xls"]:after,section.main a[href$= ".xlsx"]:after{
+content: '\f1c3';
+}
+section.main a[href$= ".ppt"]:after,section.main a[href$= ".pptx"]:after{
+content: '\f1c4';
+}
+
 /* shortcodes styles*/
 .wpcmsdev-tabs .headings a.active {
     background-color: #015cb9!important;
@@ -3339,3 +3368,9 @@ code, kbd, pre, samp {
 
 /* Formidable */
 ul.sigNav li::before{content:none!important;}
+
+/*screen reader*/
+.screen-reader-text {
+    position: absolute !important;
+    left: -999em;
+} 

@@ -1,4 +1,4 @@
-<section class="sidebar">
+<section class="sidebar" role="region" aria-label="Action Items">
   <div class="sidebar__block">
     <?php wp_nav_menu(array(
       'menu' => 'sidebar',

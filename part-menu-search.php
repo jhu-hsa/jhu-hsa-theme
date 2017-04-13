@@ -1,5 +1,5 @@
       <a class="menu-toggle"></a>
-      <nav class="menu">
+      <nav class="menu" role="navigation" aria-label="find resources">
         <span class="menu__title">Find Resources Based On:</span>
         <?php switch_to_blog(1); ?>
           <ul>
@@ -38,14 +38,16 @@
           </form>
         </div>
       </nav>-->
-	  <div class="menu__search-wrap">
+	  <div class="menu__search-wrap" role="search" aria-label="hsaandjhulabel">
 	
    
           <form class="menu__search" method="get"  name="searchform" onsubmit="select()">	
             <a class="menu__search__toggle"><span>Search</span></a>
             <label for="search">Search</label>
-            <input class="menu__search__input" id="search" type="search" placeholder="Search Homewood Student Affairs" name="s">
-		<span class="menu-search-select">
+            <input class="menu__search__input" id="search" type="search" placeholder="Search Homewood Student Affairs" name="s" aria-label="query field">
+		 <fieldset >
+		 <legend>Search</legend>
+		<span class="menu-search-select" role="group" aria-label="select what you want to search by">
 				<span class="hsa-radio">
 					<input type="radio" id="hsasearch" name="check" checked="checked" onclick="ModifyPlaceHolder2()"/> 
 					<label for="hsasearch" style="display: inline;">
@@ -60,6 +62,8 @@
 				</span>
    
    </span>	
+    </fieldset>
+    <input type="submit" value="Submit" style="position:absolute;left:-9999px;">
           </form>
 		  <script>
 
