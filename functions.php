@@ -508,3 +508,89 @@ function change_howdy_text( $translation, $original ) {
         $translation = '%1$s';
     return $translation;
 }
+
+
+//add title to link
+	add_filter('the_content', 'pdf_addalt');
+function pdf_addalt($content) {
+       global $post;
+       $pattern ="/<a(.*?)href=('|\")(.*?).(pdf)('|\")(.*?)>/i";
+       $replacement = '<a$1 title="PDF Document" href=$2$3.$4$5$6 ><span class="screen-reader-text">PDF Document: </span>';
+       $content = preg_replace($pattern, $replacement, $content);
+       return $content;
+}
+	add_filter('the_content', 'word_addalt');
+function word_addalt($content) {
+       global $post;
+       $pattern ="/<a(.*?)href=('|\")(.*?).(doc|docx)('|\")(.*?)>/i";
+       $replacement = '<a$1 title="Word Document" href=$2$3.$4$5$6><span class="screen-reader-text">Word Document: </span>';
+       $content = preg_replace($pattern, $replacement, $content);
+       return $content;
+}	
+	add_filter('the_content', 'excel_addalt');
+function excel_addalt($content) {
+       global $post;
+       $pattern ="/<a(.*?)href=('|\")(.*?).(xls|xlsx)('|\")(.*?)>/i";
+       $replacement = '<a$1  title="Excel Document" href=$2$3.$4$5$6><span class="screen-reader-text">Excel Document: </span>';
+       $content = preg_replace($pattern, $replacement, $content);
+       return $content;
+}
+	add_filter('the_content', 'ppt_addalt');
+function ppt_addalt($content) {
+       global $post;
+       $pattern ="/<a(.*?)href=('|\")(.*?).(ppt|pptx)('|\")(.*?)>/i";
+      $replacement = '<a$1 title="PowerPoint Document" href=$2$3.$4$5$6><span class="screen-reader-text">PowerPoint Document: </span>';
+       $content = preg_replace($pattern, $replacement, $content);
+       return $content;
+}	
+/*Formidable*/
+add_filter('frm_notification_attachment', 'remove_my_attachment', 10, 3);
+function remove_my_attachment($attachments, $form, $args) {
+  if ( $args['email_key'] == 403  ) { //change 1277 to the email ID that you would like to DROP the attachment for if you want to remove attachments on multiple emails use || $args['email_key'] == 260
+    $attachments = array(); //remove all attachments
+  }
+  return $attachments;
+} 
+
+/* last login */
+add_action('wp_login','wpdb_capture_user_last_login', 10, 2);
+function wpdb_capture_user_last_login($user_login, $user){
+    update_user_meta($user->ID, 'last_login', current_time('mysql'));
+}
+
+add_filter( 'manage_users_columns', 'wpdb_user_last_login_column');
+function wpdb_user_last_login_column($columns){
+    $columns['lastlogin'] = __('Last Login', 'lastlogin');
+    return $columns;
+}
+ 
+add_action( 'manage_users_custom_column',  'wpdb_add_user_last_login_column', 10, 3); 
+function wpdb_add_user_last_login_column($value, $column_name, $user_id ) {
+    if ( 'lastlogin' != $column_name )
+        return $value;
+ 
+    return get_user_last_login($user_id,false);
+}
+ 
+function get_user_last_login($user_id,$echo = true){
+    $date_format = get_option('date_format') . ' ' . get_option('time_format');
+    $last_login = get_user_meta($user_id, 'last_login', true);
+    $login_time = 'Never logged in';
+    if(!empty($last_login)){
+       if(is_array($last_login)){
+            $login_time = mysql2date($date_format, array_pop($last_login), false);
+        }
+        else{
+            $login_time = mysql2date($date_format, $last_login, false);
+        }
+    }
+    if($echo){
+        echo $login_time;
+    }
+    else{
+        return $login_time;
+    }
+}
+
+/*end last login */
+
