@@ -92,17 +92,18 @@
                         "id": ""
                     },
                     "choices": {
-                        "Garland Hall": "Garland Hall",
-                        "Mattin Center": "Mattin Center",
-                        "Levering Hall": "Levering Hall",
-                        "Wyman Park Building": "Wyman Park Building",
-                        "Ralph S O'Connor Recreation Center": "Ralph S O'Connor Recreation Center",
-                        "Shriver Hall": "Shriver Hall",
+					    "AMRII": "AMRII",
                         "Bunting Meyerhoff Interfaith and Community Service Center": "Bunting Meyerhoff Interfaith and Community Service Center",
-                        "AMRII": "AMRII",
-						"Homewood Apartments": "Homewood Apartments"
-
-
+                        "Garland Hall": "Garland Hall",
+                        "Homewood Apartments": "Homewood Apartments",
+                        "Keswick": "Keswick",
+                        "Levering Hall": "Levering Hall",
+                        "Mattin Center": "Mattin Center",
+                        "Ralph S O'Connor Recreation Center": "Ralph S O'Connor Recreation Center",
+                        "San Martin Center": "San Martin Center",
+                        "Shriver Hall": "Shriver Hall",
+                        "Wolman Hall": "Wolman Hall",
+                        "Wyman Park Building": "Wyman Park Building"
                         
                     },
                     "default_value": [
@@ -422,7 +423,8 @@
 						"12 p.m.": "12 p.m.",
 						"Noon": "Noon",
 						"1 p.m.": "1 p.m.",
-						"2 p.m.": "2 p.m."
+						"2 p.m.": "2 p.m.",
+						"2:45 p.m.": "2:45 p.m."
                       
                         
                     },
@@ -451,14 +453,18 @@
                         "id": ""
                     },
                     "choices": {
+						"10 a.m.": "10 a.m.",
+						"11 a.m.": "11 a.m.",
 						"12 p.m.": "12 p.m.",
 						"Noon": "Noon",
 						"12 p.m.": "12 p.m.",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
+						"2:45 p.m.": "2:45 p.m.",
                         "3 p.m.": "3 p.m.",
                         "3:30 p.m.": "3:30 p.m.",
+						"3:45 p.m.": "3:45 p.m.",
                         "4 p.m.": "4 p.m.",
                         "4:30 p.m.": "4:30 p.m.",
                         "4:45 p.m.": "4:45 p.m.",
@@ -611,7 +617,8 @@
 						"12 p.m.": "12 p.m.",
 						 "Noon": "Noon",
 						"1 p.m.": "1 p.m.",
-						"2 p.m.": "2 p.m."
+						"2 p.m.": "2 p.m.",
+						"2:45 p.m.": "2:45 p.m."
                       
                         
                     },
@@ -640,13 +647,17 @@
                         "id": ""
                     },
                     "choices": {
+						"10 a.m.": "10 a.m.",
+						"11 a.m.": "11 a.m.",
 						 "12 p.m.": "12 p.m.",
 						  "Noon": "Noon",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
+						"2:45 p.m.": "2:45 p.m.",
                         "3 p.m.": "3 p.m.",
                         "3:30 p.m.": "3:30 p.m.",
+						"3:45 p.m.": "3:45 p.m.",
                         "4 p.m.": "4 p.m.",
                         "4:30 p.m.": "4:30 p.m.",
                         "4:45 p.m.": "4:45 p.m.",
@@ -704,7 +715,8 @@
 						"12 p.m.": "12 p.m.",
 						 "Noon": "Noon",
 						"1 p.m.": "1 p.m.",
-						"2 p.m.": "2 p.m."
+						"2 p.m.": "2 p.m.",
+						"2:45 p.m.": "2:45 p.m."
                       
                         
                     },
@@ -733,13 +745,17 @@
                         "id": ""
                     },
                     "choices": {
+						"10 a.m.": "10 a.m.",
+						"11 a.m.": "11 a.m.",
                         "12 p.m.": "12 p.m.",
 						 "Noon": "Noon",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
+						"2:45 p.m.": "2:45 p.m.",
                         "3 p.m.": "3 p.m.",
                         "3:30 p.m.": "3:30 p.m.",
+						"3:45 p.m.": "3:45 p.m.",
                         "4 p.m.": "4 p.m.",
                         "4:30 p.m.": "4:30 p.m.",
                         "4:45 p.m.": "4:45 p.m.",
@@ -796,7 +812,8 @@
 						"12 p.m.": "12 p.m.",
 						 "Noon": "Noon",
 						"1 p.m.": "1 p.m.",
-						"2 p.m.": "2 p.m."
+						"2 p.m.": "2 p.m.",
+						"2:45 p.m.": "2:45 p.m."
                       
                         
                     },
@@ -825,13 +842,17 @@
                         "id": ""
                     },
                     "choices": {
+						"10 a.m.": "10 a.m.",
+						"11 a.m.": "11 a.m.",
                         "12 p.m.": "12 p.m.",
 						"Noon": "Noon",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
+						"2:45 p.m.": "2:45 p.m.",
                         "3 p.m.": "3 p.m.",
                         "3:30 p.m.": "3:30 p.m.",
+						"3:45 p.m.": "3:45 p.m.",
                         "4 p.m.": "4 p.m.",
                         "4:30 p.m.": "4:30 p.m.",
                         "4:45 p.m.": "4:45 p.m.",
@@ -888,7 +909,8 @@
 						"12 p.m.": "12 p.m.",
 						 "Noon": "Noon",
 						"1 p.m.": "1 p.m.",
-						"2 p.m.": "2 p.m."
+						"2 p.m.": "2 p.m.",
+						"2:45 p.m.": "2:45 p.m."
                       
                         
                     },
@@ -921,13 +943,17 @@
                         "6:30 a.m.": "6:30 a.m.",
 						"7 a.m.": "7 a.m.",
                         "7:30 a.m.": "7:30 a.m.",
+						"10 a.m.": "10 a.m.",
+						"11 a.m.": "11 a.m.",
 						"12 p.m.": "12 p.m.",
 						"Noon": "Noon",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
+						"2:45 p.m.": "2:45 p.m.",
                         "3 p.m.": "3 p.m.",
                         "3:30 p.m.": "3:30 p.m.",
+						"3:45 p.m.": "3:45 p.m.",
                         "4 p.m.": "4 p.m.",
                         "4:30 p.m.": "4:30 p.m.",
                         "4:45 p.m.": "4:45 p.m.",
@@ -984,7 +1010,8 @@
 						"12 p.m.": "12 p.m.",
 						 "Noon": "Noon",
 						"1 p.m.": "1 p.m.",
-						"2 p.m.": "2 p.m."
+						"2 p.m.": "2 p.m.",
+						"2:45 p.m.": "2:45 p.m."
                       
                         
                     },
@@ -1013,13 +1040,17 @@
                         "id": ""
                     },
                     "choices": {
+						"10 a.m.": "10 a.m.",
+						"11 a.m.": "11 a.m.",
                         "12 p.m.": "12 p.m.",
 						"Noon": "Noon",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
+						"2:45 p.m.": "2:45 p.m.",
                         "3 p.m.": "3 p.m.",
                         "3:30 p.m.": "3:30 p.m.",
+						"3:45 p.m.": "3:45 p.m.",
                         "4 p.m.": "4 p.m.",
                         "4:30 p.m.": "4:30 p.m.",
                         "4:45 p.m.": "4:45 p.m.",
@@ -1076,7 +1107,8 @@
 						"12 p.m.": "12 p.m.",
 						 "Noon": "Noon",
 						"1 p.m.": "1 p.m.",
-						"2 p.m.": "2 p.m."
+						"2 p.m.": "2 p.m.",
+						"2:45 p.m.": "2:45 p.m."
                       
                         
                     },
@@ -1105,13 +1137,17 @@
                         "id": ""
                     },
                     "choices": {
+						"10 a.m.": "10 a.m.",
+						"11 a.m.": "11 a.m.",
                         "12 p.m.": "12 p.m.",
 						"Noon": "Noon",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
+						"2:45 p.m.": "2:45 p.m.",
                         "3 p.m.": "3 p.m.",
                         "3:30 p.m.": "3:30 p.m.",
+						"3:45 p.m.": "3:45 p.m.",
                         "4 p.m.": "4 p.m.",
                         "4:30 p.m.": "4:30 p.m.",
                         "4:45 p.m.": "4:45 p.m.",
@@ -1164,7 +1200,8 @@
 						"12 p.m.": "12 p.m.",
 						 "Noon": "Noon",
 						"1 p.m.": "1 p.m.",
-						"2 p.m.": "2 p.m."
+						"2 p.m.": "2 p.m.",
+						"2:45 p.m.": "2:45 p.m."
                       
                         
                     },
@@ -1193,13 +1230,17 @@
                         "id": ""
                     },
                     "choices": {
+						"10 a.m.": "10 a.m.",
+						"11 a.m.": "11 a.m.",
                         "12 p.m.": "12 p.m.",
 						"Noon": "Noon",
 						"1 p.m.": "1 p.m.",
 						"2 p.m.": "2 p.m.",
                         "2:30 p.m.": "2:30 p.m.",
+						"2:45 p.m.": "2:45 p.m.",
                         "3 p.m.": "3 p.m.",
                         "3:30 p.m.": "3:30 p.m.",
+						"3:45 p.m.": "3:45 p.m.",
                         "4 p.m.": "4 p.m.",
                         "4:30 p.m.": "4:30 p.m.",
                         "4:45 p.m.": "4:45 p.m.",

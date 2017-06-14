@@ -113,14 +113,7 @@
                 "operator": "==",
                 "value": "template-resource-landing.php"
             }
-        ],
-		[
-		 {
-                "param": "page_template",
-                "operator": "==",
-                "value": "template-hub-content-page.php"
-            }
-		]
+        ]
     ],
     "menu_order": 0,
     "position": "normal",

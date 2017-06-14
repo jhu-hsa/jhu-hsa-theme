@@ -225,15 +225,18 @@
                         "id": ""
                     },
                     "choices": {
-                        "Garland Hall": "Garland Hall",
-                        "Mattin Center": "Mattin Center",
-                        "Levering Hall": "Levering Hall",
-                        "Wyman Park Building": "Wyman Park Building",
-                        "Ralph S O'Connor Recreation Center": "Ralph S O'Connor Recreation Center",
-                        "Shriver Hall": "Shriver Hall",
-                        "Bunting Meyerhoff Interfaith and Community Service Center": "Bunting Meyerhoff Interfaith and Community Service Center",
                         "AMRII": "AMRII",
-						"Homewood Apartments": "Homewood Apartments"
+                        "Bunting Meyerhoff Interfaith and Community Service Center": "Bunting Meyerhoff Interfaith and Community Service Center",
+                        "Garland Hall": "Garland Hall",
+                        "Homewood Apartments": "Homewood Apartments",
+                        "Keswick": "Keswick",
+                        "Levering Hall": "Levering Hall",
+                        "Mattin Center": "Mattin Center",
+                        "Ralph S O'Connor Recreation Center": "Ralph S O'Connor Recreation Center",
+                        "San Martin Center": "San Martin Center",
+                        "Shriver Hall": "Shriver Hall",
+                        "Wolman Hall": "Wolman Hall",
+                        "Wyman Park Building": "Wyman Park Building"
 
 
                         

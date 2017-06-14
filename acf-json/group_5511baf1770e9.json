@@ -44,6 +44,139 @@
             "readonly": 0,
             "disabled": 0
         },
+		   {
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "Enter your category",
+                "prepend": "",
+                "append": "",
+                "key": "field_5840397334683",
+                "label": "Event Cat",
+                "name": "event_cat",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "Enter your action",
+                "prepend": "",
+                "append": "",
+                "key": "field_58403a1734684",
+                "label": "Event Action",
+                "name": "event_action",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "Enter the label for the Resource Finder accordion action",
+                "prepend": "",
+                "append": "",
+                "key": "field_58403a4c34685",
+                "label": "Event Label RF",
+                "name": "event_label_rf",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                }
+            },
+             {
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "Enter the label for the Resource outward link action",
+                "prepend": "",
+                "append": "",
+                "key": "field_58403a4c34686",
+                "label": "Event Label RO",
+                "name": "event_label_ro",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "multiple": 0,
+                "allow_null": 0,
+                "choices": [
+                    "0",
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7",
+                    "8",
+                    "9",
+                    "10"
+                ],
+                "default_value": [],
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "return_format": "value",
+                "key": "field_58403ae434687",
+                "label": "Event Value",
+                "name": "event_value",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "layout": "horizontal",
+                "choices": {
+                    "true": "true"
+                },
+                "default_value": [],
+                "allow_custom": 0,
+                "save_custom": 0,
+                "toggle": 0,
+                "return_format": "value",
+                "key": "field_5840437b34688",
+                "label": "Event Bounce Rate",
+                "name": "event_bounce_rate",
+                "type": "checkbox",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                }
+            },
         {
             "key": "field_5511bba33eba1",
             "label": "Description",
