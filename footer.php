@@ -1,7 +1,7 @@
       <footer class="footer" role="contentinfo">
         <div class="wrap">
           <div class="footer__block">
-            <a class="footer__logo" href="//www.jhu.edu"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Johns Hopkins University"></a>
+            <a class="footer__logo" href="//www.jhu.edu"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Johns Hopkins University"></a>
           </div>
           <?php switch_to_blog(1); ?>
             <?php wp_nav_menu(array(
