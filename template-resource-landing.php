@@ -76,7 +76,13 @@ echo '<div class="sidebar__ct_phone">';
   if (get_sub_field('contact_title')){ echo '<div><strong>'.strip_tags(get_sub_field('contact_title')).'</strong></div>';} else{echo '<div class="hide_sidebar_div"></div>';}
  
   if (get_sub_field('phone_number')){ echo '<div><strong>Tel: </strong>410-516-'.get_sub_field('phone_number').'</div>';} else{echo '<div class="hide_sidebar_div"></div>';}
-  if (get_sub_field('fax_number')){ echo '<div><strong>Fax: </strong>410-516-'.get_sub_field('fax_number').'</div>';} else{echo '<div class="hide_sidebar_div"></div>';}
+  $site_url = get_bloginfo( 'url' ); 
+  
+ if ($site_url == "https://studentaffairs.jhu.edu/disabilities") {
+    echo '<div><strong>Fax: </strong>443-529-1543</div>';
+} else {
+
+if (get_sub_field('fax_number')){ echo '<div><strong>Fax: </strong>410-516-'.get_sub_field('fax_number').'</div>';} else{echo '<div class="hide_sidebar_div"></div>';}}
   if (get_sub_field('e_mail')){   echo '<div><a href="mailto:'.get_sub_field('e_mail').'">'.get_sub_field('e_mail').'</a></div>';
 } else{echo '<div class="hide_sidebar_div"></div>';}
  echo '</div>';
@@ -266,7 +272,7 @@ if( have_rows('single_time_and_hours') && get_field('hours_of_operation')=='Sing
                 <div class="feed__item <?php if ($image !== null) { echo 'feed__item--media'; } else { echo 'feed__item--gray'; }; ?>">
                   <a class="feed__icon icon-button icon-button--hub" href="http://hub.jhu.edu/"><span>HUB</span></a>
                   <?php if ($image !== null) : ?>
-                    <div class="feed__image" style="background-image: url(<?php echo $article->_embedded->image_thumbnail[0]->sizes->landscape; ?>);"></div>
+                    <div class="feed__image" style="background-image: url(<?php echo $article->_embedded->image_thumbnail[0]->sizes->thumbnail; ?>);"></div>
                   <?php endif; ?>
                   <div class="feed__item__content">
                     <h4><?php echo $article->alt_headline; ?></h4>
