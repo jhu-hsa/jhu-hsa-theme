@@ -86,10 +86,20 @@ add_filter( 'img_caption_shortcode_width', 'remove_caption_padding' );
 
 // add featured image support
 add_theme_support( 'post-thumbnails' );
+//remove read more
+function new_excerpt_more( $more ) {
+    return '';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+//custom excerpt length
+function wpdocs_custom_excerpt_length( $length ) {
+    return 50; 
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
 // hub feed get
 function hub_feed_get($endpoint, $count, $type) {
-  $feed = wp_remote_get('http://api.hub.jhu.edu/' . $endpoint . '?key=d236e014e2132cb20fc698e823a06020db0e426e&v=0&source=all&per_page='. $count, array( 'timeout' => 15 ));
+  $feed = wp_remote_get('https://api.hub.jhu.edu/' . $endpoint . '?key=d236e014e2132cb20fc698e823a06020db0e426e&v=0&source=all&per_page='. $count, array( 'timeout' => 15 ));
   if (!is_wp_error( $feed )) {
     $feed_json = json_decode(wp_remote_retrieve_body($feed));
     $items = $feed_json->_embedded->$type;
@@ -370,12 +380,6 @@ function post_type_staff() {
 // Hook into the 'init' action
 add_action( 'init', 'post_type_staff', 0 );
 
-// hide acf menu item
-function hide_acf() {
-  remove_menu_page('edit.php?post_type=acf-field-group');
-}
-add_action('admin_menu', 'hide_acf');
-
 // hide staff menu item on main site
 function hide_staff() {
   if (is_main_site()) {
@@ -384,44 +388,7 @@ function hide_staff() {
 }
 add_action('admin_menu', 'hide_staff');
 
-//hide theme and customize on admin bar and backend for anyone that is not an admin
-if ( !is_super_admin() ) {
-add_action( 'wp_before_admin_bar_render', 'admin_bar_hide' ); 
-add_action('admin_menu', 'customize_admin_menu_hide', 999);
-add_action( 'wp_before_admin_bar_render', 'wpse200296_before_admin_bar_render' ); 
 
-}
-function admin_bar_hide()
-{
-    global $wp_admin_bar;
-
-    $wp_admin_bar->remove_menu('customize');
-	$wp_admin_bar->remove_node( 'themes' );
-}
-
-function customize_admin_menu_hide(){
-	
-global $submenu;
-// Appearance customize Menu
-unset($submenu['themes.php'][6]);	
-	
-}
-//hide the customize on admin bar
-function wpse200296_before_admin_bar_render()
-{
-    global $wp_admin_bar;
-
-    $wp_admin_bar->remove_menu('customize');
-}
-$the_current_site = get_bloginfo('name');
-if(is_super_admin() ){echo '';}
-else{add_filter('tiny_mce_before_init', 'myformatTinyMCE');  
-}
-  // only show p h2 h3 h4 and preformatted in wysiwyg 
-   function myformatTinyMCE($in){
-$in['block_formats'] = "Paragraph=p;Header 2=h2;Header 3=h3;Header 4=h4;Preformatted=pre";
-return $in;
-}
 // hide resources menu item on sub site
 function hide_resource() {
   if (!is_main_site()) {
@@ -446,62 +413,9 @@ if( function_exists('acf_add_options_page') && is_super_admin() && !is_main_site
 	acf_add_options_page('Splash');
 	
 }
-   add_action( 'init', 'tgm_soliloquy_restrict_admin_access', -1 );
-    function tgm_soliloquy_restrict_admin_access() {
-     
-        if ( ! is_admin() ) {
-            return;
-        }
-     
-        if ( class_exists( 'Soliloquy' ) ) {
-            if ( ! current_user_can( 'manage_sites' ) ) {
-                remove_action( 'init', array( Soliloquy::get_instance(), 'init' ), 0 );
-                remove_action( 'widgets_init', array( Soliloquy::get_instance(), 'widget' ) );
-            }
-        }
-     
-    }
-add_filter( 'soliloquy_defaults', 'tgm_soliloquy_set_defaults', 100, 2 );
-function tgm_soliloquy_set_defaults( $defaults, $post_id ) {
-     	
-		 $defaults['slider_theme']  = 'classic';
-        // You can easily set default values here. See the get_config_defaults method in the includes/global/common.php file for all available defaults to modify (around L250).
-        // In this example, we will modify the default slider size to 1000 x 500.
-        $defaults['slider_width']  = 1000;
-        $defaults['slider_height'] = 500;
-		$defaults['duration'] = 5000; 
-		$defaults['speed'] = 400; 
-		$defaults['position'] = 'center';
-		$defaults['gutter'] = 20;
-		$defaults['arrows'] = 1;
-		$defaults['auto'] = 1;
-		$defaults['hover'] = 1;
-		$defaults['loop'] = 1;
-		$defaults['delay'] = 400;
-        // Return the modified defaults.
-        return $defaults;
-     
-}
-      add_action( 'soliloquy_api_after_transition', 'tgm_soliloquy_force_auto' );
-    function tgm_soliloquy_force_auto( $data ) {
-    	
-    	ob_start();
-    	?>
-    	soliloquy_slider['<?php echo $data['id']; ?>'].startAuto();
-    	<?php
-    	echo ob_get_clean();
-    	
-    }
-
-	
 add_filter( 'wp_feed_cache_transient_lifetime', 
    create_function('$a', 'return 60;') );
-
-add_filter( 'frm_filter_final_form', 'auto_minimize_forms' );
-function auto_minimize_forms( $form ) {
-  $form = str_replace( array( "\r\n", "\r", "\n", "\t", '    ' ), '', $form );
-  return $form;
-}
+   
 add_filter( 'gettext', 'change_howdy_text', 10, 2 );
 function change_howdy_text( $translation, $original ) {
     if( 'Howdy, %1$s' == $original )
@@ -510,87 +424,4 @@ function change_howdy_text( $translation, $original ) {
 }
 
 
-//add title to link
-	add_filter('the_content', 'pdf_addalt');
-function pdf_addalt($content) {
-       global $post;
-       $pattern ="/<a(.*?)href=('|\")(.*?).(pdf)('|\")(.*?)>/i";
-       $replacement = '<a$1 title="PDF Document" href=$2$3.$4$5$6 ><span class="screen-reader-text">PDF Document: </span>';
-       $content = preg_replace($pattern, $replacement, $content);
-       return $content;
-}
-	add_filter('the_content', 'word_addalt');
-function word_addalt($content) {
-       global $post;
-       $pattern ="/<a(.*?)href=('|\")(.*?).(doc|docx)('|\")(.*?)>/i";
-       $replacement = '<a$1 title="Word Document" href=$2$3.$4$5$6><span class="screen-reader-text">Word Document: </span>';
-       $content = preg_replace($pattern, $replacement, $content);
-       return $content;
-}	
-	add_filter('the_content', 'excel_addalt');
-function excel_addalt($content) {
-       global $post;
-       $pattern ="/<a(.*?)href=('|\")(.*?).(xls|xlsx)('|\")(.*?)>/i";
-       $replacement = '<a$1  title="Excel Document" href=$2$3.$4$5$6><span class="screen-reader-text">Excel Document: </span>';
-       $content = preg_replace($pattern, $replacement, $content);
-       return $content;
-}
-	add_filter('the_content', 'ppt_addalt');
-function ppt_addalt($content) {
-       global $post;
-       $pattern ="/<a(.*?)href=('|\")(.*?).(ppt|pptx)('|\")(.*?)>/i";
-      $replacement = '<a$1 title="PowerPoint Document" href=$2$3.$4$5$6><span class="screen-reader-text">PowerPoint Document: </span>';
-       $content = preg_replace($pattern, $replacement, $content);
-       return $content;
-}	
-/*Formidable*/
-add_filter('frm_notification_attachment', 'remove_my_attachment', 10, 3);
-function remove_my_attachment($attachments, $form, $args) {
-  if ( $args['email_key'] == 403  ) { //change 1277 to the email ID that you would like to DROP the attachment for if you want to remove attachments on multiple emails use || $args['email_key'] == 260
-    $attachments = array(); //remove all attachments
-  }
-  return $attachments;
-} 
-
-/* last login */
-add_action('wp_login','wpdb_capture_user_last_login', 10, 2);
-function wpdb_capture_user_last_login($user_login, $user){
-    update_user_meta($user->ID, 'last_login', current_time('mysql'));
-}
-
-add_filter( 'manage_users_columns', 'wpdb_user_last_login_column');
-function wpdb_user_last_login_column($columns){
-    $columns['lastlogin'] = __('Last Login', 'lastlogin');
-    return $columns;
-}
- 
-add_action( 'manage_users_custom_column',  'wpdb_add_user_last_login_column', 10, 3); 
-function wpdb_add_user_last_login_column($value, $column_name, $user_id ) {
-    if ( 'lastlogin' != $column_name )
-        return $value;
- 
-    return get_user_last_login($user_id,false);
-}
- 
-function get_user_last_login($user_id,$echo = true){
-    $date_format = get_option('date_format') . ' ' . get_option('time_format');
-    $last_login = get_user_meta($user_id, 'last_login', true);
-    $login_time = 'Never logged in';
-    if(!empty($last_login)){
-       if(is_array($last_login)){
-            $login_time = mysql2date($date_format, array_pop($last_login), false);
-        }
-        else{
-            $login_time = mysql2date($date_format, $last_login, false);
-        }
-    }
-    if($echo){
-        echo $login_time;
-    }
-    else{
-        return $login_time;
-    }
-}
-
-/*end last login */
 
