@@ -113,7 +113,35 @@
                 "operator": "==",
                 "value": "template-resource-landing.php"
             }
-        ]
+        ],
+		[
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "inventory"
+                }
+            ],
+			[
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "template-portfolio.php"
+                }
+            ],
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "template-hub-content-page.php"
+                }
+            ],
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "template-gcalendar.php"
+                }
+            ]
     ],
     "menu_order": 0,
     "position": "normal",
